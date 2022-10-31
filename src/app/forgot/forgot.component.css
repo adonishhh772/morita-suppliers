@@ -1,0 +1,55 @@
+.forgot-section{
+  margin-top: 70px;
+  transition: margin-top 400ms linear 0s;
+}
+
+.forgot_heading{
+  padding-top: 80px;
+    text-align: center;
+}
+
+.forgot-section h1{
+    font-size: 40px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.forgot_body{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
+
+.forgot_body p{
+  font-family: cursive;
+  line-height: 25px;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.forgot_form{
+  width: 40%;
+  margin: auto;
+  padding-left: 12vw;
+  margin-top: 40px;
+}
+
+.forgot_button_field{
+  margin: auto;
+  padding-top: 20px;
+}
+
+.forgot_button{
+  padding: 15px 55px;
+  border-radius: 30px;
+  background-color: #78BDFB;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: cursive;
+
+}

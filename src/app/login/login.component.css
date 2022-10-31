@@ -1,0 +1,61 @@
+.login-section{
+    margin-top: 70px;
+    transition: margin-top 400ms linear 0s;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 104px 0px 0px 0px;
+  text-align: center;
+}
+
+.login-form h1{
+  font-size: 35px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.login_form_field{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 48px 24px;
+}
+
+.login_button{
+    padding: 18px 50px;
+    border-radius: 64px;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.login-field{
+  margin-bottom: 20px;
+}
+
+.register_link{
+  font-size: 25px;
+  font-family: cursive;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 25px;
+  color: #78BDFB;
+}
+
+.left-pass{
+  padding-left: 20px;
+}
+
+.middle{
+  margin: auto;
+}
+
+::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #78BDFB;
+}

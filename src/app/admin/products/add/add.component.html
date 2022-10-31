@@ -1,0 +1,238 @@
+<div class="components_container products">
+  <h2 class="heading">{{title}}</h2>
+  <div class="products_body">
+      <form [formGroup]="addProductsForm" (ngSubmit)="addProducts()">
+          <div class="row">
+              <div class="row col-md-5LS m-10">
+                  <div [className]="isSubmitted &&errorControl.name.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">inventory_2</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Name</mat-label>
+                          <input formControlName="name" type="text" matInput #input>
+                          <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.name.errors?.required">
+                              Name is required.</mat-hint>
+                      </mat-form-field>
+                  </div>
+              </div>
+              <div class="row col-md-5LS m-10">
+                  <div class="col-md-12 row border p-10">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">palette</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Color</mat-label>
+                          <input formControlName="color" type="text" matInput #input>
+                          <mat-hint>Multiple color can be provided by a comma seperator. (Red,green,blue)</mat-hint>
+                      </mat-form-field>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="row col-md-5LS m-10">
+                  <div [className]="isSubmitted &&errorControl.availability.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">check_circle</span>
+                      </div>
+                      <mat-radio-group aria-label="Select an option" formControlName="availability">
+                          <h6 class="mb-0">Availabilty of the product</h6>
+                          <mat-radio-button class="pr-10" value="male">Available</mat-radio-button>
+                          <mat-radio-button value="female">Not Available</mat-radio-button>
+                          <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.availability.errors?.required">
+                              Sex is required.</mat-hint>
+                      </mat-radio-group>
+                  </div>
+              </div>
+              <div class="row col-md-5LS m-10">
+                  <div class="col-md-12 row border p-10">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">branding_watermark</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Brand</mat-label>
+                          <input formControlName="brand" type="text" matInput #input>
+                      </mat-form-field>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="row col-md-5LS m-10">
+                  <div [className]="isSubmitted &&errorControl.type.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">title</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Type</mat-label>
+                          <input formControlName="type" type="text" matInput #input>
+                          <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.type.errors?.required">
+                               Email is required.</mat-hint>
+
+                      </mat-form-field>
+                  </div>
+              </div>
+              <div class="row col-md-5LS m-10">
+                  <div class="col-md-12 row border p-10">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">currency_pound</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Price</mat-label>
+                          <input formControlName="price" type="number" matInput #input>
+                      </mat-form-field>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="row col-md-5LS m-10">
+                  <div [className]="isSubmitted &&errorControl.quantity.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">filter_list</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>Quantity</mat-label>
+                          <input formControlName="quantity" type="number" matInput #input>
+                          <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.quantity.errors?.required">
+                              Phone Number is required.</mat-hint>
+                      </mat-form-field>
+                  </div>
+              </div>
+              <div class="row col-md-5LS m-10">
+                <div [className]="isSubmitted &&errorControl.discount.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                    <div class="col-sm-2 pt-15">
+                        <span class="material-icons">discount</span>
+                    </div>
+                    <mat-form-field class="col-md-12">
+                        <mat-label>Discount</mat-label>
+                        <input formControlName="discount" type="number" matInput #input>
+                        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.discount.errors?.required">
+                            Phone Number is required.</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="row col-md-5LS m-10">
+                <div [className]="isSubmitted &&errorControl.voucher.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                    <div class="col-sm-2 pt-15">
+                        <span class="material-icons">subtitles</span>
+                    </div>
+                    <mat-form-field class="col-md-12">
+                        <mat-label>Voucher</mat-label>
+                        <input formControlName="voucher" type="text" matInput #input>
+                        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.voucher.errors?.required">
+                            Phone Number is required.</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row col-md-5LS m-10">
+              <div [className]="isSubmitted &&errorControl.height.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                  <div class="col-sm-2 pt-15">
+                      <span class="material-icons">height</span>
+                  </div>
+                  <mat-form-field class="col-md-12">
+                      <mat-label>Height (Inches)</mat-label>
+                      <input formControlName="height" type="number" matInput #input>
+                      <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.height.errors?.required">
+                          Phone Number is required.</mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row col-md-5LS m-10">
+              <div [className]="isSubmitted &&errorControl.width.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                  <div class="col-sm-2 pt-15">
+                      <span class="material-icons">width_full</span>
+                  </div>
+                  <mat-form-field class="col-md-12">
+                      <mat-label>Width (Inches)</mat-label>
+                      <input formControlName="width" type="number" matInput #input>
+                      <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.width.errors?.required">
+                          Phone Number is required.</mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="row col-md-5LS m-10">
+            <div [className]="isSubmitted &&errorControl.depth.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                <div class="col-sm-2 pt-15">
+                    <span class="material-icons">stream</span>
+                </div>
+                <mat-form-field class="col-md-12">
+                    <mat-label>Depth (Inches)</mat-label>
+                    <input formControlName="depth" type="number" matInput #input>
+                    <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.depth.errors?.required">
+                        Phone Number is required.</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row col-md-5LS m-10">
+          <div [className]="isSubmitted &&errorControl.logo.errors ? 'col-md-12 border error p-10' : 'col-md-12 border p-10'">
+              <div class="row">
+                  <div class="col-sm-2 pt-15 pr-10">
+                      <span class="material-icons">image</span>
+                  </div>
+                  <div class="col-md-12 pt-15">
+                      <input formControlName="logo" (change)="fileChange($event)" type="file" multiple accept="image/png, image/jpeg, image/jpg" #input>
+                  </div>
+              </div>
+              <div class="col-md-12 pl-45">
+                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.logo.errors?.required">
+                      Logo is required.</mat-hint>
+              </div>
+          </div>
+        </div>
+        <div class="row col-md-5LS m-10">
+          <div [className]="isSubmitted &&errorControl.category.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                  <div class="col-sm-2 pt-15 pr-10">
+                      <span class="material-icons">category</span>
+                  </div>
+                  <mat-form-field class="col-md-12">
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category" multiple>
+                      <mat-option *ngFor="let topping of categoryList" [value]="topping.type">{{topping.type}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row col-md-5LS m-10">
+            <div class="col-md-12 row border p-10">
+                <div class="col-sm-2 pt-15">
+                    <span class="material-icons">description</span>
+                </div>
+                <mat-form-field class="col-md-12">
+                    <mat-label>Product Description</mat-label>
+                    <textarea formControlName="description" type="text" rows="10" cols="50" matInput #input></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+          <!-- <div class="row">
+              <div class="row col-md-5L mb-10">
+                  <div [className]="isSubmitted &&errorControl.birthday.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                      <div class="col-sm-2 pt-15">
+                          <span class="material-icons">event_available</span>
+                      </div>
+                      <mat-form-field class="col-md-12">
+                          <mat-label>DOB *</mat-label>
+                          <input formControlName="birthday" type="date" matInput #input>
+                          <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.birthday.errors?.required">
+                              Birthday is required.</mat-hint>
+                      </mat-form-field>
+                  </div>
+              </div>
+          </div> -->
+      </form>
+  </div>
+  <div class="products_footer">
+      <button mat-raised-button [disabled]="isProcessing" color="primary" (click)="addProducts()" class="mr-10">Add</button>
+      <button mat-raised-button [disabled]="isProcessing" color="warn">Cancel</button>
+  </div>
+</div>
+
+

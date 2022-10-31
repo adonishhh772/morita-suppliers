@@ -1,0 +1,270 @@
+<app-header></app-header>
+
+<div class="components_container profile_component">
+  <div class="col-md-12 row gutters-sm">
+      <div class="col-md-3L mb-3">
+          <div class="card-body p-0">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <button *ngIf="!editAble" (click)="toggleEdit()" mat-mini-fab color="primary" class="fab-button-small fl-right">
+                      <mat-icon class="fab_icon_small">create</mat-icon>
+                    </button>
+                    <button *ngIf="editAble" (click)="openFile($event)" matTooltip="Upload Profile Picture" mat-mini-fab color="primary" class="fab_icon_small_upload">
+                        <mat-icon class="fab_icon_small">create</mat-icon>
+                    </button>
+                      <img *ngIf="!hasImage" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="profile_img" width="300">
+                      <img *ngIf="hasImage" src="{{imgUrl + imageUrl}}" alt="Admin" class="profile_img" width="300">
+                      <input *ngIf="editAble" (change)="fileChange($event)" type="file" id="avatar_image" accept="images/*" style="display: none">
+                      <!-- <div class="mt-3">
+                          <h4>{{profileName}}</h4>
+                          <p class="text-muted font-size-sm">Member Since {{memberDate | date:'longDate' }}</p>
+                      </div> -->
+                  </div>
+              </div>
+      </div>
+      <div class="col-md-8">
+          <div class="card col-md-12 mb-3 mt-15">
+              <div class="card-body" *ngIf="isLoaded">
+                <div *ngIf="!editAble">
+                  <div class="profile-heading row">
+                    <div class="profile-name row col-md-10">
+                      <h1>{{users[0].name}}</h1>
+                      <div class="profile-location row">
+                        <span class="material-icons">room</span>
+                        <p>{{users[0].address}}</p>
+                      </div>
+                    </div>
+                    <div class="heading-date">
+                      <p>{{users[0].create_date | date:'yyyy-MM-dd'}}</p>
+                    </div>
+                  </div>
+                  <div class="profile-description">
+                    <p>{{users[0].description}}</p>
+                  </div>
+                  <div class="profile-tabs-info">
+                    <mat-tab-group>
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon class="profile-icon">view_timeline</mat-icon>
+                          Timeline
+                        </ng-template>
+                        <div class="body-timeline-container">
+                          <div class="latest-update-box card-body col-md-8" *ngIf="hasActivity">
+                            <div class="row ptb-20" *ngFor="let activity of activity">
+                              <div class="col-auto text-right update-meta p-r-0">
+                                <mat-icon *ngIf="activity.type === 'Category'" matSuffix class="bg-c-yellow update-icon">category</mat-icon>
+                                <mat-icon *ngIf="activity.type === 'Users'" matSuffix class="bg-c-green update-icon">person</mat-icon>
+                              </div>
+                              <div class="col p-l-5">
+                                <h3>{{activity.title}}</h3>
+                                <p class="text-muted m-b-0" [innerHTML]="activity.description" ></p>
+                              </div>
+                              <div class="text-right">
+                                <p class="text-muted">{{activity.created_date | date: 'dd/MM/yyyy'}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+
+                      <mat-tab>
+                        <ng-template mat-tab-label>
+                          <mat-icon class="profile-icon">switch_account</mat-icon>
+                          About
+                        </ng-template>
+                        <div class="about-tab-body">
+                          <div class="contact-info">
+                              <h2>Contact Information</h2>
+                          </div>
+                          <div class="contact-info-body">
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Phone:</h2>
+                              </div>
+                              <div class="col-md-8 blue_body">
+                                <p>{{users[0].phone}}</p>
+                              </div>
+                            </div>
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Address:</h2>
+                              </div>
+                              <div class="col-md-8">
+                                <p>{{users[0].address}}, {{users[0].street}}, {{users[0].county}}, {{users[0].postal_code}}</p>
+                              </div>
+                            </div>
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Email:</h2>
+                              </div>
+                              <div class="col-md-8 blue_body">
+                                <p>{{users[0].email}}</p>
+                              </div>
+                            </div>
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading">
+                                <h2>Reply Email:</h2>
+                              </div>
+                              <div class="col-md-8 blue_body">
+                                <p>{{users[0].reply_email}}</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="basic-info">
+                            <h2>Basic Information</h2>
+                          </div>
+                          <div class="basic-info-body">
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Gender:</h2>
+                              </div>
+                              <div class="col-md-8 info-gender">
+                                <p>{{users[0].gender}}</p>
+                              </div>
+                            </div>
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Birthday:</h2>
+                              </div>
+                              <div class="col-md-8">
+                                <p>{{users[0].birthday | date:'MMM d, y'}}</p>
+                              </div>
+                            </div>
+                            <div class="contact-body body-phone row">
+                              <div class="body-heading col-md-2">
+                                <h2>Disabiilty?</h2>
+                              </div>
+                              <div class="col-md-8">
+                                <p>{{users[0].disability ? 'Yes': 'No'}}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-tab>
+                    </mat-tab-group>
+
+                  </div>
+                </div>
+
+                  <!-- <div *ngIf="!editAble" class="row-wrap">
+                      <div *ngFor="let profile of naviagtionData" class="row col-md-5L mb-10 mr-45">
+                          <div class="col-md-12 row border p-10">
+                              <div class="col-md-2 pt-7">
+                                  <span class="material-icons">{{profile.icon}}</span>
+                              </div>
+                              <div class="col-md-10 text-left">
+                                  <h6 class="mb-0">{{profile.key}}</h6>
+                                  <div *ngIf="profile.nameKey != 'birthday' && profile.nameKey != 'disability'" class="text-secondary">
+                                      {{profile.value ===''?'-':profile.value}}
+                                  </div>
+                                  <div *ngIf="profile.nameKey == 'disability'" class="text-secondary">
+                                    {{profile.value === true?'Yes':'No'}}
+                                </div>
+                                  <div *ngIf="profile.nameKey == 'birthday'" class="text-secondary">
+                                      {{profile.value == null ? '-' : profile.value| date:'yyyy-MM-dd'}}
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div> -->
+
+                  <div *ngIf="editAble">
+                      <form [formGroup]="updateProfileForm" (ngSubmit)="updateProfile()" class="row-wrap"  >
+                          <div *ngFor="let profile of naviagtionData" class="row h-75 col-md-5L mb-10 mr-45">
+                              <div [className]="isSubmitted &&errorControl[profile.nameKey].errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                                  <div class="col-md-2 {{padding}}">
+                                      <span class="material-icons">{{profile.icon}}</span>
+                                  </div>
+                                  <div class="col-md-10 text-left">
+                                      <div *ngIf="profile.inputType !== 'radio'">
+                                          <div *ngIf="!profile.disabled && profile.inputType !== 'date' && profile.inputType !== 'select'">
+                                              <mat-form-field class="col-md-12">
+                                                  <mat-label>{{profile.key}}</mat-label>
+                                                  <input matInput type="{{profile.inputType}}" value="{{profile.value}}" formControlName="{{profile.nameKey}}" ngDefaultControl>
+                                                  <mat-hint *ngIf="profile.key === 'Reply Email' && !errorControl[profile.nameKey].errors">Enter Email in which we will reply</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.required">
+                                                      {{profile.key}} is required.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.pattern">
+                                                      Please provide valid {{profile.key}}.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.maxlength">
+                                                      Maximum value for {{profile.key}} is 10.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.minlength">
+                                                      Minimum value for {{profile.key}} is 10.</mat-hint>
+                                              </mat-form-field>
+                                          </div>
+                                          <div *ngIf="!profile.disabled && profile.inputType == 'date' && profile.inputType !== 'select'">
+                                              <mat-form-field class="col-md-12">
+                                                  <mat-label>{{profile.key}}</mat-label>
+                                                  <input matInput type="{{profile.inputType}}" value="{{profile.value}}" [ngModel]="profile.value | date:'yyyy-MM-dd'" formControlName="{{profile.nameKey}}" ngDefaultControl>
+                                                  <mat-hint *ngIf="profile.key === 'Reply Email' && !errorControl[profile.nameKey].errors">Enter Email in which we will reply</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.required">
+                                                      {{profile.key}} is required.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.pattern">
+                                                      Please provide valid {{profile.key}}.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.maxlength">
+                                                      Maximum value for {{profile.key}} is 10.</mat-hint>
+                                                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.minlength">
+                                                      Minimum value for {{profile.key}} is 10.</mat-hint>
+                                              </mat-form-field>
+                                          </div>
+                                          <div *ngIf="profile.disabled">
+                                              <mat-form-field class="col-md-12">
+                                                  <mat-label>{{profile.key}}</mat-label>
+                                                  <input matInput type="{{profile.inputType}}" value="{{profile.value}}" disabled>
+                                              </mat-form-field>
+                                          </div>
+
+                                          <div *ngIf="!profile.disabled &&  profile.inputType == 'select' && profile.nameKey === 'country'">
+                                              <mat-form-field class="col-md-12">
+                                                  <mat-label>{{profile.key}}</mat-label>
+                                                  <mat-select formControlName="{{profile.nameKey}}" ngDefaultControl>
+                                                      <mat-option *ngFor="let county of country" [value]="county.name">
+                                                          {{county.name}}
+                                                      </mat-option>
+                                                  </mat-select>
+                                              </mat-form-field>
+                                          </div>
+
+
+                                          <div *ngIf="!profile.disabled &&  profile.inputType == 'select' && profile.nameKey === 'timezone'">
+                                              <mat-form-field class="col-md-12">
+                                                  <mat-label>{{profile.key}}</mat-label>
+                                                  <mat-select formControlName="{{profile.nameKey}}" ngDefaultControl>
+                                                      <mat-option *ngFor="let time of timeZone" [value]="time.value">
+                                                          {{time.text}}
+                                                      </mat-option>
+                                                  </mat-select>
+                                              </mat-form-field>
+                                          </div>
+                                      </div>
+                                      <div *ngIf="profile.inputType === 'radio'">
+                                          <mat-radio-group aria-label="Select an option" formControlName="{{profile.nameKey}}">
+                                              <h6 class="mb-0">{{profile.key}} {{profile.required?'*':''}}</h6>
+                                              <mat-radio-button *ngIf="profile.nameKey === 'gender'" class="pr-10" value="male">Male</mat-radio-button>
+                                              <mat-radio-button *ngIf="profile.nameKey === 'gender'" value="female">Female</mat-radio-button>
+                                              <mat-radio-button *ngIf="profile.nameKey === 'disability'" class="pr-10" [value]="true">Yes</mat-radio-button>
+                                              <mat-radio-button *ngIf="profile.nameKey === 'disability'" [value]="false">No</mat-radio-button>
+                                              <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.required">
+                                                  {{profile.key}} is required.</mat-hint>
+                                              <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl[profile.nameKey].errors?.pattern">
+                                                  Please provide valid {{profile.key}}.</mat-hint>
+                                          </mat-radio-group>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </form>
+                  </div>
+              </div>
+              <div *ngIf="editAble" class="card_footer">
+                  <button [disabled]="isProcessing" mat-raised-button (click)="updateProfile()" color="primary" class="mr-10">Update</button>
+                  <button [disabled]="isProcessing" mat-raised-button (click)="toggleEdit()" color="warn">Cancel</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>
+

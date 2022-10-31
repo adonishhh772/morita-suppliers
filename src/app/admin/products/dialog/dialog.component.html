@@ -1,0 +1,37 @@
+<div mat-dialog-title class="dialog_title col-md-12 row">
+  <div class="col-md-10">
+      <h2 *ngIf="data.selected === null" class="m0">Add Category</h2>
+      <h2 *ngIf="data.selected !== null" class="m0">Edit Category</h2>
+  </div>
+  <div class="col-md-2 text_right">
+      <button mat-mini-fab (click)="onNoClick()" class="btn-top btn-hidden">
+          <mat-icon>highlight_off</mat-icon>
+      </button>
+  </div>
+</div>
+<div mat-dialog-content class="col-md-12">
+  <form [formGroup]="addCategoryForm" (ngSubmit)="addCategory()">
+      <div class="col-md-12">
+          <div class="row col-md-10 m-10">
+              <div [className]="isSubmitted &&errorControl.name.errors ? 'col-md-12 row border error p-10' : 'col-md-12 row border p-10'">
+                  <div class="col-sm-2 pt-15">
+                      <span class="material-icons">badge</span>
+                  </div>
+                  <mat-form-field class="col-md-12">
+                      <mat-label>Category Name</mat-label>
+                      <input formControlName="name" type="text" ngModel="{{data.selected === null? '' : data.selected.type}}" matInput #input>
+                      <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.name.errors?.required">
+                          Category name is required.</mat-hint>
+                  </mat-form-field>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
+
+<div mat-dialog-actions class="col-md-12 mat-typography mat-dialog-content padding-top10" align="end">
+  <button *ngIf="data.selected === null" class="morita_button" [disabled]="isProcessing || !addCategoryForm.valid" (click)="addCategory()" mat-button>Add</button>
+  <button *ngIf="data.selected !== null" class="morita_button" [disabled]="isProcessing || !addCategoryForm.valid" (click)="updateCat()" mat-button>Update</button>
+  <button mat-button [disabled]="isProcessing" (click)="closePopup()" color="warn">Cancel</button>
+</div>
+

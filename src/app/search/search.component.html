@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="search_section">
+<div class="search_header col-md-12 row">
+  <div class="search_form_field col-md-6">
+    <mat-form-field class="col-md-12 search-bar" appearance="legacy">
+      <mat-label>Search Furniture</mat-label>
+      <input matInput type="text">
+    </mat-form-field>
+  </div>
+  <div class="search_btn col-md-4">
+    <button disabled mat-raised-button class="search_button">
+      <mat-icon aria-hidden="false" aria-label="Search">search</mat-icon>
+      Search</button>
+  </div>
+</div>
+</div>
+<div class="search-body">
+  <div class="search-initial col-md-6">
+    <p>If you want to view our listing.<span [routerLink]="['/']" class="nav-to-home">browse all furnitures</span></p>
+  </div>
+</div>
+
+<app-footer></app-footer>

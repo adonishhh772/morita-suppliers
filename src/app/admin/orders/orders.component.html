@@ -1,0 +1,150 @@
+<div class="components_container">
+  <nav mat-tab-nav-bar class="tab_bar col-md-12">
+      <div class="col-md-10">
+          <a mat-tab-link class="tab_head" disabled>Orders Manager
+              <mat-icon class="tab_title">shoping_bag</mat-icon>
+          </a>
+          <a mat-tab-link class="tab_head" *ngFor="let link of links"
+             (click)="changeTab(link)"
+             [active]="activeLink == link"> {{link}} </a>
+      </div>
+  </nav>
+
+  <ng-container *ngIf="activeLink === 'Order Dashboard'">
+    <div class="col-md-12 row">
+      <div class="col-md-8L p-20">
+          <mat-card class="no_padding morita_blue_border">
+              <mat-card-header>
+                  <mat-card-title class="card_header col-md-12">
+                      <div class="col-md-12 p-10">
+                          <mat-icon class="sub_header_icon">shoping_bag</mat-icon>
+                          Orders Summary
+                      </div>
+                  </mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="card_content">
+                  <div class="col-md-12 row p-10">
+                      <div class="col-md-3SL p-10">
+                          <mat-card class="leads_summary">
+                              <mat-card-header>
+                                  <mat-card-title class="sub_card_header">
+                                      <span class="">Orders</span>
+                                  </mat-card-title>
+                              </mat-card-header>
+                              <mat-card-content>
+                                  <div class="sub_card_content">
+                                      <div class="col-md-10 count p-10">{{allOrders.length}}</div>
+                                      <div class="col-md-9XL p-10 border_btm">Orders</div>
+                                  </div>
+                                  <div class="sub_card_footer col-md-12 row">
+                                      <div class="col-md-5L p-10 today">
+                                          <div class="col-md-10">{{ordersToday}}</div>
+                                          <div class="col-md-10 date">Today</div>
+                                      </div>
+                                      <div class="col-md-5L p-10 weekly">
+                                          <div class="col-md-10">{{ordersWeek}}</div>
+                                          <div class="col-md-10 date">This Week</div>
+                                      </div>
+
+                                  </div>
+                              </mat-card-content>
+                          </mat-card>
+                      </div>
+                      <div class="col-md-3SL p-10">
+                          <mat-card class="leads_summary">
+                              <mat-card-header>
+                                  <mat-card-title class="sub_card_header">
+                                      <span class="">Confirmed</span>
+                                  </mat-card-title>
+                              </mat-card-header>
+                              <mat-card-content>
+                                  <div class="sub_card_content">
+                                      <div class="col-md-10 count p-10">{{allConfirmed.length}}</div>
+                                      <div class="col-md-9XL p-10 border_btm">Confirmed</div>
+                                  </div>
+                                  <div class="sub_card_footer col-md-12 row">
+                                      <div class="col-md-5L p-10 today">
+                                          <div class="col-md-10">{{confirmedToday}}</div>
+                                          <div class="col-md-10 date">Today</div>
+                                      </div>
+                                      <div class="col-md-5L p-10 weekly">
+                                          <div class="col-md-10">{{confirmedWeek}}</div>
+                                          <div class="col-md-10 date">This Week</div>
+                                      </div>
+
+                                  </div>
+                              </mat-card-content>
+                          </mat-card>
+                      </div>
+                      <div class="col-md-3SL p-10">
+                          <mat-card class="leads_summary">
+                              <mat-card-header>
+                                  <mat-card-title class="sub_card_header">
+                                      <span class="">Dispatched</span>
+                                  </mat-card-title>
+                              </mat-card-header>
+                              <mat-card-content>
+                                  <div class="sub_card_content">
+                                      <div class="col-md-10 count p-10">{{dispatched.length}}</div>
+                                      <div class="col-md-9XL p-10 border_btm">Dispatched</div>
+                                  </div>
+                                  <div class="sub_card_footer col-md-12 row">
+                                      <div class="col-md-5L p-10 today">
+                                          <div class="col-md-10">{{dispatchedToday}}</div>
+                                          <div class="col-md-10 date">Today</div>
+                                      </div>
+                                      <div class="col-md-5L p-10 weekly">
+                                          <div class="col-md-10">{{dispatchedWeek}}</div>
+                                          <div class="col-md-10 date">This Week</div>
+                                      </div>
+
+                                  </div>
+                              </mat-card-content>
+                          </mat-card>
+                      </div>
+                      <div class="col-md-3SL p-10">
+                          <mat-card class="leads_summary">
+                              <mat-card-header>
+                                  <mat-card-title class="sub_card_header">
+                                      <span class="">Recieved</span>
+                                  </mat-card-title>
+                              </mat-card-header>
+                              <mat-card-content>
+                                  <div class="sub_card_content">
+                                      <div class="col-md-10 count p-10">{{allReceived.length}}</div>
+                                      <div class="col-md-9XL p-10 border_btm">Recieved</div>
+                                  </div>
+                                  <div class="sub_card_footer col-md-12 row">
+                                      <div class="col-md-5L p-10 today">
+                                          <div class="col-md-10">{{recievedToday}}</div>
+                                          <div class="col-md-10 date">Today</div>
+                                      </div>
+                                      <div class="col-md-5L p-10 weekly">
+                                          <div class="col-md-10">{{recievedWeek}}</div>
+                                          <div class="col-md-10 date">This Week</div>
+                                      </div>
+
+                                  </div>
+                              </mat-card-content>
+                          </mat-card>
+                      </div>
+                  </div>
+
+              </mat-card-content>
+          </mat-card>
+      </div>
+
+      <div class="col-md-4 p-20">
+          <div class="morita_button order_viewer">
+              <p class="mb-0" (click)="changeTab('Order Tracker')">New Order <span>({{newOrders.length}})</span></p>
+          </div>
+      </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="activeLink === 'Order Tracker'">
+    <app-tracking></app-tracking>
+</ng-container>
+
+</div>
+

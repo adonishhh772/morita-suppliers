@@ -1,0 +1,247 @@
+<div class="page-body">
+  <div class="row wrap">
+    <div class="dashboard-cards col-md-12 row">
+      <div class="col-md-4 card">
+        <mat-card class="profit-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-subtitle class="card-subtitle">Total Profit</mat-card-subtitle>
+            <mat-card-title>£1600</mat-card-title>
+            <mat-icon matSuffix class="card-icon red-icon">currency_pound</mat-icon>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>This is how we do</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 card">
+        <mat-card class="orders-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-subtitle class="card-subtitle">Total Orders</mat-card-subtitle>
+            <mat-card-title>16000</mat-card-title>
+            <mat-icon matSuffix class="card-icon orders-icon">reorder</mat-icon>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>This is how we do</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 card">
+        <mat-card class="average-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-subtitle class="card-subtitle">Average Price</mat-card-subtitle>
+            <mat-card-title>£100</mat-card-title>
+            <mat-icon matSuffix class="card-icon price-icon">attach_money</mat-icon>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>This is how we do</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-4 card">
+        <mat-card class="products-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-subtitle class="card-subtitle">Products Sold</mat-card-subtitle>
+            <mat-card-title>2000</mat-card-title>
+            <mat-icon matSuffix class="card-icon products-icon">sell</mat-icon>
+          </mat-card-title-group>
+          <mat-card-content>
+            <p>This is how we do</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="col-md-12 row section-body">
+      <div class="dashboard-lastest col-md-6">
+        <mat-card class="latest-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-title class="card-heading">Latest Activity</mat-card-title>
+            <div class="card-header-right" *ngIf="hasActivity">
+              <ul class="list-unstyled card-option latest-options">
+              <li *ngIf="!isToggled" class="first-opt">
+                <mat-icon (click)="toggleLatest('open',$event)" matSuffix class="latest-icon open-card-option">chevron_left</mat-icon>
+              </li>
+              <li><mat-icon (click)="toggleLatest('reload',$event)"  matSuffix class="latest-icon reload-card">sync</mat-icon></li>
+              <!-- <li><mat-icon matSuffix class="open-card-option">chevron_left</mat-icon></li> -->
+              <li><mat-icon (click)="toggleLatest('minimize',$event)" matSuffix class="latest-icon minimize-card">{{minimise}}</mat-icon></li>
+              <li><mat-icon (click)="toggleLatest('close', $event)"  matSuffix class="latest-icon close-card">close</mat-icon></li>
+              </ul>
+              </div>
+          </mat-card-title-group>
+          <mat-card-content>
+            <div class="latest-update-box card-body" *ngIf="hasActivity">
+              <div class="row ptb-20" *ngFor="let activity of allActivity">
+                <div class="col-auto text-right update-meta p-r-0">
+                  <mat-icon *ngIf="activity.type === 'Category'" matSuffix class="bg-c-yellow update-icon">category</mat-icon>
+                  <mat-icon *ngIf="activity.type === 'Users'" matSuffix class="bg-c-green update-icon">person</mat-icon>
+                </div>
+                <div class="col p-l-5">
+                  <h3>{{activity.title}}</h3>
+                  <p class="text-muted m-b-0" [innerHTML]="activity.description" ></p>
+                </div>
+                <div class="text-right">
+                  <p class="text-muted">{{activity.created_date | date: 'dd/MM/yyyy'}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="card-loader" *ngIf="isLoading">
+              <mat-spinner [diameter]="30" class="loader"></mat-spinner>
+            </div>
+            <div class="no-update-box" *ngIf="!hasActivity">
+              <h3>No Activity Monitored</h3>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="dashboard-new-customers col-md-6">
+        <mat-card class="new-customers-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-title class="card-heading">New Customers</mat-card-title>
+            <div class="card-header-right" *ngIf="hasCustomers">
+              <ul class="list-unstyled card-option new-customer-options">
+              <li *ngIf="!isToggledNew" class="first-opt">
+                <mat-icon (click)="toggleNew('open',$event)" matSuffix class="latest-icon open-card-option">chevron_left</mat-icon>
+              </li>
+              <li><mat-icon (click)="toggleNew('reload',$event)" matSuffix class="latest-icon reload-card">sync</mat-icon></li>
+              <li><mat-icon (click)="toggleNew('minimize',$event)" matSuffix class="latest-icon minimize-card">{{minimiseNew}}</mat-icon></li>
+              <li><mat-icon (click)="toggleNew('close',$event)"  matSuffix class="latest-icon close-card">close</mat-icon></li>
+              </ul>
+              </div>
+          </mat-card-title-group>
+          <mat-card-content>
+            <div class="card-body" *ngIf="hasCustomers">
+                <div class="middle-align mb-35" *ngFor="let user of allCustomers">
+                  <img src="{{imgUrl + user.profile_photo}}" alt="user image" class="circular-img img-55 align-top mr-15">
+                  <div class="user-info">
+                      <span (click)="goToView(user._id)">{{user.name}}</span>
+                      <p class="user-last-msg mb-0">{{user.description}}</p>
+                  </div>
+                </div>
+            </div>
+            <div class="card-loader" *ngIf="isLoadingCustomers">
+              <mat-spinner [diameter]="30" class="loader"></mat-spinner>
+            </div>
+            <div class="no-update-box" *ngIf="!hasCustomers">
+              <h3>No new customers</h3>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="col-md-12 row section-body section-second">
+      <div class="dashboard-activity col-md-7">
+        <mat-card class="activity-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-title class="card-heading">Latest Reviews</mat-card-title>
+            <div class="card-header-right" *ngIf="hasReviews">
+              <ul class="list-unstyled card-option activity-options">
+              <li *ngIf="!isToggledLatest" class="first-opt">
+                <mat-icon (click)="toggleActivity('open',$event)" matSuffix class="activity-icon open-card-option">chevron_left</mat-icon>
+              </li>
+              <li><mat-icon (click)="toggleActivity('reload',$event)" matSuffix class="activity-icon reload-card">sync</mat-icon></li>
+              <!-- <li><mat-icon matSuffix class="open-card-option">chevron_left</mat-icon></li> -->
+              <li><mat-icon (click)="toggleActivity('minimize',$event)" matSuffix class="activity-icon minimize-card">{{minimiseLatest}}</mat-icon></li>
+              <li><mat-icon (click)="toggleActivity('close',$event)"  matSuffix class="activity-icon close-card">close</mat-icon></li>
+              </ul>
+              </div>
+          </mat-card-title-group>
+          <mat-card-content>
+              <div class="reviews-body card-body" *ngIf="hasReviews">
+                  <div class="reviews row col-md-12" *ngFor="let review of allReviews">
+                    <div class="icon_list col-md-3">
+                      <mat-icon aria-hidden="false" *ngFor="let i of review.allStars" class="rate_icon" aria-label="Ratings">star_rate</mat-icon>
+                    </div>
+                    <div class="col-md-9 row review_info">
+                        <div class="reviewer col-md-10">
+                          <h2 (click)="openBox(review._id)">{{review.client_name}}</h2>
+                          <div class="title">
+                            {{review.title}}
+                          </div>
+                        </div>
+                        <div class="text-right">
+                          <p class="text-muted">{{review.created_date | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+              <div class="card-loader" *ngIf="isLoadingReview">
+                <mat-spinner [diameter]="30" class="loader"></mat-spinner>
+              </div>
+              <div class="no-update-box" *ngIf="!hasReviews">
+                <h3>No Reviews Posted</h3>
+              </div>
+              <div class="reviews-footer text-right" *ngIf="hasReviews">
+                  <a class="all-reviews" href="#">View All Reviews</a>
+              </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="dashboard-chart col-md-5">
+        <mat-card class="chart-card">
+          <mat-card-title-group class="card-title">
+            <mat-card-title class="card-heading">Chat History</mat-card-title>
+            <div class="card-header-right">
+              <ul class="list-unstyled card-option chart-options">
+              <li *ngIf="!isToggledChat" class="first-opt">
+                <mat-icon (click)="toggleChat('open',$event)" matSuffix class="chart-icon open-card-option">chevron_left</mat-icon>
+              </li>
+              <li><mat-icon matSuffix class="chart-icon reload-card">sync</mat-icon></li>
+              <li><mat-icon (click)="toggleChat('minimize',$event)" matSuffix class="chart-icon minimize-card">{{minimiseChat}}</mat-icon></li>
+              <li><mat-icon (click)="toggleChat('close',$event)"  matSuffix class="chart-icon close-card">close</mat-icon></li>
+              </ul>
+              </div>
+          </mat-card-title-group>
+          <mat-card-content>
+            <div class="chat-body card-body">
+                <div class="row mb-20 received-chat">
+                  <div class="col-auto p-r-0">
+                    <img src="./assets/sofas.jpeg" alt="user image" class="circular-img img-40">
+                  </div>
+                  <div class="col">
+                    <div class="msg">
+                      <p class="m-b-0">Nice to meet you!</p>
+                    </div>
+                      <p class="text-muted m-b-0">
+                        <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
+                        <span class="time-text">10:20am</span></p>
+                  </div>
+                </div>
+                <div class="row m-b-20 send-chat">
+                  <div class="col">
+                    <div class="msg">
+                      <p class="m-b-0">Nice to meet you!</p>
+                    </div>
+                    <p class="text-muted m-b-0">
+                      <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
+                      <span class="time-text">10:20am</span></p>
+                  </div>
+                  <div class="col-auto p-l-0">
+                    <img src="./assets/sofas.jpeg" alt="user image" class="circular-img img-40">
+                  </div>
+                </div>
+
+                <div class="right-icon-control">
+                  <div class="input-group input-group-button">
+                    <mat-form-field class="col-md-9 m-r-15" appearance="outline">
+                      <mat-label>Send Message</mat-label>
+                      <input matInput formControlName="email" placeholder="Message">
+                    </mat-form-field>
+                    <div class="input-group-append">
+                      <button mat-fab class="btn-send" aria-label="Example icon button with a bookmark icon">
+                        <mat-icon>send</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+
+</div>

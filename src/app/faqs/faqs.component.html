@@ -1,0 +1,219 @@
+<app-header></app-header>
+<div class="faqs-section">
+  <div class="faqs-heading">
+      <h1>Frequently Asked Questions</h1>
+  </div>
+
+  <div class="col-md-12">
+    <div class="left-section">
+      <p class="left-section-text" (click)="scrollTo('buy_now')">Buy Now</p>
+      <p class="left-section-text" (click)="scrollTo('delivery')">Delivery & Pickup</p>
+      <p class="left-section-text" (click)="scrollTo('mattress')">Mattress & Sofa</p>
+      <p class="left-section-text" (click)="scrollTo('covid')">COVID-19</p>
+    </div>
+    <div class="col-md-6 right-section">
+        <div class="right-section-faqs buy_now">
+          <h1>Buy Now</h1>
+          <mat-accordion>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Is the items new or used?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>All the items sold in morita suppliers will always be brand new.
+                The items will be packed and never opened.
+                If you find a item with opened packaging it might be for quality testing purpose.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Is the any mimimum or maximum for the purchase?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>This is no minimum or maximum for what you can purchase.
+                However if the puchase is in high volume you will be emailed with instructions.
+              </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  What information shall I provide to buy product?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>To buy an item from Morita Suppliers you would need the following information:
+                <ul>
+                  <li>Personal Information(Name, Mobile Number, DOB, Gender, Address)</li>
+                  <li>Delivery Location</li>
+                  <li>Card information upon purchase</li>
+                </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Is there any signature verification required?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Most commonly you will need to sign upon delivery to verify that you recieved the delivery.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Can I exchange or return the product?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Special cases are only allowed for return but stock fee will be deducted upon return.
+                There is no echange policy so we suggest to buy items carefully and you can always buy next product from our store.</p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="right-section-faqs delivery">
+          <h1>Delivery & Pickup</h1>
+          <mat-accordion>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Which places are the delivery available?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Usually we deliver over M25 highway in london. Within the 2 hours drive inside london. Our system will check if we can deliver the furniture or not</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Is the delivery cost included when buying the furniture?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Unfortunately not! We charge approx £70 for delivering the furniture but the charge will be calculated by the distance and amount of product.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Is it possible to change the order before delivery?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>It depends on the time.
+                Usually we suggest to change the order 7 business day before delivery with some storage fees being deducted if changed or cancelled.
+                Once the furniture has been dispatched you cannot change the order.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 What is the quickest time for delivery?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>If the distance is near to our warehouse, it can be delivered in the same day.If not, i will be delivered within 7 business day of the order.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Can I choose my own delivery time and date?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Yes you can choose the delivery date and time but it usually will be scheduled within 7 days of placing the order.
+                We will ask you to confirm the availabilty before delivering the furniture.
+              </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 What will happen if my ordered item is out of stock?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>The item will be listed out if it is not available and will be updated again if we fill the stock. So, please keep an eye on the furniture you want once a day.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Do you do door to door delivery if I live in a top flat?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>We will bring the delivery to the place or floor or flat number you are residing. We usually provide the delivery upto 2nd floor. If you live the above floor pleasse contact the reception for the delivery.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Are there any discount or scheme for disabled people?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>The delivery fee will remain the same but we will assemble and set it up for free for elderly, disabled and vunerable people.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 What if my furniture does not fit through the stairs or hallway?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>While checking out there will be a notes section below where you can share any difficulites or hazard in the building so our delivery driver
+                can assemble or plan the delivery accordingly. If not then the item will not be delivered.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                 Is there any costs for assembling the furniture?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>There will be a price estimation if you want to assemble the product by us. It depends upon the products and difficulty level.
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="right-section-faqs mattress">
+          <h1>Mattress & Sofa</h1>
+          <mat-accordion>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Is the sofa and mattress new ?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>We only have new materials in our store for sell. We dont sell refurbished furniture</p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="right-section-faqs covid">
+          <h1>COVID-19</h1>
+          <mat-accordion>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  What are the safety guideliness of Morita Suppliers for COVID-19?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>We are very strict in following the guidelines to ensure the safety of our customer and staffs.
+                We advise you to not make a order if you are having following symptoms in the last 14 days.
+                <ul>
+                  <li>Shortness of breath, cough, fever (COVID-19 symptoms)</li>
+                  <li>Diagonsed with COVID-19</li>
+                  <li>Have been in contact with a person diagnosed with COVID-19</li>
+                </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Is there contactless delivery available?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>Yes we can provide with contactless delivery but you will have to assemble the furniture by yourself.
+                If you are preparing for it please ensure you have all the tools required for assembling.
+              </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel class="expansion-faqs">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Are you sanitising the furniture before delivery?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p>The furniture will be sanitised thoroughly before the delivery. The delivery van are regulary cleaned and sanitised.
+                Delivery drivers have sanitiser with them and gloves and mask before loading and unloading of the furniture.
+              </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+

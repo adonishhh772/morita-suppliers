@@ -1,0 +1,12 @@
+<div mat-dialog-content *ngIf="!isDeleting">
+  <p>{{data.title}}</p>
+</div>
+<div mat-dialog-actions *ngIf="!isDeleting">
+  <button mat-button (click)="deleteAll(data.id, data.type,data.blacklisted)">Ok</button>
+  <button mat-button color="warn" (click)="onNoClick()">Cancel</button>
+</div>
+
+<div mat-dialog-content *ngIf="isDeleting">
+  <mat-spinner class="dialog_spinner" [diameter]="50"></mat-spinner>
+</div>
+

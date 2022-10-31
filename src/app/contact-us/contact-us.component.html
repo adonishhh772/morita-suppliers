@@ -1,0 +1,51 @@
+<app-header></app-header>
+<div class="contact-us-section">
+  <div class="contact-us-body">
+    <div class="contact-us-head">
+      <h1>Send Us A Message</h1>
+    </div>
+    <div class="contact-us-form col-md-4">
+      <div class="contact-us-form-field">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Full Name*</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="contact-us-form-field">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Email*</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="contact-us-form-field">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Company(Optional)</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="contact-us-form-field">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Choose reason for inquiry</mat-label>
+          <mat-select>
+            <mat-option [value]="option.value" *ngFor="let option of enquiry">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="contact-us-form-field">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Queries</mat-label>
+          <textarea matInput></textarea>
+        </mat-form-field>
+      </div>
+
+      <div class="contact-us-btn">
+        <button mat-raised-button class="send_query" color="primary">Send a message</button>
+      </div>
+    </div>
+    <div class="contact-info">
+      <p>Also, for all inquiries you can reach directly to <span class="email_info">info@moritasuppliers.co.uk</span></p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

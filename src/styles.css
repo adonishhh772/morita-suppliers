@@ -1,1 +1,228 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  margin: 0;
+}
+
+.wrap{
+  flex-wrap: wrap;
+}
+
+.row{
+  display: flex;
+}
+
+.col-md-12{
+  width: 100%;
+}
+
+.col-md-10{
+  width: 90%;
+}
+
+.col-md-9{
+  width: 80%;
+}
+
+.col-md-8L{
+  width: 75%;
+}
+
+.col-md-8{
+  width: 70%;
+}
+
+.col-md-7{
+  width: 60%;
+}
+
+
+.col-md-6{
+  width: 50%;
+}
+
+.col-md-5L{
+  width: 45%;
+}
+
+.col-md-5{
+  width: 40%;
+}
+
+.col-md-4{
+  width: 30%;
+}
+
+.col-md-3L{
+  width: 25%;
+}
+
+.col-md-3{
+  width: 20%;
+}
+
+.col-md-2{
+  width: 10%;
+}
+
+.col-md-2S{
+  width: 5%;
+}
+
+.col-md-2L{
+  width: 17%;
+}
+
+.no-margin{
+  margin: 0px !important;
+}
+
+.content-body-below{
+  padding: 90px 50px 15px 50px;
+
+}
+
+.content{
+  padding: 15px 50px 15px 50px;
+
+}
+
+.no-border-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.col-md-4M{
+  width: 33.33%;
+}
+
+.exports_button {
+  padding: 10px;
+  float: right;
+}
+
+.exports_button button {
+  margin-right: 5px;
+}
+
+.exports_button button:first-child:hover {
+  background-color: #34A853;
+}
+
+.exports_button button:nth-child(3):hover {
+  background-color: #f44336;
+}
+
+.exports_button button:nth-child(2):hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.components_container {
+  margin: 0 20px;
+  position: relative;
+  top: 20px;
+  background-color: white;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  border-radius: 3px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px !important;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.col-sm-2 {
+  width: 7%;
+}
+
+.mb-0{
+  margin-bottom: 0 !important;
+}
+
+.pt-15 {
+    padding-top: 15px;
+}
+
+.p-10 {
+  padding: 10px !important;
+}
+
+.p-20 {
+  padding: 20px !important;
+}
+
+.padding-top10 {
+    padding-top: 10px !important;
+}
+
+.morita_blue_border {
+  border-top: 3px solid;
+  border-color: #78BDFB;
+}
+
+.no_padding {
+  padding: 0px !important;
+}
+
+.border {
+  border: 1px solid;
+  border-radius: 25px;
+  border-color: rgba(0, 0, 0, 0.13);
+}
+
+.morita_button{
+  background: #78BDFB !important;
+    color: white;
+}
+
+.error {
+  border-color: #f44336 !important;
+}
+
+.heading {
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  margin: 0 !important;
+}
+
+.sub_header_icon {
+  position: relative;
+  top: 5px;
+  right: 5px;
+}
+
+.date {
+  font-size: 12px;
+}
+
+.fab-button-small {
+  width: 25px !important;
+  height: 25px !important;
+  float: right !important;
+  margin: 5px !important;
+}
+.fab_icon_small {
+  font-size: 13px !important;
+  line-height: 9px !important;
+}
+
+.pb-7{
+  padding-bottom: 7px;
+}
+
+.mt-15{
+  margin-top: 15px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+

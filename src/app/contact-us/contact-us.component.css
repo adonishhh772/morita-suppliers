@@ -1,0 +1,58 @@
+.contact-us-section{
+  margin-top: 70px;
+    transition: margin-top 400ms linear 0s;
+}
+
+.contact-us-body{
+  padding: 50px;
+  text-align: center;
+}
+
+.contact-us-head{
+  padding: 30px;
+  border-top: 1px solid rgb(184, 181, 181);
+}
+
+.contact-us-head h1{
+  font-family: cursive;
+  font-size: 45px;
+}
+
+.contact-us-form{
+  margin: auto;
+
+}
+
+.contact-us-form-field{
+  margin-bottom: 5px;
+}
+
+
+.send_query{
+  font-family: cursive;
+    padding: 10px 45px;
+    border-radius: 30px;
+    font-size: 18px;
+}
+
+.contact-info{
+  margin-top: 100px;
+}
+
+.contact-info p {
+  font-size: 30px;
+  font-family: cursive;
+  line-height: 30px;
+  color: #7e7e7e;
+}
+
+.contact-info span{
+  color: #78BDFB;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.contact-info span:hover{
+  text-decoration: underline;
+}
+

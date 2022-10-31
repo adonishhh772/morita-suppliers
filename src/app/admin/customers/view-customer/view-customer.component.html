@@ -1,0 +1,154 @@
+
+<div class="components_container">
+  <div class="col-md-12 row gutters-sm">
+    <div class="col-md-3L mb-3">
+      <div class="card-body p-0">
+              <div class="d-flex flex-column align-items-center text-center">
+                  <img *ngIf="!hasImage" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="profile_img" width="300">
+                  <img *ngIf="hasImage" src="{{imgUrl + imageUrl}}" alt="Admin" class="profile_img" width="300">
+              </div>
+          </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card col-md-12 mb-3 mt-15">
+        <div class="card-body" *ngIf="isLoaded">
+            <div class="profile-heading row">
+              <div class="profile-name row col-md-9">
+                <h1>{{users[0].name}}</h1>
+                <div class="profile-location row">
+                  <span class="material-icons">room</span>
+                  <p>{{users[0].address}}</p>
+                </div>
+              </div>
+              <div class="heading-date">
+                <p>{{users[0].create_date | date:'yyyy-MM-dd'}}</p>
+              </div>
+            </div>
+            <div class="profile-description">
+              <p>{{users[0].description}}</p>
+            </div>
+
+            <div class="profile-options">
+              <button mat-flat-button matTooltip="Message {{users[0].name}}">
+                <mat-icon aria-hidden="false" aria-label="Message">textsms</mat-icon>
+                Send Message</button>
+              <button mat-flat-button *ngIf="!users[0].blackList" color="warn" matTooltip="Blacklist Customers" (click)="openDialog(users[0].name,users[0]._id,'blacklist',users[0].blackList)">
+                <mat-icon aria-hidden="false" aria-label="blacklist">no_accounts</mat-icon>
+                BlackList</button>
+                <button mat-flat-button *ngIf="users[0].blackList" color="accent" matTooltip="Whitelist Customers" (click)="openDialog(users[0].name,users[0]._id,'whitelist',users[0].blackList)">
+                  <mat-icon aria-hidden="false" aria-label="whitelist">person</mat-icon>
+                  Whitelist</button>
+            </div>
+            <div class="profile-tabs-info">
+              <mat-tab-group>
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="profile-icon">view_timeline</mat-icon>
+                    Timeline
+                  </ng-template>
+                  <div class="body-timeline-container">
+                    <div class="latest-update-box card-body col-md-8" *ngIf="hasActivity">
+                      <div class="row ptb-20" *ngFor="let activity of activity">
+                        <div class="col-auto text-right update-meta p-r-0">
+                          <mat-icon *ngIf="activity.type === 'Category'" matSuffix class="bg-c-yellow update-icon">category</mat-icon>
+                          <mat-icon *ngIf="activity.type === 'Users'" matSuffix class="bg-c-green update-icon">person</mat-icon>
+                        </div>
+                        <div class="col p-l-5">
+                          <h3>{{activity.title}}</h3>
+                          <p class="text-muted m-b-0" [innerHTML]="activity.description" ></p>
+                        </div>
+                        <div class="text-right">
+                          <p class="text-muted">{{activity.created_date | date: 'dd/MM/yyyy'}}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="no-activity-box" *ngIf="!hasActivity">
+                        <p>No Activity From {{users[0].name}}</p>
+                    </div>
+                  </div>
+                </mat-tab>
+
+                <mat-tab>
+                  <ng-template mat-tab-label>
+                    <mat-icon class="profile-icon">switch_account</mat-icon>
+                    About
+                  </ng-template>
+                  <div class="about-tab-body">
+                    <div class="contact-info">
+                        <h2>Contact Information</h2>
+                    </div>
+                    <div class="contact-info-body">
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Phone:</h2>
+                        </div>
+                        <div class="col-md-8 blue_body">
+                          <p>{{users[0].phone}}</p>
+                        </div>
+                      </div>
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Address:</h2>
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{users[0].address}}, {{users[0].street}}, {{users[0].county}}, {{users[0].postal_code}}</p>
+                        </div>
+                      </div>
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Email:</h2>
+                        </div>
+                        <div class="col-md-8 blue_body">
+                          <p>{{users[0].email}}</p>
+                        </div>
+                      </div>
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Reply Email:</h2>
+                        </div>
+                        <div class="col-md-8 blue_body">
+                          <p>{{users[0].reply_email}}</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="basic-info">
+                      <h2>Basic Information</h2>
+                    </div>
+                    <div class="basic-info-body">
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Gender:</h2>
+                        </div>
+                        <div class="col-md-8 info-gender">
+                          <p>{{users[0].gender}}</p>
+                        </div>
+                      </div>
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Birthday:</h2>
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{users[0].birthday | date:'MMM d, y'}}</p>
+                        </div>
+                      </div>
+                      <div class="contact-body body-phone row">
+                        <div class="body-heading col-md-3">
+                          <h2>Disabiilty?</h2>
+                        </div>
+                        <div class="col-md-8">
+                          <p>{{users[0].disability ? 'Yes': 'No'}}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </mat-tab>
+              </mat-tab-group>
+
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+ </div>

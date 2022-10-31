@@ -1,0 +1,46 @@
+.delivery-section{
+  position: absolute;
+  border-radius: 0px;
+  border: 1px solid rgb(251, 248, 245);
+  box-shadow: none;
+  background-color: rgb(251, 248, 245);
+  padding: 30px 30px;
+  overflow-y: auto;
+  inset: 0px;
+}
+
+.delivery-body{
+  height: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 0px;
+    margin-top: 20px;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid rgb(251, 248, 245);
+    overflow-x: hidden;
+    z-index: 1011;
+}
+
+.delivery-body h1{
+    font-size: 35px;
+    font-family: cursive;
+    font-weight: bolder;
+    margin-bottom: 90px;
+    line-height: 42px;
+}
+
+.delivery-form{
+  margin-bottom: 40px;
+}
+
+.check_deliver_button{
+  padding: 15px 0px;
+  background: #78BDFB;
+  border-radius: 40px;
+  font-size: 20px;
+  font-family: cursive;
+  margin-top: 22px;
+}

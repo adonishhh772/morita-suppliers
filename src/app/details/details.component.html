@@ -1,0 +1,153 @@
+<app-header></app-header>
+<div class="details-section">
+    <div class="details-breadcrumb">
+        <p class="first-crumb">Furniture</p>
+        <p>&nbsp;/&nbsp;</p>
+        <p class="second-crumb">Sofas </p>
+        <p>&nbsp;/&nbsp;</p>
+        <p>Main Sofas</p>
+    </div>
+
+    <div class="col-md-12 row">
+      <div class="col-md-6 img-section">
+        <div class="product-img">
+          <lib-ngx-image-zoom class="img-product"
+          thumbImage="./assets/{{imageUrl}}"
+          fullImage="./assets/{{imageUrl}}"
+          [magnification]="2"
+          [enableScrollZoom]="true"
+          zoomMode="hover">
+          </lib-ngx-image-zoom>
+        </div>
+        <div class="img-format row">
+            <div class="img-cover selected" (click)="getImage('sofas-nobg.png',$event)">
+              <div class="covers">
+                  <img src="./assets/sofas-nobg.png">
+              </div>
+            </div>
+            <div class="img-cover" (click)="getImage('wall.jpeg',$event)">
+              <div class="covers">
+                <img src="./assets/wall.jpeg">
+              </div>
+            </div>
+            <div class="img-cover" (click)="getImage('matress.jpeg',$event)">
+              <div class="covers">
+                <img src="./assets/matress.jpeg">
+              </div>
+            </div>
+            <div class="img-cover" (click)="getImage('decor.jpeg',$event)">
+              <div class="covers">
+                <img src="./assets/decor.jpeg">
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-6 product-details">
+          <div class="col-md-12">
+            <h1>Main Sofas</h1>
+            <div class="product-price">
+              <p>£90</p>
+            </div>
+            <div class="product-deliver">
+              <button mat-raised-button class="delivery_button">
+                <mat-icon aria-hidden="false" aria-label="Location">location_searching</mat-icon>
+                Delivery</button>
+            </div>
+            <div class="product-color">
+              <p>Color: <span class="color-product">{{selectedColour}}</span></p>
+            </div>
+            <div class="color-pallete-product row">
+                <div class="color-pallete selected" (click)="changeColors('purple',$event)">
+                    <div class="color-theme purple">
+                    </div>
+                </div>
+                <div class="color-pallete" (click)="changeColors('red',$event)">
+                  <div class="color-theme red">
+                  </div>
+                </div>
+                <div class="color-pallete" (click)="changeColors('white',$event)">
+                  <div class="color-theme white">
+                  </div>
+                </div>
+              </div>
+              <div class="product-quantity">
+                  <p class="qty-label">Quantity:</p>
+                  <div class="product-qty-form">
+                    <mat-form-field appearance="outline" class="col-md-3L qty-form-field" floatLabel="always">
+                      <mat-label>Amount</mat-label>
+                      <input matInput type="number" class="example-right-align" readonly placeholder="{{qtyProduct}}">
+                      <button (click)="qtyProduct = qtyProduct - 1" [disabled]="qtyProduct == 1" mat-icon-button matPrefix aria-label="Less quantity">
+                        <mat-icon>remove</mat-icon>
+                      </button>
+                      <button (click)="qtyProduct = qtyProduct + 1"  mat-icon-button matSuffix aria-label="More quantity">
+                        <mat-icon>add</mat-icon>
+                      </button>
+                    </mat-form-field>
+                  </div>
+              </div>
+              <div class="product-delivery col-md-8">
+                <p><mat-icon class="checked_icon">check_circle</mat-icon>Buy For <span class="prdt-price">$70</span></p>
+                <button (click)="checkDelivery()" mat-raised-button class="deliver_button col-md-12">Check If We Deliver</button>
+              </div>
+
+              <hr class="divder">
+
+              <div class="product-info col-md-9">
+                <mat-accordion>
+                  <mat-expansion-panel class="info">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title class="info_head">
+                        Delivery and assembly can be completed within just 7 days
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>Our team does every aspect of delivering,lifting and assembling, so you can move from an empty home to fully-furnished in the span of a single night.</p>
+                  </mat-expansion-panel>
+                  <mat-expansion-panel class="info">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title class="info_head">
+                       Return
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <p>If the product is damaged before delivery, you will get full exchange of the product but some amount of money will be deducted upon refund if you do not like the product after purchasing.</p>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="product-details-info col-md-12">
+        <div class="product-details-heading">
+          <h1>Product Details</h1>
+        </div>
+        <div class="product-details-info-text col-md-5">
+          <p>The Ludlow is an elegant track-arm sofa that can comfortably seat three people.
+            This classic frame comes in a dove gray fabric that's soft and warm- perfect for brightening up small spaces.
+            Seat depth is 23". Legs will be removed for delivery.
+          </p>
+        </div>
+        <div class="details-dimension col-md-5">
+            <div class="dimension-heading row">
+              <p><b>Dimension</b></p>
+              <p>Inches</p>
+            </div>
+            <div class="dimension-body row">
+              <p>Height</p>
+              <div class="border-dotted"></div>
+              <p>67.0"</p>
+            </div>
+            <div class="dimension-body row">
+              <p>Width</p>
+              <div class="border-dotted"></div>
+              <p>67.0"</p>
+            </div>
+            <div class="dimension-body row">
+              <p>Depth</p>
+              <div class="border-dotted"></div>
+              <p>67.0"</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

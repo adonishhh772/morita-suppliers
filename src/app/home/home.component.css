@@ -1,0 +1,151 @@
+
+.header_title{
+  padding: 70px 0px 30px 0px;
+    height: 88px;
+    background-color: #78BDFB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.header_title h1{
+  font-family: cursive;
+  font-size: 35px;
+  margin: 0;
+}
+
+.content-right{
+  text-align: right;
+}
+
+.form-select{
+  text-align: inherit;
+}
+
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before{
+  content: none !important;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: transparent;
+}
+
+::ng-deep .mat-form-field-ripple {
+  background-color: transparent;
+}
+
+::ng-deep .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: transparent;
+}
+
+.mat-select{
+  font-size: 17px;
+  font-family: cursive;
+}
+
+::ng-deep .mat-select-arrow-wrapper{
+  margin-top: 15px;
+    margin-left: 5px;
+}
+
+.chip-filters{
+  font-family: cursive;
+}
+
+.clear_filter_btn{
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: cursive;
+}
+
+.clear_filter_btn:hover{
+  text-decoration: underline;
+}
+
+
+.item-rows{
+  display: flex;
+    flex-wrap: wrap;
+}
+
+.items:hover{
+  position: relative;
+    top: -9px;
+}
+
+.items{
+  margin: 2px;
+    display: inline-block;
+    height: auto;
+    position: relative;
+    top: 0px;
+    transition: all 0.25s ease-in-out 0s;
+    padding: 40px 32px 16px;
+    background-color: rgb(251, 248, 245);
+    width: calc(26.3333% - 4px);
+    cursor: pointer;
+}
+
+.items-img{
+  height: 0px;
+    position: relative;
+    width: 100%;
+    padding-bottom: calc(100%);
+    overflow: hidden;
+}
+
+.items-img img{
+  width: 100%;
+    display: inherit;
+    object-fit: cover;
+    position: relative;
+    top: 50px;
+  object-position: center bottom;
+}
+
+.item-desc{
+  text-align: center;
+    font-family: cursive;
+}
+
+.item-desc h2{
+  font-weight: bold;
+  font-family: cursive;
+  font-size: 25px;
+}
+
+.item-desc p{
+  font-size: 20px;
+}
+
+.item-price{
+  text-decoration: underline;
+  font-weight: bolder;
+}
+
+.out-of-stock{
+  position: absolute;
+    z-index: 1;
+    height: 24px;
+    width: 100px;
+    right: 8px;
+    top: 8px;
+    border-radius: 4px;
+    background: rgb(220, 214, 204);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    font-family: cursive;
+    font-size: 15px;
+}

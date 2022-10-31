@@ -1,0 +1,237 @@
+<div>
+<mat-drawer-container [ngStyle]="myStyles" class="menu-container" hasBackdrop=false>
+  <mat-drawer #drawer class="side_menu" mode="side" opened>
+      <div class="menu_header row" routerLink="/">
+          <img class="logo_text" src="./assets/logo.png"></div>
+      <mat-list id="drawerItem" class="side_menu_nav">
+          <mat-list-item title="Dashboard" class="menu_item selected_side_nav ad_dashboard"
+                         (click)="changeRoute($event,'','','Dashboard','admin/dashboard','dashboard', null)">
+              <mat-icon matSuffix>dashboard</mat-icon>
+              <span class="menu_title">Dashboard</span></mat-list-item>
+
+              <mat-list-item class="menu_item view_contacts"
+              (click)="changeRoute($event,'Customers','people','','admin/customers','', null)">
+                  <mat-icon matSuffix>people</mat-icon>
+                  <span class="menu_title pr-50">Customers</span>
+                  <span class="menu_badge contact_badge" matBadge="{{contactCount}}"
+                  matBadgeOverlap="false"></span>
+              </mat-list-item>
+          <mat-accordion *ngIf="!hasShrunk">
+              <mat-expansion-panel title="Students Manager" class="menu_item_accordian"
+                                   (opened)="panelOpenStateOther = true"
+                                   (closed)="panelOpenStateOther = false">
+                  <mat-expansion-panel-header class="menu_accordian_header">
+                      <mat-panel-title class="menu_accordian_title">
+                          <mat-icon matSuffix>inventory</mat-icon>
+                          <span class="menu_title">Products</span>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <span class="menu_badge product_badge" matBadge="{{productCount}}"
+                              matBadgeOverlap="false"></span>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <mat-list-item class="menu_item view_products"
+                                 (click)="changeRoute($event,'Products','inventory','Products Dashboard','admin/products','dashboard', null)">
+                      <mat-icon matSuffix>dashboard</mat-icon>
+                      <span class="menu_title">Product Dashboard</span>
+                  </mat-list-item>
+                  <mat-list-item class="menu_item add_products"
+                                 (click)="changeRoute($event,'Products','inventory','Add Products','admin/products/add','add_circle', null)">
+                      <mat-icon matSuffix>add_circle</mat-icon>
+                      <span class="menu_title">Add Product</span>
+                  </mat-list-item>
+                  <mat-list-item class="menu_item products_category"
+                                 (click)="changeRoute($event,'Products','inventory','Category','admin/products/category','category', null)">
+                      <mat-icon matSuffix>category</mat-icon>
+                      <span class="menu_title">Category</span>
+                  </mat-list-item>
+              </mat-expansion-panel>
+          </mat-accordion>
+          <mat-accordion *ngIf="!hasShrunk">
+              <mat-expansion-panel title="Application Manager" class="menu_item_accordian"
+                                   (opened)="panelOpenStateOther = true"
+                                   (closed)="panelOpenStateOther = false">
+                  <mat-expansion-panel-header class="menu_accordian_header">
+                      <mat-panel-title class="menu_accordian_title">
+                          <mat-icon matSuffix>production_quantity_limits</mat-icon>
+                          <span class="menu_title">Orders</span>
+                      </mat-panel-title>
+                      <mat-panel-description>
+                        <span class="menu_badge order_badge" matBadge="{{orderCount}}"
+                              matBadgeOverlap="false"></span>
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <mat-list-item class="menu_item view_orders"
+                                 (click)="changeRoute($event,'Orders','production_quantity_limits','Dashboard','admin/orders','dashboard', null)">
+                      <mat-icon matSuffix>dashboard</mat-icon>
+                      <span class="menu_title">Order Dashboard</span>
+                  </mat-list-item>
+
+                  <mat-list-item class="menu_item track_orders"
+                                 (click)="changeRoute($event,'Orders','production_quantity_limits','Orders Tracker','admin/orders/tracking','dashboard', null)">
+                      <mat-icon matSuffix>leaderboard</mat-icon>
+                      <span class="menu_title">Orders Tracker</span>
+                  </mat-list-item>
+              </mat-expansion-panel>
+          </mat-accordion>
+      </mat-list>
+
+  </mat-drawer>
+  <mat-drawer-content class="drawer_content">
+      <div class="menu-content">
+          <div class="col-md-12 fixed">
+              <div class="menu_bar col-md-12 row">
+                  <button disableRipple mat-icon-button matSuffix (click)="toggleNav(drawer)" class="no-border-btn menu_toggle">
+                      <mat-icon>{{menuIcon}}</mat-icon>
+                  </button>
+                  <div class="breadcrum {{column}} row">
+                  <span *ngFor="let item of menu" class="breadcurm_text row">
+                      <mat-icon matSuffix>{{item.icon}}</mat-icon>
+                      <p>{{item.text}}</p>
+                  </span>
+                  </div>
+
+                  <div *ngIf="isMiddleResolution" class="search_bar col-md-4L {{hasClient}}">
+                      <div class="search-wrapper {{active}}">
+                          <div class="input-holder">
+                              <input type="text"  class="search-input" (ngModelChange)="searchClient($event)" placeholder="Type to search clients">
+                              <button mat-icon-button matSuffix class="search-icon no-border-btn mr-1"
+                                      (click)="searchTrigger()">
+                                  <mat-icon>search</mat-icon>
+                              </button>
+                          </div>
+                          <button mat-icon-button matSuffix class="close" (click)="closeSearch()">
+                              <mat-icon>close</mat-icon>
+                          </button>
+                      </div>
+
+                      <div class="search_box col-md-12" *ngIf="showResult">
+                          <div (click)="navigateToContact(data._id,'search')" class="components_container not_top search_item" mat-menu-item *ngFor="let data of searchContacts">
+                              <mat-icon class="search_item_icon">person</mat-icon>
+                              <span>{{data.name}}</span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="menu_bar_items col-md-4">
+                      <button *ngIf="!isMiddleResolution" mat-icon-button matSuffix (click)="toggleSearchBar()"
+                              class="search-icon no-border-btn mr-1">
+                          <mat-icon>search</mat-icon>
+                      </button>
+                      <button mat-icon-button matSuffix matBadge="{{tasksCount}}"
+                              (click)="openMail()"
+                              [matMenuTriggerFor]="menu_notify"
+                              #taskMenuTrigger="matMenuTrigger"
+                              class="no-border-btn messages_notify mr-1">
+                          <mat-icon>chat_bubble</mat-icon>
+                      </button>
+                      <button mat-icon-button matSuffix matBadge="{{reminderCount}}"
+                              (click)="toggleBadgeVisibility()" [matMenuTriggerFor]="menu_reminder" #reminderMenuTrigger="matMenuTrigger"
+                              class="no-border-btn mr-1 notification_notify">
+                          <mat-icon>notifications</mat-icon>
+                      </button>
+                      <button mat-icon-button (click)="toggleProfile()" class="no-border-btn marginl10 profile">
+                          <img src="./assets/avatar.png" [matMenuTriggerFor]="menu_profile"
+                          #profileMenuTrigger="matMenuTrigger">
+                      </button>
+
+                      <mat-menu #menu_profile="matMenu" class="p-10 w-180" xPosition="before">
+                        <div class="col-md-12">
+                            <div class="matMenu_title">
+                                <h3>Hello Admin</h3>
+                            </div>
+                            <div class="matMenu_body">
+                              <button mat-menu-item>
+                                <mat-icon>settings</mat-icon>
+                                <span>Settings</span>
+                              </button>
+                              <button mat-menu-item (click)="logout()">
+                                <mat-icon>logout</mat-icon>
+                                <span>Logout</span>
+                              </button>
+                                <!--<button mat-menu-item>Item 2</button>-->
+                            </div>
+                            <div class="matMenu_footer border_top" *ngIf="itemData.length > 0">
+                                <button mat-menu-item (click)="navigateToView('client')">View All</button>
+                            </div>
+                        </div>
+
+                    </mat-menu>
+                      <mat-menu #menu_notify="matMenu" class="p-10" xPosition="before">
+                          <div class="col-md-12">
+                              <div class="matMenu_title">
+                                  <h3>{{menuTile}}</h3>
+                              </div>
+                              <div class="matMenu_body">
+                                  <div mat-menu-item *ngFor="let data of itemData">
+                                      <mat-icon>task_alt</mat-icon>
+                                      <span>{{data.title}}</span>
+                                  </div>
+                                  <!--<button mat-menu-item>Item 2</button>-->
+                              </div>
+                              <div class="matMenu_footer border_top" *ngIf="itemData.length > 0">
+                                  <button mat-menu-item (click)="navigateToView('tasks')">View All</button>
+                              </div>
+                          </div>
+
+                      </mat-menu>
+                      <mat-menu #menu_reminder="matMenu" class="p-10" xPosition="before">
+                          <div class="col-md-12">
+                              <div class="matMenu_title">
+                                  <h3>Hello Admin</h3>
+                              </div>
+                              <div class="matMenu_body">
+                                  <div (click)="navigateToContact(data.client_id,'menu')" mat-menu-item *ngFor="let data of itemData">
+                                      <mat-icon>notifications_active</mat-icon>
+                                      <span>{{data.notes}}</span>
+                                  </div>
+                                  <!--<button mat-menu-item>Item 2</button>-->
+                              </div>
+                              <div class="matMenu_footer border_top" *ngIf="itemData.length > 0">
+                                  <button mat-menu-item (click)="navigateToView('client')">View All</button>
+                              </div>
+                          </div>
+
+                      </mat-menu>
+
+                      <mat-menu #menu_assigned="matMenu" class="p-10" xPosition="before">
+                          <div class="col-md-12">
+                              <div class="matMenu_title">
+                                  <h3>{{menuTile}}</h3>
+                              </div>
+                              <div class="matMenu_body">
+                                  <button (click)="navigateToContact(data.client_id,'menu')" mat-menu-item
+                                          *ngFor="let data of itemData">
+                                      <mat-icon>person</mat-icon>
+                                      <span>{{data.client_name}}</span>
+                                  </button>
+                                  <!--<button mat-menu-item>Item 2</button>-->
+                              </div>
+                              <div class="matMenu_footer border_top" *ngIf="itemData.length > 0">
+                                  <button mat-menu-item (click)="navigateToView('client')">View All</button>
+                              </div>
+                          </div>
+
+                      </mat-menu>
+                  </div>
+                  <div class="app_header_app_mobile {{openSearch}}">
+                      <div class="search-wrapper active">
+                          <div class="input-holder">
+                              <input type="text" class="search-input" placeholder="Type to search">
+                              <button mat-icon-button matSuffix class="search-icon no-border-btn"
+                                      (click)="searchTrigger()">
+                                  <mat-icon>search</mat-icon>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <mat-progress-bar *ngIf="started" mode="indeterminate"></mat-progress-bar>
+          </div>
+          <div class="container">
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+</div>

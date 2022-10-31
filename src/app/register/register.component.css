@@ -1,0 +1,46 @@
+.register-section{
+  margin-top: 70px;
+    transition: margin-top 400ms linear 0s;
+}
+
+.register-form{
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 104px 0px 0px 0px;
+  text-align: center;
+}
+
+.register-form h1{
+  font-size: 35px;
+  font-weight: bold;
+  font-family: cursive;
+}
+
+.register_form_field{
+  display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 48px 24px;
+}
+
+.register_button{
+  padding: 18px;
+    border-radius: 64px;
+    font-size: 25px;
+    font-family: cursive;
+}
+
+.register-field{
+  margin-bottom: 20px;
+}
+
+.middle{
+  margin: auto;
+}
+
+

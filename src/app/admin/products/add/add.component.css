@@ -1,0 +1,19 @@
+.products{
+  border-top: 2px solid #6EC1E4;
+}
+
+.products_body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.products_footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
+  padding: 10px;
+  text-align: right;
+}
+
+.col-md-5LS{
+  width: 47%;
+}

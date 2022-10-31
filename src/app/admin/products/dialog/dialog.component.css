@@ -1,0 +1,11 @@
+.btn-hidden {
+  box-shadow: none !important;
+  background-color: transparent !important;
+  color: black !important;
+  left: 20px;
+}
+
+.dialog_title{
+  border-bottom: 1px solid;
+  width: 510px;
+}

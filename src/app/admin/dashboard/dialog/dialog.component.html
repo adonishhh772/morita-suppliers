@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>{{data.client_name}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="row col-md-12">
+    <div class="col-md-9">
+      <h2>{{data.title}}</h2>
+    </div>
+    <div class="col-md-3">
+      <p>{{data.created_date | date: 'dd/MM/yyyy'}}</p>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="icon_list col-md-3">
+      <mat-icon aria-hidden="false" *ngFor="let i of stars" class="rate_icon" aria-label="Ratings">star_rate</mat-icon>
+    </div>
+  </div>
+
+ <p>{{data.description}}</p>
+
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button color="warn" mat-dialog-close>Cancel</button>
+</mat-dialog-actions>
+

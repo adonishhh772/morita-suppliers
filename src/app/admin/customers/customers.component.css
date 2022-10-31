@@ -1,0 +1,60 @@
+.table_responsive{
+  width: 100%;
+  margin-top: -30px;
+}
+
+.contacts_container{
+  padding: 15px 45px 0 45px;
+}
+
+.morita_button{
+  position: relative;
+  top: 10px;
+}
+
+.contacts_container button{
+  float: right;
+}
+
+.add_contacts{
+  margin: 10px;
+}
+
+.hidden{
+  display: none;
+}
+
+.delete{
+  margin-bottom: 5px;
+}
+
+.contacts_container .add_contacts{
+  background:#78BDFB !important;
+  color: white;
+}
+
+.morita_delete{
+  margin-top: 10px !important;
+  background-color: #f44336;
+  color: white;
+}
+
+.chat_question{
+  color: #78BDFB !important;
+}
+
+.components_container{
+  padding: 25px;
+  top: 0 !important;
+  background-color: transparent;
+  box-shadow: 0 0 0;
+}
+
+.table_header{
+  font-size: 18px;
+  color: white;
+}
+
+.text-center{
+  text-align: center;
+}

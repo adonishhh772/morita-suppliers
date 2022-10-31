@@ -1,0 +1,164 @@
+.content-reviews-section{
+  margin-top: 88px;
+    transition: margin-top 400ms linear 0s;
+}
+
+.content-reviews-heading{
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 90px 0px;
+}
+
+.content-reviews-heading h1{
+  font-family: cursive;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+.content-reviews-body{
+  margin: 0 80px;
+  padding-bottom: 30px;
+}
+
+.total_reviews{
+  font-family: cursive;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.rate_icon{
+  color: goldenrod;
+}
+
+.icon_list{
+  margin-bottom: 35px;
+  cursor: pointer;
+}
+
+.review_button{
+  width: 60%;
+  text-transform: capitalize;
+  padding: 10px;
+  border-radius: 35px;
+  font-family: cursive;
+  font-size: 18px;
+  background: #78BDFB;
+}
+
+.reviews{
+  padding: 38px 0px 32px !important;
+    border-top: 1px solid rgb(189, 189, 189) !important;
+}
+
+.heading_name p {
+  font-size: 20px;
+    font-family: cursive;
+    font-weight: 600;
+}
+
+.heading_date{
+  text-align: right;
+  font-size: 18px;
+}
+
+.heading_title p {
+  font-size: 25px;
+    font-family: cursive;
+    font-weight: bold;
+}
+
+.review_body p{
+  font-size: 16px;
+    font-family: cursive;
+    line-height: 25px;
+    color: #534d4d;
+}
+
+.show-btn{
+  cursor: pointer;
+}
+
+
+.write-a-review{
+  border-top: 1px solid rgb(189, 189, 189) !important;
+}
+
+.write-a-review h2{
+  font-family: cursive;
+}
+
+.review-icons{
+  margin-bottom: 20px;
+}
+
+.review-icons p{
+  font-family: cursive;
+  font-size: 18px;
+}
+
+.review-title-form p, .connect-with p{
+  font-family: cursive;
+  font-size: 18px;
+}
+
+.media-connect-button, .media-connect-button-google{
+  margin: 5px;
+  cursor: pointer;
+}
+
+.morita-input{
+  width: 48%;
+}
+
+.morita-input.username{
+  margin-right: 20px;
+}
+
+.morita-feat p{
+  margin: auto;
+  margin-right:25px;
+}
+
+.post-review{
+  text-align: end;
+  margin-bottom: 25px;
+}
+
+
+.write-body{
+  position: relative;
+  overflow: hidden;
+  max-height: 0;
+  transition: ease-in-out 400ms max-height;
+}
+
+.visible{
+  max-height:600px;
+  padding: 20px;
+  -webkit-transition:max-height 1.1s ease-in-out;
+  -moz-transition:max-height 1.1s ease-in-out;
+  -ms-transition:max-height 1.1s ease-in-out;
+  -o-transition:max-height 1.1s ease-in-out;
+  transition:max-height 1.1s ease-in-out
+}
+
+.rating_icon{
+  cursor: pointer;
+}
+
+.no-review-section{
+  padding: 40px;
+  text-align: center;
+  border-top: 2px solid;
+}
+
+
+
+
+
+

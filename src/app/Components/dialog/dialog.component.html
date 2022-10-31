@@ -1,0 +1,18 @@
+<div class="dialog-section">
+  <div class="dialog-header">
+    <button (click)="closeDialog()" mat-icon-button aria-label="Close Dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="dialog-body">
+      <div class="dialog-body-heading">
+        <h1>Need help Signing in ?</h1>
+      </div>
+      <div class="dialog-body-button">
+        <button (click)="goTo('forgot')" mat-raised-button class="header_reset_button" color="primary">Reset Your Password</button>
+      </div>
+      <div class="dialog-body-contact">
+        <p (click)="goTo('contact-us')">Contact Us</p>
+      </div>
+  </div>
+</div>

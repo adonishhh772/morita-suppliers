@@ -1,0 +1,176 @@
+<div class="product-body">
+  <div class="product-dashboard-cards col-md-12 row">
+    <div class="col-md-4 card">
+      <mat-card class="all-product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-subtitle class="card-subtitle">All Products</mat-card-subtitle>
+          <mat-card-title>£1600</mat-card-title>
+          <mat-icon matSuffix class="card-icon all-icon">inventory</mat-icon>
+        </mat-card-title-group>
+        <mat-card-content>
+          <p>This is how we do</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4 card">
+      <mat-card class="available-product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-subtitle class="card-subtitle">Available Products</mat-card-subtitle>
+          <mat-card-title>16000</mat-card-title>
+          <mat-icon matSuffix class="card-icon available-icon">
+            playlist_add_check_circle
+            </mat-icon>
+        </mat-card-title-group>
+        <mat-card-content>
+          <p>This is how we do</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4 card">
+      <mat-card class="sold-product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-subtitle class="card-subtitle">Sold Products</mat-card-subtitle>
+          <mat-card-title>£100</mat-card-title>
+          <mat-icon matSuffix class="card-icon sold-icon">attach_money</mat-icon>
+        </mat-card-title-group>
+        <mat-card-content>
+          <p>This is how we do</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4 card">
+      <mat-card class="expensive-product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-subtitle class="card-subtitle">Expensive Products</mat-card-subtitle>
+          <mat-card-title>2000</mat-card-title>
+          <mat-icon matSuffix class="card-icon expensive-icon">sell</mat-icon>
+        </mat-card-title-group>
+        <mat-card-content>
+          <p>This is how we do</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-4 card">
+      <mat-card class="cheapest-product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-subtitle class="card-subtitle">Cheapest Products</mat-card-subtitle>
+          <mat-card-title>2000</mat-card-title>
+          <mat-icon matSuffix class="card-icon cheap-icon">discount</mat-icon>
+        </mat-card-title-group>
+        <mat-card-content>
+          <p>This is how we do</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="products-list">
+    <div class="product-all">
+      <mat-card class="product-card">
+        <mat-card-title-group class="card-title">
+          <mat-card-title class="card-heading">Products</mat-card-title>
+          <div class="card-header-right">
+            <ul class="list-unstyled card-option latest-options">
+            <li *ngIf="!isToggled" class="first-opt">
+              <mat-icon (click)="toggle('open',$event)" matSuffix class="latest-icon open-card-option">chevron_left</mat-icon>
+            </li>
+            <li><mat-icon (click)="toggle('minimize',$event)" matSuffix class="latest-icon minimize-card">{{minimise}}</mat-icon></li>
+            <li><mat-icon (click)="toggle('close', $event)"  matSuffix class="latest-icon close-card">close</mat-icon></li>
+            </ul>
+            </div>
+        </mat-card-title-group>
+        <mat-card-content>
+          <div class="product-update-box card-body">
+            <div class="products">
+              <mat-form-field>
+                  <mat-label>Search</mat-label>
+                  <input matInput (keyup)="applyFilter($event)" #input>
+              </mat-form-field>
+              <button mat-raised-button class="add_products" [routerLink]="['/admin/products/add']">Add Products</button>
+            </div>
+              <div class="components_container no-top">
+                <div class="mat-elevation-z8">
+                  <table matTableExporter mat-table [dataSource]="dataSource" matSort #exporter="matTableExporter" class="table_responsive">
+                    <ng-container matColumnDef="select">
+                      <th mat-header-cell *matHeaderCellDef>
+                          <mat-checkbox color="primary" (change)="$event ? masterToggle() : null"
+                                        [checked]="selection.hasValue() && isAllSelected()"
+                                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                        [aria-label]="checkboxLabel()">
+                          </mat-checkbox>
+                      </th>
+                      <td mat-cell *matCellDef="let row">
+                              <mat-checkbox color="primary" (click)="$event.stopPropagation()"
+                                            (change)="selectBox($event,row)"
+                                            [checked]="selection.isSelected(row)"
+                                            [aria-label]="checkboxLabel(row)">
+                              </mat-checkbox>
+                      </td>
+                  </ng-container>
+                      <!-- Progress Column -->
+                      <ng-container matColumnDef="product_id">
+                          <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>ID </th>
+                          <td mat-cell *matCellDef="let row"> {{row.product_id}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="name">
+                          <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>Name </th>
+                          <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="type">
+                        <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>Type </th>
+                        <td mat-cell *matCellDef="let row"> {{row.type}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="price">
+                      <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>Price </th>
+                      <td mat-cell *matCellDef="let row"> {{row.price}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="brand">
+                    <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>Brand </th>
+                    <td mat-cell *matCellDef="let row"> {{row.brand}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="category">
+                  <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header>Category </th>
+                  <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+              </ng-container>
+
+                      <!-- Color Column -->
+                      <ng-container matColumnDef="actions">
+                          <th class="table_header" mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                          <td mat-cell *matCellDef="let row">
+                              <!-- <button mat-icon-button matTooltip="Edit Category" (click)="openDialog(row)">
+                                  <mat-icon color="info">create</mat-icon>
+                              </button> -->
+                          </td>
+                      </ng-container>
+
+                      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                      <!-- Row shown when there is no matching data. -->
+                      <tr class="mat-row text-center" *matNoDataRow>
+                          <td class="mat-cell text-center" colspan="12" *ngIf="input.value !== ''">No data matching the filter "{{input.value}}"</td>
+                          <td class="mat-cell text-center" colspan="12" *ngIf="input.value === ''">No data found</td>
+                      </tr>
+                  </table>
+
+                  <mat-paginator class="paginator" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+                </div>
+                <div class="exports_button">
+                  <button mat-raised-button (click)="exporter.exportTable('xlsx', {fileName:'MS_products_'+date, sheet: 'all_customers', Props: {Author: 'MS'}})">Excel</button>
+                  <button mat-raised-button (click)="exporter.exportTable('csv', {fileName:'MS_products_'+date})">CSV</button>
+                  <button mat-raised-button (click)="exporter.exportTable('txt', {fileName:'MS_products_'+date})">PDF</button>
+                </div>
+              </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

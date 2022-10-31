@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="register-section">
+    <form [formGroup]="registerForm" class="col-md-12 register-form" (ngSubmit)="register()">
+      <h1>Setup Your Morita Suppliers Account</h1>
+    <div class="register_form_field col-md-6">
+      <mat-form-field class="col-md-8" appearance="outline">
+        <mat-label>Enter your Email</mat-label>
+        <input matInput formControlName="email" type="email">
+        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.email.errors?.required">
+          Email is required.</mat-hint>
+      <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.email.errors?.pattern">
+          Please provide valid email id.</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="col-md-8" appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input formControlName="password" #password maxlength="8" matInput [type]="hidePass ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="togglePass($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePass">
+          <mat-icon>{{hidePass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.password.errors?.required">
+          Password is required.</mat-hint>
+      <mat-hint align="start" class="mat-error" *ngIf="isSubmitted && errorControl.password.errors?.minlength">Max 8 characters</mat-hint>
+      </mat-form-field>
+      <mat-form-field class="col-md-8" appearance="outline">
+        <mat-label>Confirm password</mat-label>
+        <input formControlName="repassword" #password maxlength="8"  matInput [type]="hideConPass ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="toggleCPass($event)" [attr.aria-label]="'Hide confirm password'" [attr.aria-pressed]="hideConPass">
+          <mat-icon>{{hideConPass ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.repassword.errors?.required">
+          Password is required.</mat-hint>
+      <mat-hint align="start" class="mat-error" *ngIf="isSubmitted && errorControl.repassword.errors?.minlength">Max 8 characters</mat-hint>
+
+      <mat-hint align="start" class="mat-error" *ngIf="registerForm.errors != null">Password do not match</mat-hint>
+
+      </mat-form-field>
+      <button *ngIf="!isValidated || !isSubmitted" [disabled]="!registerForm.valid" mat-raised-button class="register_button">Set Up Account</button>
+      <div class="col-md-2 middle" *ngIf="isValidated && isSubmitted">
+        <mat-spinner class="mat_form_spinner" [diameter]="50"></mat-spinner>
+      </div>
+    </div>
+  </form>
+  </div>
+
+
+
+<app-footer></app-footer>

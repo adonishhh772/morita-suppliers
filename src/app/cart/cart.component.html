@@ -1,0 +1,65 @@
+<app-header></app-header>
+<div class="cart-section">
+  <div *ngIf="isEmpty" class="empty-cart-body">
+    <h1>Your cart look bit tight</h1>
+    <p [routerLink]="['/']">Continue Shopping</p>
+  </div>
+
+  <div *ngIf="!isEmpty" class="full-cart-body">
+      <div class="col-md-12 cart-body row">
+          <div class="col-md-8 cart-body-left">
+              <div class="cart-body-heading row">
+                <h1>Your Cart</h1>
+                <h4>(purchasing 1 item)</h4>
+              </div>
+              <div class="cart-body-list">
+                  <div class="cart-item row col-md-12">
+                    <div class="cart-product-info col-md-8 row" [routerLink]="['/products']">
+                        <div class="cart-product-img">
+                          <img src="./assets/sofas-nobg.png">
+                        </div>
+                        <div class="cart-title">
+                            <p class="cart-info-name">Sofas</p>
+                            <span class="cart-info-color">Red</span>
+                        </div>
+                    </div>
+                    <div class="cart-product-options col-md-4 row">
+                      <div class="product-options row">
+                        <button class="remove-cart">Remove</button>
+                        <p class="product-price">£799</p>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-4 order_summary-section row">
+              <div class="order-summary row">
+                <h1>Order Summary</h1>
+                <div class="order-summary-total row">
+                    <p>Furniture Total:</p>
+                    <p class="order-price">£799</p>
+                </div>
+                <div class="order-summary-total row">
+                  <p>Delivery & Assembly:</p>
+                  <p class="order-price">£70</p>
+                </div>
+                <hr class="order-seperator">
+                <div class="order-summary-total subtotal row">
+                  <p class="order-price">Subtotal:</p>
+                  <p class="order-price">£70</p>
+                </div>
+                <hr class="order-seperator">
+                <div class="order-terms row">
+                  <mat-checkbox (change)="setChecked($event.checked)" color="primary" class="example-margin"></mat-checkbox>
+                  <p>I agree the <a target="_blank" [routerLink]="['/']">Terms and condition</a></p>
+                </div>
+                <button [disabled]="!isChecked" [routerLink]="['/checkout-billing']" mat-raised-button class="checkout-button col-md-12">Proceed to Checkout</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+

@@ -1,0 +1,67 @@
+<div class="checkout-billing-section">
+  <div class="checkout-billing-header row col-md-12">
+    <div class="col-md-4M"></div>
+      <div class="checkout-logo col-md-4M">
+          <p> The logo goes here</p>
+      </div>
+      <div class="col-md-4M cart-button">
+        <a [href]="['/cart']" class="back-button"> Back to cart</a>
+      </div>
+  </div>
+  <div class="checkout-billing-body col-md-5">
+      <h1 class="billing-heading">Billing Info</h1>
+      <div class="col-md-12 billing-form-section">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 billing-form-section">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 billing-form-section">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput type="text">
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 billing-form-section row">
+        <div class="col-md-6 billing-apartment">
+          <mat-form-field class="col-md-12" appearance="outline">
+            <mat-label>Apartment, building, house, etc.</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="col-md-12" appearance="outline">
+            <mat-label>Post code</mat-label>
+            <input matInput type="text">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-12 billing-form-section">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Phone number</mat-label>
+          <input matInput type="number">
+        </mat-form-field>
+      </div>
+      <div class="col-md-12 billing-form-section">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email">
+        </mat-form-field>
+      </div>
+      <div class="billing-form-info-section">
+          <div class="delivery-form-info row">
+            <mat-icon aria-hidden="false" aria-label="Date">date_range</mat-icon>
+            <p>We deliver within 7 days!</p>
+          </div>
+      </div>
+      <div class="col-md-12">
+        <button mat-raised-button class="billing-button col-md-12">Continue to billing info</button>
+      </div>
+  </div>
+</div>

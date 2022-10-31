@@ -1,0 +1,318 @@
+.details-section{
+  margin-top: 75px;
+  transition: margin-top 400ms linear 0s;
+}
+
+.details-breadcrumb{
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 64px 0px 24px 48px;
+  width: 30%;
+  z-index: 3;
+  font-size: 20px;
+  font-family: cursive;
+  transition: top 400ms linear 0s;
+}
+
+.first-crumb, .second-crumb{
+  cursor: pointer;
+}
+
+.first-crumb:hover, .second-crumb:hover{
+  text-decoration: underline;
+}
+
+
+.img-section{
+  margin-left: 50px;
+}
+
+.img-product{
+  cursor: -webkit-image-set(url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAT2SURBVHgB7Z2/ctNAEMbXHmYcKlNhKkJFKkKVdKHCHamgw29BBzWPwBskFUOVVJgq7kKFqRIakgpTORVxFXblPc9ZlqyTdH8ka38zNzYmzkz2u/v2TjrttaCi3N3ddfClx62L7QG/bnHrxL4yw3aL7YZfp/x+Qq3Vas2ggrSgInDAn2J7gu0xzINtkwm3a2xXKMgNVICgAnDQd7HtwDzoPiEhxhBYjCACYOAp2C/Af9DTuMQ2RiEuwTPeBNB6+z7Ytxdb0EgYoRBj8IQXATD4ezDv8R2oB96EcCoAW80hVLfHZ+FcCCcCYOAp4H2Yz2o2ARJg5CJZWxcAg08+T8Gvi92Y4mQ0WBOAkyz5/B5sNucwF8LKws6KAGw5A6iv1+eFRsORDUsqLQAGny4VUPA3zXKyoOB/RhH+QglKCcB+/wqazQmK8BMKUlgAntv3QSCGKMJ3KEAhAST4iRQSoQ050aaZwjJ9jM0zyEkuATjhNt3z13GIMXqY5wvGAvBU8w0IWQw4VkYYCcCLrCbN88tAd+sGHLNMTEcArXAl+OZQrA5MfjBTAE66m355wQX7Jkl5rQDsZUZKCon0s/JB1gig4Iv1FIfywct1P5AqAFvPLghl2eEbU4ncW/PFSlsPrjo/6v/GP/IDVBe6K/gp6T8SRwD3frEee3T58s0KaRYkidc+B0lrgxUBpPc7gxLySk5NGgHS+92xH/9gSQDs/bSLQXq/O7rxGVF8BMi00z1LDrMQgFdsm7KPp8ps68lYHwHbIPhi4TTtpA8F5yycJhKA7acqW8WbwMKG1AgQ+/EPPZSyEEB6v3+imCsBHoHgm8h12uhFtETOdSdfsAItyjo0AiT44eiRAD0QQhEJ8ACEUHRJALn4Fo5IgC0QQiEjIDD3ZQSEpdPCueh7cEh890LdcL3bIvfzAYJdRIDAiACBoRzwDmr4iGnNdsalcUsj4BaEUMxIgErWUmsINyTAFIRQ/CMBKlG8rqHICAhMJMAEhFBMSIBS1T6EUkzaOJ9W1WYFv/yhok9qJXwFgm8i51ECXIPgm6jTKwG8V4wV5p0+EoDzgNiQP65VvTn9aqiMAn/8UG90AQrXPRNys8i5CwHEhrxxoZe7jN+QGYHgmqXKu0sCoDI0NOTakDumGONf+gdJtyQLlV8UjFhxmCQBKBnLTRr7TJMKvK4IwMn4DATbJObXxF0RXIBUcoE9pmnljVMr5/Ij9QMQbJBaXzp1XxDPiGR1XJ7xuuLeWRuzhiAJuQxk42vXVmsF4BXbVxCKknnuTObWRB4+sjbIz7nJuQKme0NpGMmsyJxM61EYCcBrg2OQfGACBf/Y9JAf493R7GVHIGTxJc/hPrm2p+Mvpj1EJyCkccoxMib38wGcWIYgxBkWOeRNDvGxg99DfBRcnv0Qms1pmeMNbR3k9hqaV/Igmhnm9fw4No8yfAvNEUFNNcMfZajgukNUE1MO88yBi+NsKS+QEJs2GshyvlX2OFsd7eiTTSmFSZflh7U40FlnA0YDef0p3xtxglMBFDUUguxmVHRunwcvAihqIAT1eAr62FaSzcKrAAouk0/5oSrFwslizlxaTRpBBFBoJZOfg//isRTsC/DY25MIKoCOJgYVNKVCsrbLadIMhoL+G9tlyKDrVEaAOFzcuseNxKG8scXvO7Ba6YsS54zblBsFnS4VTKoS8Dj/AW+HgbZUtKfWAAAAAElFTkSuQmCC) 2x, url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJaSURBVHgB3ZohVwJBEMf/R8GGSU3SNGkTE5Foo+m3sGn2m2gjknw2GjRsNEhggoYJZ47Ze3twHOxxHDv+3pu3j2N9b/47s7frDAFyYLFYlGm4IjsnO5XxhKxsTZuJjcl+yIZBEMywJwEyIk7XyKpkl8jGhKyHPcQ4C7AcZysjP/pkHVchTgLI+Tryd3wVFtHZdfJOAsjxCg1NLHO7CDgK77tEY6sAcv6WhgYOu+pJzMnaJGKQNilVgKRMHcclNaU2CvDEecNGEaWkh+Q8v9N9cZ6pk083SV+sCZAN+wD/aIhvMZIi8ITiN+wu8MneXH0YEyB5X4G/nIuPEZEACU+ueU8b740N+XInt4EQOwI+bdo0OJVq5kMoQFb/FnqIomAiUIUuoigYATXoI7zClyR9zqCPKqcRR0Bb+thcs4CirsiH4Ey7gAoL8Pnk3caFdgHlgHbyi8tfHOBqEIP8eXWZX4JyOALPOND12UTLdVVd4AjMoZcZC5hAL6GAveuTR2SsPQITFjCAXkYlelPwJh5CH2MuPZpzYAR9cFk+Osj4wy90ES56KEDSqAs99E3l2r5KaIpCVCeNFXc9K+huIlbojV3m5Aufz4XpapU66Tbagp+pxPv0Y/XhmgDZHJ/wj3ZSyynx/wGa+A1ro3hAZ1Or6f+2mAzSreGGxzGafF/kfD9tkkub9RHLnxEUAb8JW7m0WW0KSCle9V7ujW4bqxGSZzk+dJysS847vcL3+bEHC+EK8T2yF4f5QsZXeWfHDZkF2FhiuEx5gWWxzC6Y8Qqzg5zbUxkHWZ22+QPH4sPQM8UbzQAAAABJRU5ErkJggg==) 1x) 24 24, auto;
+}
+
+::ng-deep .ngxImageZoomContainer{
+  width: 100% !important;
+  height: 371px !important;
+
+}
+
+::ng-deep .ngxImageZoomContainer > img{
+  width: 100% !important;
+    object-fit: contain;
+    height: 100%;
+  /* height: 100% !important; */
+}
+
+
+.img-format{
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.img-cover{
+  display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 74px;
+    height: 74px;
+    margin: 0px 4px 8px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.covers{
+  height: 64px;
+    width: 64px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 50%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.covers img{
+  width: 100%;
+    height: 100%;
+    display: inherit;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.selected{
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.img-cover:hover{
+  border: 2px solid rgb(130, 130, 130);
+}
+
+
+.product-details{
+    padding: 0px 96px 0px 72px;
+}
+
+.product-details h1{
+  font-size: 35px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+.product-price{
+  font-size: 25px;
+    font-family: cursive;
+    font-weight: bolder;
+    margin-bottom: 40px;
+}
+
+.product-color{
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: bolder;
+  font-family: cursive;
+}
+
+.color-product{
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+.color-pallete{
+  cursor: pointer;
+  display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 58px;
+    height: 58px;
+    margin-right: 12px;
+    border-radius: 50%;
+}
+
+.color-theme{
+  width: 48px;
+    height: 48px;
+    border: 1px solid rgb(189, 189, 189);
+    border-radius: 50%;
+}
+
+.purple{
+  background-color: #274643;
+}
+
+.red{
+  background-color: red;
+}
+
+.white{
+  background-color: white;
+}
+
+.color-pallete:hover{
+  border: 2px solid rgb(130, 130, 130);
+}
+
+.color-pallete-product{
+  margin-bottom: 25px;;
+}
+
+.qty-label{
+  font-size: 20px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+.qty-form-field ::ng-deep .mat-input-element{
+  padding-bottom: 2px;
+  padding-left: 20px;
+}
+
+.product-deliver{
+  display: flex;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+.deliver_button{
+  padding: 15px 0px;
+  background: #78BDFB;
+  border-radius: 40px;
+  font-size: 20px;
+  font-family: cursive;
+  margin-top: 22px;
+}
+
+.product-delivery{
+  padding: 30px;
+  border-radius: 4px;
+  border: 2px solid rgb(162, 212, 197);
+  margin-bottom: 40px;
+}
+
+.product-delivery p{
+  font-size: 25px;
+  font-family: cursive;
+
+}
+
+.checked_icon{
+  color: #78BDFB;
+  position: relative;
+  top: 4px;
+  margin-right: 10px;
+}
+
+.divder{
+  border-bottom: 1px solid rgb(189, 189, 189);
+  margin: 0;
+  width: 80%;
+}
+
+.product-info{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.info p{
+  font-size: 17px;
+  font-family: cursive;
+  line-height: 25px;
+}
+
+.info{
+  margin-bottom: 20px;
+}
+
+.info_head{
+  font-family: cursive;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.info-accordian{
+  margin-bottom: 20px;
+}
+
+.product-details-info{
+  background-color: #edf6ff;
+  text-align: center;
+  padding: 112px 0px 144px;
+}
+
+
+.product-details-heading h1{
+  font-size: 40px;
+  margin-bottom: 45px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+.product-details-info-text{
+  margin: auto;
+  font-size: 19px;
+  font-family: cursive;
+  line-height: 26px;
+  padding: 0px 64px 64px;
+}
+
+.dimension-heading{
+  font-size: 20px;
+  font-family: cursive;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dimension-body{
+  font-family: cursive;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+
+.details-dimension{
+  margin: auto;
+}
+
+.border-dotted{
+  -webkit-box-flex: 1;
+    flex-grow: 1;
+    border-bottom: 2px dotted rgb(189, 189, 189);
+    margin: 15px 8px;
+}
+
+
+::ng-deep .custom-modalbox{
+  position: fixed !important;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    max-width: 100% !important;
+    background-color: rgb(255, 255, 255);
+}
+
+.delivery_button{
+  border-radius: 30px;
+  border: 2px solid #78BDFB;
+  font-family: cursive;
+    font-size: 18px;
+}
+
+.delivery_button:hover{
+  background: #78BDFB;
+    color: white;
+}

@@ -1,0 +1,18 @@
+<div class="delivery-section">
+  <div class="delivery-header">
+    <button (click)="closeDialog()" mat-icon-button aria-label="Close Dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="delivery-body">
+      <h1>The first step is to determine whether we offer delivery to your area</h1>
+      <div class="delivery-form col-md-4">
+        <mat-form-field class="col-md-12" appearance="outline">
+          <mat-label>Enter Post Code</mat-label>
+          <input matInput placeholder="Post Code">
+        </mat-form-field>
+      </div>
+      <button disabled mat-raised-button class="check_deliver_button col-md-4">Check Delivery</button>
+  </div>
+</div>
+

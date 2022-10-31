@@ -1,0 +1,63 @@
+.checkout-billing-header{
+  position: relative;
+}
+
+.cart-button{
+  text-align: right;
+}
+
+.back-button{
+  padding-right: 30px;
+  cursor: pointer;
+  font-size: 17px;
+  font-family: cursive;
+  text-decoration: underline;
+  line-height: 35px;
+  color: #848181;
+}
+
+.back-button:hover{
+  text-decoration: none;
+}
+
+.checkout-billing-body{
+  margin: 80px auto;
+  padding-bottom: 60px;
+}
+
+.billing-heading{
+  font-size: 35px;
+  font-family: cursive;
+  font-weight: bolder;
+}
+
+.billing-apartment{
+  margin-right: 20px;
+}
+
+.billing-form-info-section{
+  padding: 0px 0px 50px;
+  color: rgb(0, 0, 0);
+
+}
+
+.delivery-form-info{
+    margin-top: 5px;
+    -webkit-box-align: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.delivery-form-info p {
+  margin: 0 0 0 15px;
+}
+
+.billing-button{
+  font-family: cursive;
+  font-size: 20px;
+  padding: 8px 0px;
+  transition: all 150ms ease 0s;
+  background: #78BDFB;
+  border-radius: 30px;
+}

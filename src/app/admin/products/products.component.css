@@ -1,0 +1,153 @@
+.product-dashboard-cards{
+  padding: 35px;
+  flex-wrap: wrap;
+}
+
+.card {
+  padding: 10px;
+}
+
+.all-product-card{
+  background-color: #4099ff;
+  color: white;
+}
+
+.all-icon{
+ color: #4099ff !important;
+}
+
+.available-product-card{
+  background-color: #2ed8b6;
+  color: white;
+}
+
+.available-icon{
+  color: #2ed8b6 !important;
+}
+
+.sold-product-card{
+  background-color: #ffb64d;
+  color: white;
+}
+
+.sold-icon{
+  color: #ffb64d !important;
+}
+
+.expensive-product-card{
+  background-color: #ff5370;
+  color: white;
+}
+
+.expensive-icon{
+  color: #ff5370 !important;
+}
+
+.cheapest-product-card{
+  background-color: #3498DB;
+  color: white;
+}
+
+.cheap-icon{
+  color: #3498DB !important;
+}
+
+.card-icon {
+  background-color: #fff;
+  width: 45px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 11px 0;
+  font-size: 25px;
+  transition: all .3s ease-in-out;
+  box-shadow: 0 8px 15px rgb(62 57 107 / 20%);
+}
+
+.card-subtitle {
+  color: white !important;
+  font-size: 16px;
+}
+
+.card:hover .card-icon {
+  width: 40px;
+  font-size: 20px;
+  height: 20px;
+  box-shadow: 0 0 0;
+}
+
+.products {
+  padding: 15px 22px 0 22px;
+}
+
+.products .add_products {
+  background: #78BDFB !important;
+  color: #fff;
+}
+
+.products button {
+  float: right;
+}
+
+.table_responsive {
+  width: 100%;
+  margin-top: -30px;
+}
+
+.products-list{
+  padding: 0 30px 30px 30px;
+}
+
+.card-heading:after {
+  content: "";
+  background-color: #d2d2d2;
+  width: 60px;
+  height: 1px;
+  position: absolute;
+  top: 50px;
+  left: 20px;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.no-top{
+  top: 0 !important;
+}
+
+.card-header-right {
+  right: 25px;
+  top: 0px;
+  display: inline-block;
+  position: absolute;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+.card-option {
+  width: 30px;
+  height: 20px;
+  overflow: hidden;
+  transition: .3s ease-in-out;
+}
+
+.w-auto{
+  width: 75px !important;
+}
+
+.card-option li {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.card-body {
+  padding: 0.25rem 0 0.25rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.table_header {
+  font-size: 18px;
+  color: white;
+}
