@@ -1,51 +1,114 @@
 <div class="col-md-10">
-<div class="border-line"></div>
-<div class="no-shadow">
-  <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h1 class="no-margin side_header">
-            Item Type
-          </h1>
-
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
   <div class="border-line"></div>
-  <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h1 class="no-margin side_header">
-           Brand
-          </h1>
+  <div class="no-shadow">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h1 class="no-margin side_header">
+              Item Type
+            </h1>
 
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <p>I'm visible because I am open</p> -->
+        <ul class="item-type">
+          <li>
+            <mat-checkbox name="item_type" value="Mattress" (change)="onChangeTypes($event,'Mattress')">Mattress
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'Sofas')">Sofas</mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'Slepper')">Sleeper Sofa
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'Coffee')">Coffee Table
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'Bed')">Bed</mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'Dresser')">Dresser
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Sofas" (change)="onChangeTypes($event,'NightStand')">NightStand
+            </mat-checkbox>
+          </li>
+        </ul>
+
+
+
+      </mat-expansion-panel>
+    </mat-accordion>
+    <div class="border-line"></div>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h1 class="no-margin side_header">
+              Brand
+            </h1>
+
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <p>I'm visible because I am open</p> -->
+        <ul class="item-type">
+          <li>
+            <mat-checkbox name="item_type" value="Herman Miller" (change)="onChangeTypes($event,'Herman')">Herman Miller
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Pottery Barn" (change)="onChangeTypes($event,'Pottery')">Pottery Barn
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="West Elm" (change)="onChangeTypes($event,'West')">West Elm
+            </mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Leesa" (change)="onChangeTypes($event,'Leesa')">Leesa</mat-checkbox>
+          </li>
+          <li>
+            <mat-checkbox name="items_type" value="Floyd" (change)="onChangeTypes($event,'Floyd')">Floyd</mat-checkbox>
+          </li>
+
+        </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <div class="border-line"></div>
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <h1 class="no-margin side_header">
+              Shop By Category
+            </h1>
+
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <!-- <p>I'm visible because I am open</p> -->
+        <ul class="item-type">
+          <li>
+            Living Room
+          </li>
+          <li>
+            Bed Room
+          </li>
+          <li>
+            Dining
+          </li>
+          <li>
+            Home Office
+          </li>
+        </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
   <div class="border-line"></div>
-  <mat-accordion>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <h1 class="no-margin side_header">
-            Shop By Category
-          </h1>
-
-        </mat-panel-title>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
-
-<div class="border-line"></div>
 </div>

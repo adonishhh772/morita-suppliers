@@ -3,100 +3,99 @@
   <h1>Shop All Products</h1>
 </div>
 <div class="content">
-<div class="content-right col-md-12 row">
-  <div class="col-md-10">
-    <mat-chip-list aria-label="Dog selection">
-      <mat-chip class="chip-filters">
-         Dog one
-        <button matChipRemove>
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip>
-      <mat-chip class="chip-filters">
-        Dog two
-        <button matChipRemove>
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip>
-      <mat-chip class="chip-filters">
-        Dog three
-        <button matChipRemove>
-          <mat-icon>cancel</mat-icon>
-        </button>
-      </mat-chip>
-      <p class="clear_filter_btn">CLEAR ALL</p>
-    </mat-chip-list>
+  <div class="content-right col-md-12 row">
+    <div class="col-md-10">
+      <mat-chip-list aria-label="Dog selection">
+        <mat-chip class="chip-filters">
+          {{message}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <mat-chip class="chip-filters">
+          Dog two
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <mat-chip class="chip-filters">
+          Dog three
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <p class="clear_filter_btn">CLEAR ALL</p>
+      </mat-chip-list>
 
-  </div>
-  <mat-form-field class="col-md-2L form-select" appearance="fill">
-    <mat-select [(value)]="selected">
-      <mat-option value="Recommended">Recommended</mat-option>
-      <mat-option value="Price: High to Low">Price: High to Low</mat-option>
-      <mat-option value="Price: Low to High">Price: Low to High</mat-option>
-      <mat-option value="A to Z">A to Z</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
-
-<div class="col-md-12 row">
-  <div class="col-md-3L">
-    <app-sidebar></app-sidebar>
+    </div>
+    <mat-form-field class="col-md-2L form-select" appearance="fill">
+      <mat-select [(value)]="selected">
+        <mat-option value="Recommended">Recommended</mat-option>
+        <mat-option value="Price: High to Low">Price: High to Low</mat-option>
+        <mat-option value="Price: Low to High">Price: Low to High</mat-option>
+        <mat-option value="A to Z">A to Z</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
-  <div class="item-list col-md-9">
-    <div class="item-rows">
-     <div class="items" (click)="goToDetails('product-details','sofas')">
-       <div class="items-img">
-         <img src="./assets/sofas-nobg.png">
-       </div>
-       <div class="item-desc">
-         <h2>Mattress from heaven</h2>
-         <p>Buy For <span class="item-price">£70</span></p>
-       </div>
-     </div>
-     <div class="items" (click)="goToDetails('product-details','sofas')">
-      <div class="items-img">
-        <img src="./assets/sofas-nobg.png">
-      </div>
-      <div class="item-desc">
-        <h2>Mattress from heaven</h2>
-        <p>Buy For <span class="item-price">£70</span></p>
-      </div>
+  <div class="col-md-12 row">
+    <div class="col-md-3L">
+      <app-sidebar (event)="receiveMessage($event)"></app-sidebar>
     </div>
-    <div class="items" (click)="goToDetails('product-details','sofas')">
-      <div class="items-img">
-        <img src="./assets/sofas-nobg.png">
+
+    <div class="item-list col-md-9">
+      <div class="item-rows">
+        <div class="items" (click)="goToDetails('product-details','sofas')">
+          <div class="items-img">
+            <img src="./assets/sofas-nobg.png">
+          </div>
+          <div class="item-desc">
+            <h2>Mattress from heaven</h2>
+            <p>Buy For <span class="item-price">£70</span></p>
+          </div>
+        </div>
+        <div class="items" (click)="goToDetails('product-details','sofas')">
+          <div class="items-img">
+            <img src="./assets/sofas-nobg.png">
+          </div>
+          <div class="item-desc">
+            <h2>Mattress from heaven</h2>
+            <p>Buy For <span class="item-price">£70</span></p>
+          </div>
+        </div>
+        <div class="items" (click)="goToDetails('product-details','sofas')">
+          <div class="items-img">
+            <img src="./assets/sofas-nobg.png">
+          </div>
+          <div class="item-desc">
+            <h2>Mattress from heaven</h2>
+            <p>Buy For <span class="item-price">£70</span></p>
+          </div>
+        </div>
+        <div class="items" (click)="goToDetails('product-details','sofas')">
+          <div class="items-img">
+            <img src="./assets/sofas-nobg.png">
+          </div>
+          <div class="item-desc">
+            <h2>Mattress from heaven</h2>
+            <p>Buy For <span class="item-price">£70</span></p>
+          </div>
+        </div>
+        <div class="items" (click)="goToDetails('product-details','sofas')">
+          <div class="out-of-stock">Out of Stock</div>
+          <div class="items-img">
+            <img src="./assets/sofas-nobg.png">
+          </div>
+          <div class="item-desc">
+            <h2>Mattress from heaven</h2>
+            <p>Buy For <span class="item-price">£70</span></p>
+          </div>
+        </div>
       </div>
-      <div class="item-desc">
-        <h2>Mattress from heaven</h2>
-        <p>Buy For <span class="item-price">£70</span></p>
-      </div>
-    </div>
-    <div class="items" (click)="goToDetails('product-details','sofas')">
-      <div class="items-img">
-        <img src="./assets/sofas-nobg.png">
-      </div>
-      <div class="item-desc">
-        <h2>Mattress from heaven</h2>
-        <p>Buy For <span class="item-price">£70</span></p>
-      </div>
-    </div>
-    <div class="items" (click)="goToDetails('product-details','sofas')">
-      <div class="out-of-stock">Out of Stock</div>
-      <div class="items-img">
-        <img src="./assets/sofas-nobg.png">
-      </div>
-      <div class="item-desc">
-        <h2>Mattress from heaven</h2>
-        <p>Buy For <span class="item-price">£70</span></p>
-      </div>
-    </div>
     </div>
   </div>
-</div>
 
 </div>
 
 
 <app-footer></app-footer>
-

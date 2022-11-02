@@ -3,20 +3,20 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatBadgeModule} from '@angular/material/badge';
-import {MatExpansionModule} from '@angular/material/expansion';
+import { MatButtonModule } from '@angular/material/button';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './dialog/dialog.component';
 import { DeliveryComponent } from './delivery/delivery.component';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatMenuModule} from '@angular/material/menu';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 @NgModule({
-  declarations: [HeaderComponent,FooterComponent, SidebarComponent, DialogComponent, DeliveryComponent],
+  declarations: [HeaderComponent, FooterComponent, SidebarComponent, DialogComponent, DeliveryComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -28,8 +28,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     MatInputModule,
     MatMenuModule,
     MatDialogModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
   ],
-  exports:[HeaderComponent,FooterComponent, SidebarComponent]
+  exports: [HeaderComponent, FooterComponent, SidebarComponent]
 })
 export class ComponentsModule { }

@@ -8,13 +8,17 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   selected = 'Recommended';
+  message = "";
   constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  goToDetails(navigation: string, detail: string){
-    this.router.navigateByUrl(navigation+'?product='+detail);
+  goToDetails(navigation: string, detail: string) {
+    this.router.navigateByUrl(navigation + '?product=' + detail);
   }
 
+  receiveMessage(event: any) {
+    this.message = event;
+  }
 }

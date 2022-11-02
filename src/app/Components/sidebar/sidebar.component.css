@@ -1,29 +1,42 @@
-.no-shadow ::ng-deep  .mat-expansion-panel:not([class*=mat-elevation-z]) {
+.no-shadow ::ng-deep .mat-expansion-panel:not([class*=mat-elevation-z]) {
   box-shadow: none;
 }
 
-.no-shadow ::ng-deep .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]), .mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]), .mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
-background: transparent;
+.no-shadow ::ng-deep .mat-expansion-panel .mat-expansion-panel-header.cdk-keyboard-focused:not([aria-disabled=true]),
+.mat-expansion-panel .mat-expansion-panel-header.cdk-program-focused:not([aria-disabled=true]),
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:hover:not([aria-disabled=true]) {
+  background: transparent;
 }
 
-.col-md-4S{
+.col-md-4S {
   width: 26%;
 }
 
-.no-shadow ::ng-deep .mat-expansion-indicator::after{
+.no-shadow ::ng-deep .mat-expansion-indicator::after {
   margin-bottom: 6px;
 }
 
-.no-shadow ::ng-deep .mat-expansion-panel-header{
+.no-shadow ::ng-deep .mat-expansion-panel-header {
   padding: 0px 2px !important;
 }
 
-.border-line{
+.border-line {
   height: 1px;
   margin: 5px 0px 24px;
   background-color: rgb(189, 189, 189);
 }
 
-.side_header{
+.side_header {
   font-family: cursive;
+}
+
+.item-type {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 20px;
+ 
+}
+
+.item-type>li:not(:last-child) {
+  margin-bottom: 2em;
 }
