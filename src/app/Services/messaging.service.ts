@@ -24,17 +24,36 @@ export class MessagingService {
       );
   }
 
-  updateMessage(data: any): Observable<any> {
-    const tokenPayload:any = decode(this.token);
-    return this.http.put<any>(`${this.apiUrl + tokenPayload.id}`, data, {
+  sendMessage(data: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, data, {
         headers:
             {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*','authorization': this.token}
+
     })
         .pipe(
             map(result => {
                 return result;
             })
         );
+}
+
+  updateMessage(data: any): Observable<any> {
+    var tokenPayload: any = {};
+    if(this.token){
+      tokenPayload = decode(this.token);
+    }
+       return this.http.put<any>(`${this.apiUrl + tokenPayload.id}`, data, {
+          headers:
+              {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*','authorization': this.token}
+      })
+          .pipe(
+              map(result => {
+                  return result;
+              })
+          );
+
+
+
   }
 
   deleteMessage(id: string): Observable<any> {

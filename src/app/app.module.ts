@@ -26,9 +26,9 @@ import {HashLocationStrategy, LocationStrategy} from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatStepperModule} from '@angular/material/stepper';
-import { ProfileComponent } from './profile/profile.component';
 
 export function tokenGetter() {
+
   return localStorage.getItem('access_token');
 }
 
@@ -67,10 +67,10 @@ export function tokenGetter() {
           tokenGetter: tokenGetter,
           // allowedDomains: ['api.myunistudy.com'],
           // disallowedRoutes: ['https://api.myunistudy.com/api/v1/']
-          // allowedDomains: ['localhost:3000'],
-          // disallowedRoutes: ['http://localhost:3000/api/v1/']
+          allowedDomains: ['localhost:8080'],
+          disallowedRoutes: ['http://localhost:8080/api/v1/']
       }
-  })
+  }),
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

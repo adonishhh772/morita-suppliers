@@ -18,16 +18,18 @@ export class FooterComponent implements OnInit {
   allMessage : any[] = [];
   hasMessage = false;
   token = localStorage.getItem('access_token')!;
-  tokenPayload:any = decode(this.token);
+  tokenPayload:any ={};
   messageForm = new FormGroup({
     message: new FormControl('', [Validators.required]),
     });
   constructor(private router: Router,
     private _snackBar: MatSnackBar,
-    private messageSevice: MessagingService) { }
+    private messageSevice: MessagingService
+    ) { }
 
   ngOnInit(): void {
     if(this.token){
+      this.tokenPayload =  decode(this.token);
       if(this.tokenPayload.role == 'users'){
         this.isUser = true;
       }
@@ -62,6 +64,38 @@ export class FooterComponent implements OnInit {
 
   sendMessage():any{
     this.isSubmitted = true;
+    if (!this.messageForm.valid) {
+      return false;
+  } else {
+      // console.log(this.loginForm.value.email);
+      let message = this.messageForm.value.message ? this.messageForm.value.message.toString() : '';
+       this.messageSevice.sendMessage(message)
+          .pipe(finalize(() => (this.isSubmitted = false)))
+          .subscribe(
+              (data) => {
+                this.getMessages(this.tokenPayload.id);
+                this._snackBar.open("Message send successfully", '', {
+                  duration: 2000,
+              });
+              },
+              (error) => {
+
+                  if (error !== undefined) {
+                    if(error.error.msg == undefined){
+                      this._snackBar.open(error.statusText, '', {
+                        duration: 2000,
+                    });
+                    }else{
+                      this._snackBar.open(error.error.msg, '', {
+                        duration: 2000,
+                    });
+                    }
+
+                  }
+              }
+          );
+      return true;
+  }
   }
 
 
