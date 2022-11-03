@@ -72,8 +72,10 @@
 
 
 .item-rows {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+
 }
 
 .items:hover {
@@ -90,7 +92,7 @@
   transition: all 0.25s ease-in-out 0s;
   padding: 40px 32px 16px;
   background-color: rgb(251, 248, 245);
-  width: calc(26.3333% - 4px);
+  /* width: calc(26.3333% - 4px); */
   cursor: pointer;
 }
 
@@ -147,4 +149,11 @@
   justify-content: center;
   font-family: cursive;
   font-size: 15px;
+}
+
+@media only screen and (max-width:1200px) {
+  .item-rows {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
 }
