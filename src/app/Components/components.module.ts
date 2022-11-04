@@ -15,6 +15,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent, DialogComponent, DeliveryComponent],
   imports: [
@@ -29,7 +32,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatMenuModule,
     MatDialogModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
+    MatSidenavModule
   ],
   exports: [HeaderComponent, FooterComponent, SidebarComponent]
 })

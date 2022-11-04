@@ -1,16 +1,22 @@
 <div class="header" [ngClass]="hasShadow" #header>
   <ul class="header-navigation navigation-left">
-    <div class="col-md-2">
+    <div>
+      <button mat-icon-button class=" showHideButton">
+        <mat-icon (click)="toggleMenu('menu')">menu</mat-icon>
+      </button>
+    </div>
+    <div class="col-md-2 hideShowMenuItems">
       <li class="nav-list">
+
         <p class="nav-text">Matress</p>
       </li>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 hideShowMenuItems">
       <li class="nav-list">
         <p class="nav-text sofas">Sofas</p>
       </li>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2 hideShowMenuItems">
       <li class="nav-list">
         <p class="nav-text why-us">Why us?</p>
       </li>
@@ -18,26 +24,30 @@
     <div class="col-md-5">
       <p>THe Logo goes here for morita suppliers</p>
     </div>
-    <div class="delivery-btn">
+    <div class="delivery-btn hideShowMenuItems">
       <button (click)="openDelivery()" mat-raised-button class="delivery_button_header">
         <!-- <mat-icon aria-hidden="false" aria-label="Location">location_searching</mat-icon> -->
-        Check if We Deliver</button>
+        Check if We Deliver
+      </button>
     </div>
     <div class="col-md-2">
       <li class="nav-list">
+        <mat-icon class="nav-text search" (click)="goToNav('search')" *ngIf="show">search</mat-icon>
         <p class="nav-text search" (click)="goToNav('search')">Search</p>
       </li>
     </div>
     <div [classList]="accountClass">
-        <li class="nav-list">
-          <p *ngIf="!isLoggedIn" class="nav-text account">Account</p>
-          <p *ngIf="isLoggedIn && isAdmin" (click)="goToNav('admin')" class="nav-text">Dashboard</p>
-          <mat-icon *ngIf="isLoggedIn && !isAdmin" aria-hidden="false" class="account-info account" aria-label="Account">person_pin</mat-icon>
-        </li>
+      <li class="nav-list hideShowMenuItems">
+        <p *ngIf="!isLoggedIn" class="nav-text account">Account</p>
+        <p *ngIf="isLoggedIn && isAdmin" (click)="goToNav('admin')" class="nav-text">Dashboard</p>
+        <mat-icon *ngIf="isLoggedIn && !isAdmin" aria-hidden="false" class="account-info account" aria-label="Account">
+          person_pin</mat-icon>
+      </li>
     </div>
     <div class="col-md-2">
       <li class="nav-list">
-        <mat-icon matBadge="15" matBadgeColor="warn" (click)="goToNav('cart')" aria-hidden="false" class="checkout-cart" aria-label="Shopping Cart">shopping_cart</mat-icon>
+        <mat-icon matBadge="15" matBadgeColor="warn" (click)="goToNav('cart')" aria-hidden="false" class="checkout-cart"
+          aria-label="Shopping Cart">shopping_cart</mat-icon>
       </li>
     </div>
   </ul>
@@ -45,24 +55,25 @@
   <div [ngClass]="headerClassWhyUs" class="subheading">
     <div class="col-md-2"></div>
     <div class="subheader_first_nav_item col-md-3">
-        <div class="subheader how-it-works col-md-5">
-          <p class="subheader_text how-it-works-text" (click)="goToNav('how-it-works')">How it works</p>
-        </div>
-        <div class="subheader about-us col-md-5">
-          <p class="subheader_text about-us-text" (click)="goToNav('about-us')">About Us</p>
-        </div>
-        <div class="subheader faqs col-md-5">
-          <p class="subheader_text faqs-text" (click)="goToNav('faqs')">FAQs</p>
-        </div>
-        <div class="subheader reviews col-md-5">
-          <p class="subheader_text reviews-text" (click)="goToNav('reviews')">Reviews</p>
-        </div>
+      <div class="subheader how-it-works col-md-5">
+        <p class="subheader_text how-it-works-text" (click)="goToNav('how-it-works')">How it works</p>
+      </div>
+      <div class="subheader about-us col-md-5">
+        <p class="subheader_text about-us-text" (click)="goToNav('about-us')">About Us</p>
+      </div>
+      <div class="subheader faqs col-md-5">
+        <p class="subheader_text faqs-text" (click)="goToNav('faqs')">FAQs</p>
+      </div>
+      <div class="subheader reviews col-md-5">
+        <p class="subheader_text reviews-text" (click)="goToNav('reviews')">Reviews</p>
+      </div>
     </div>
 
     <div class="subheader_second_nav_item" *ngFor="let item of whyUs">
-      <img class="img_info" [src]="item.image"/>
-        <p class="subheader_text {{item.navigate}}-text" (click)="goToNav(item.navigate)">{{item.title}}<mat-icon aria-hidden="false" class="arrow_icon" aria-label="Arrow Right">arrow_right_alt</mat-icon>
-        </p>
+      <img class="img_info" [src]="item.image" />
+      <p class="subheader_text {{item.navigate}}-text" (click)="goToNav(item.navigate)">{{item.title}}<mat-icon
+          aria-hidden="false" class="arrow_icon" aria-label="Arrow Right">arrow_right_alt</mat-icon>
+      </p>
     </div>
 
   </div>
@@ -87,6 +98,36 @@
     </div>
 
   </div>
+  <div class="outer-wrapper">
+    <div class="inner-wrapper">
+      <button mat-icon-button>
+        <mat-icon (click)="onCancelMenu('cancel')" [ngStyle]="{'color':'rgb(233 103 43','margin-left':'1.5em'}">cancel
+        </mat-icon>
+      </button>
 
+      <ul>
+        <li>
+          Mattress
+        </li>
+        <li>
+          Sofas
+        </li>
+        <li (click)="goToNav('how-it-works')">
+          How it works?
+        </li>
+        <li (click)="goToNav('about-us')">
+          About us
+        </li>
+        <li (click)="goToNav('faqs')">
+          FAQs
+        </li>
+        <li (click)="goToNav('reviews')">
+          Reviews
+        </li>
+        <li>
+          Account
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
-
