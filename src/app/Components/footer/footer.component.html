@@ -71,7 +71,7 @@
 </button>
 
 
-<div class="chat-box chat" *ngIf="opened && !hasMessage">
+<div class="chat-box chat" *ngIf="opened">
 <div class="chat-box-header-section" *ngIf="!hasMessage && (!isSubmitted || !messageForm.valid)">
  <div class="chat-heading-logo">
   <img src="./assets/avatar.png">
@@ -88,7 +88,7 @@
 </button>
 </div>
 
-<div class="chat-box-section" *ngIf="hasMessage || (isSubmitted && messageForm.valid)">
+<div class="chat-box-section" *ngIf="hasMessage">
   <div class="chat-heading">
     <img src="./assets/avatar-nobg.png">
     <div class="chat-head-title">
@@ -96,7 +96,16 @@
     </div>
   </div>
   <div class="chat-body">
-
+    <div class="row m-b-20 send-chat" *ngFor="let chat of allMessage">
+      <div class="col p-r-10">
+        <div class="msg">
+          <p class="m-b-0">{{chat.message}}</p>
+        </div>
+        <p class="text-muted m-b-0 text-left">
+          <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
+          <span class="time-text">{{chat.sent_date | date: 'shortTime'}}</span></p>
+      </div>
+    </div>
   </div>
   <button class="close-chat" (click)="opened = !opened" mat-icon-button aria-label="Close Chat">
     <mat-icon>close</mat-icon>
@@ -106,7 +115,7 @@
 
 <footer class="chat-footer-section">
   <div class="right-icon-control">
-    <form [formGroup]="messageForm" class="col-md-12" (ngSubmit)="sendMessage()">
+    <form [formGroup]="messageForm" class="col-md-12">
     <div class="input-group input-group-button row">
       <mat-form-field class="col-md-9 m-r-15" appearance="outline">
         <mat-label>Send Message</mat-label>

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NavigationExtras, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -35,6 +35,7 @@ export class DashboardComponent implements OnInit{
   allCustomers: any[] = [];
   isLoadingCustomers = false;
   hasCustomers = false;
+  @Input() chatData: any[] = [];
   imgUrl = `${environment.imgUrl}`;
   token = localStorage.getItem('access_token')!;
   private readonly apiUrl = `${environment.apiUrl}`;
@@ -49,7 +50,10 @@ export class DashboardComponent implements OnInit{
     this.getAllActivity(false);
     this.getAllReviews(false);
     this.getNewCustomer(false);
+
   }
+
+
 
   getAllActivity(isLoader:boolean):void{
     this.http.get<any>(this.apiUrl + 'activity/',{headers:{'authorization': this.token}}).subscribe({

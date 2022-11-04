@@ -29,6 +29,7 @@ export class MainComponent implements OnInit {
   openLiApplication = false;
     openLiBranch = false;
     hasShrunk = false;
+    hasMessage = false;
     menuTile = '';
     showResult = false;
     started = false;
@@ -37,10 +38,12 @@ export class MainComponent implements OnInit {
     reminderCount = 0;
     reminder: any[] = [];
     orderCount = 0;
+    allMessages: any[] = [];
     tasksCount = 0;
     contacts: any[] = [];
     searchContacts: any[] = [];
     itemData: any[] = [];
+    allChatData: any[] = [];
     active = '';
     errorMessage = '';
     branchCount = 0;
@@ -155,9 +158,9 @@ export class MainComponent implements OnInit {
                     this.menu[1].icon = 'leaderboard';
                     break;
                     case '/admin/customers/view':
-                        this.menu[0].text = 'Agents';
-                        this.menu[0].icon = 'support_agent';
-                        this.menu[1].text = 'Agent';
+                        this.menu[0].text = 'Customers';
+                        this.menu[0].icon = 'people';
+                        this.menu[1].text = 'Customer';
                         this.menu[1].icon = 'remove_red_eye';
                         break;
            }
@@ -179,7 +182,30 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.getContacts();
+    this.getAllMessage();
     this.myStyles = {height: window.innerHeight + 'px'};
+  }
+
+  getAllMessage(){
+    this.http.get<any>(this.apiUrl + 'message/',{headers:{'authorization': this.token}}).subscribe({
+      next: data => {
+        this.allMessages = data.data;
+        this.allMessages.sort((a, b) => new Date(b.sent_date).getTime() - new Date(a.sent_date).getTime());
+        if (this.allMessages.length > 0) {
+          this.tasksCount = this.allMessages.length;
+          this.hasMessage = true;
+      }
+      },
+      error: error => {
+          this.errorMessage = error.message;
+      }
+  });
+  }
+
+  goToMessage(user_id:String): any{
+    let chat = this.elRef.nativeElement.querySelectorAll('.dashboard-chart')[0] as HTMLElement;
+    chat.scrollIntoView();
+    this.router.navigate(['/dashboard']);
   }
 
   changeRoute(e: any, bTitle: string, bIcon: string, title: string, link: string, icon: string, id: any): any {

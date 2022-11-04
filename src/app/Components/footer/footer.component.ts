@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import decode from 'jwt-decode';
 import { finalize } from 'rxjs';
 import { MessagingService } from 'src/app/Services/messaging.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-footer',
@@ -17,6 +18,7 @@ export class FooterComponent implements OnInit {
   isSubmitted = false;
   allMessage : any[] = [];
   hasMessage = false;
+  userName = '';
   token = localStorage.getItem('access_token')!;
   tokenPayload:any ={};
   messageForm = new FormGroup({
@@ -32,6 +34,7 @@ export class FooterComponent implements OnInit {
       this.tokenPayload =  decode(this.token);
       if(this.tokenPayload.role == 'users'){
         this.isUser = true;
+        this.userName = this.tokenPayload.name? this.tokenPayload.name : this.tokenPayload.email;
       }
     }
   }
@@ -48,6 +51,8 @@ export class FooterComponent implements OnInit {
         if(this.allMessage != null){
           if(this.allMessage.length > 0){
             this.hasMessage = true;
+
+            console.log(this.hasMessage);
           }
         }
 
@@ -69,7 +74,10 @@ export class FooterComponent implements OnInit {
   } else {
       // console.log(this.loginForm.value.email);
       let message = this.messageForm.value.message ? this.messageForm.value.message.toString() : '';
-       this.messageSevice.sendMessage(message)
+      let user_id = this.tokenPayload.id;
+      let status = 'sent';
+      const msg = {'message':message,'name':this.userName,'user_id':user_id,'status':status};
+       this.messageSevice.sendMessage(msg)
           .pipe(finalize(() => (this.isSubmitted = false)))
           .subscribe(
               (data) => {
@@ -77,6 +85,8 @@ export class FooterComponent implements OnInit {
                 this._snackBar.open("Message send successfully", '', {
                   duration: 2000,
               });
+
+              this.messageForm.reset();
               },
               (error) => {
 

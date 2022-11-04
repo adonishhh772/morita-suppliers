@@ -28,6 +28,9 @@
   border-bottom: 1px solid;
 }
 
+.no-message{
+  padding: 20px;
+}
 
 .menu-container{
   display: flex !important;
