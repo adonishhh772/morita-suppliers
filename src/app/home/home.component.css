@@ -157,3 +157,25 @@
   }
 
 }
+
+@media only screen and (max-width:768px) {
+
+  .hideShowSidebar {
+    display: none;
+  }
+
+  .item-list {
+    width: 100%;
+  }
+
+  .showhideChipList {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:600px) {
+  .item-rows {
+    grid-template-columns: repeat(1, 1fr) !important;
+
+  }
+}

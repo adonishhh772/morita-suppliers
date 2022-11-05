@@ -250,11 +250,16 @@
 
 .inner-wrapper ul {
   list-style: none;
+
 }
 
 .inner-wrapper ul li {
   padding-top: 1.5em;
   padding-bottom: 1.5em;
+}
+
+.inner-wrapper button {
+  margin-left: 1.5em;
 }
 
 .showHideButton {
@@ -266,7 +271,19 @@
     display: block;
   }
 
+
   .hideShowMenuItems {
     display: none;
+
+  }
+
+  .flexSearchItem {
+    margin-left: auto;
+
+  }
+
+  .flexLogoItem {
+    margin-left: auto;
+    width: fit-content;
   }
 }

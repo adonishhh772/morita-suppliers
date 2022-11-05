@@ -1,11 +1,11 @@
 <app-header></app-header>
 <div class="header_title">
   <h1>Shop All Products</h1>
- 
+
 </div>
 <div class="content">
   <div class="content-right col-md-12 row">
-    <div class="col-md-10">
+    <div class="col-md-10 showhideChipList">
       <mat-chip-list aria-label="Dog selection">
         <mat-chip class="chip-filters">
           {{message}}
@@ -40,7 +40,7 @@
   </div>
 
   <div class="col-md-12 row">
-    <div class="col-md-3L">
+    <div class="col-md-3L hideShowSidebar">
       <app-sidebar (event)="receiveMessage($event)"></app-sidebar>
     </div>
 
