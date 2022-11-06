@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   isAdmin = false;
   accountClass: String = "col-md-2 hideShowMenuItems";
-  show = false;
+ 
   toggle: any;
   headerClassWhyUs: String = "header-subheader-collapsed";
   headerClassAccount: String = "header-subheader-collapsed";

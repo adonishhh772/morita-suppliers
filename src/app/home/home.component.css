@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
   flex-direction: column;
 }
 
@@ -151,6 +152,10 @@
   font-size: 15px;
 }
 
+.showHideRefineFurnitures {
+  display: none;
+}
+
 @media only screen and (max-width:1200px) {
   .item-rows {
     grid-template-columns: repeat(2, 1fr) !important;
@@ -168,8 +173,61 @@
     width: 100%;
   }
 
-  .showhideChipList {
+  .showhideChipFormList {
     display: none;
+  }
+
+  .refine-furniture-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .refine-furniture-wrapper .refine-furniture-btn {
+    width: 100%;
+    font-family: cursive;
+    background-color: rgb(243, 240, 236);
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+  }
+
+  .showHideRefineFurnitures {
+    display: block;
+  }
+
+  .hideInnerPanel {
+    display: none;
+  }
+
+  .showInnerPanel {
+    display: block;
+  }
+
+  .refine-inner {
+    position: absolute;
+    inset: 0;
+    z-index: 999;
+    background-color: rgb(243, 240, 236);
+    padding: 18px 32px;
+    height: 100%;
+  }
+
+  .refine-inner p {
+    font-family: cursive;
+  }
+
+  .mat-accordion {
+    background-color: rgb(243, 240, 236);
+  }
+
+  .mat-title {
+    font-size: 18px;
+    padding-top: 15px;
+    font-family: cursive;
   }
 }
 

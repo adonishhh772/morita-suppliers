@@ -1,98 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+body {
   margin: 0;
 }
 
-.wrap{
+.wrap {
   flex-wrap: wrap;
 }
 
-.row{
+.row {
   display: flex;
 }
 
-.col-md-12{
+.col-md-12 {
   width: 100%;
 }
 
-.col-md-10{
+.col-md-10 {
   width: 90%;
 }
 
-.col-md-9{
+.col-md-9 {
   width: 80%;
 }
 
-.col-md-8L{
+.col-md-8L {
   width: 75%;
 }
 
-.col-md-8{
+.col-md-8 {
   width: 70%;
 }
 
-.col-md-7{
+.col-md-7 {
   width: 60%;
 }
 
 
-.col-md-6{
+.col-md-6 {
   width: 50%;
 }
 
-.col-md-5L{
+.col-md-5L {
   width: 45%;
 }
 
-.col-md-5{
+.col-md-5 {
   width: 40%;
 }
 
-.col-md-4{
+.col-md-4 {
   width: 30%;
 }
 
-.col-md-3L{
+.col-md-3L {
   width: 25%;
 }
 
-.col-md-3{
+.col-md-3 {
   width: 20%;
 }
 
-.col-md-2{
+.col-md-2 {
   width: 10%;
 }
 
-.col-md-2S{
+.col-md-2S {
   width: 5%;
 }
 
-.col-md-2L{
+.col-md-2L {
   width: 17%;
 }
 
-.no-margin{
+.no-margin {
   margin: 0px !important;
 }
 
-.content-body-below{
+.content-body-below {
   padding: 90px 50px 15px 50px;
 
 }
 
-.content{
+.content {
   padding: 15px 50px 15px 50px;
 
 }
 
 .no-border-btn {
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
 }
 
-.col-md-4M{
+.col-md-4M {
   width: 33.33%;
 }
 
@@ -142,12 +142,12 @@ body{
   width: 7%;
 }
 
-.mb-0{
+.mb-0 {
   margin-bottom: 0 !important;
 }
 
 .pt-15 {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .p-10 {
@@ -159,7 +159,7 @@ body{
 }
 
 .padding-top10 {
-    padding-top: 10px !important;
+  padding-top: 10px !important;
 }
 
 .morita_blue_border {
@@ -177,9 +177,9 @@ body{
   border-color: rgba(0, 0, 0, 0.13);
 }
 
-.morita_button{
+.morita_button {
   background: #78BDFB !important;
-    color: white;
+  color: white;
 }
 
 .error {
@@ -208,21 +208,37 @@ body{
   float: right !important;
   margin: 5px !important;
 }
+
 .fab_icon_small {
   font-size: 13px !important;
   line-height: 9px !important;
 }
 
-.pb-7{
+.pb-7 {
   padding-bottom: 7px;
 }
 
-.mt-15{
+.mt-15 {
   margin-top: 15px;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.item-type {
+  list-style-type: none;
+  padding-left: 0;
+  font-size: 20px;
+  font-family: cursive;
+}
 
+.item-type>li:not(:last-child) {
+  margin-bottom: 2em;
+}
 
+html,
+body {
+  height: 100%;
+}
 
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

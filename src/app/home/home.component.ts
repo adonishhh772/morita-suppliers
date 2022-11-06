@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { ElementRef } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   selected = 'Recommended';
   message = "";
-  constructor(private router: Router) { }
+  panelOpenState: any;
+  refineBtn: any
+  constructor(private router: Router, private elf: ElementRef) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +22,13 @@ export class HomeComponent implements OnInit {
 
   receiveMessage(event: any) {
     this.message = event;
+  }
+  onClickRefine(event: any) {
+    this.refineBtn = this.elf.nativeElement.querySelector('.refine-inner');
+    this.refineBtn.classList.add('showInnerPanel');
+  }
+  onCancel(event: any) {
+    this.refineBtn.classList.add('hideInnerPanel');
+    this.refineBtn.classList.remove('showInnerPanel');
   }
 }

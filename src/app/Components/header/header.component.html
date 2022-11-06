@@ -21,7 +21,7 @@
         <p class="nav-text why-us">Why us?</p>
       </li>
     </div>
-    <div class="col-md-5 flexLogoItem">
+    <div class="col-md-5">
       <p>THe Logo goes here for morita suppliers</p>
     </div>
     <div class="delivery-btn hideShowMenuItems">
@@ -32,8 +32,8 @@
     </div>
     <div class="col-md-2 flexSearchItem">
       <li class="nav-list">
-        <mat-icon class="nav-text search" (click)="goToNav('search')" *ngIf="show">search</mat-icon>
-        <p class="nav-text search" (click)="goToNav('search')">Search</p>
+        <mat-icon class="nav-text search search-icon" (click)="goToNav('search')">search</mat-icon>
+        <p class="nav-text search search-text" (click)="goToNav('search')">Search</p>
       </li>
     </div>
     <div [classList]="accountClass">
@@ -44,7 +44,7 @@
           person_pin</mat-icon>
       </li>
     </div>
-    <div class="col-md-2 flexCheckoutItem">
+    <div class="col-md-2">
       <li class="nav-list">
         <mat-icon matBadge="15" matBadgeColor="warn" (click)="goToNav('cart')" aria-hidden="false" class="checkout-cart"
           aria-label="Shopping Cart">shopping_cart</mat-icon>
@@ -104,7 +104,7 @@
         <mat-icon (click)="onCancelMenu('cancel')" [ngStyle]="{'color':'rgb(233 103 43'}">cancel
         </mat-icon>
       </button>
-      <ul>
+      <ul class="navigation-list">
         <li>
           Mattress
         </li>
@@ -130,4 +130,7 @@
 
     </div>
   </div>
+
+  
+
 </div>

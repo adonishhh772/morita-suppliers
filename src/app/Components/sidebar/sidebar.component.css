@@ -30,13 +30,3 @@
   font-family: cursive;
 }
 
-.item-type {
-  list-style-type: none;
-  padding-left: 0;
-  font-size: 20px;
- 
-}
-
-.item-type>li:not(:last-child) {
-  margin-bottom: 2em;
-}

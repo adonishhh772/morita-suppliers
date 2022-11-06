@@ -3,9 +3,138 @@
   <h1>Shop All Products</h1>
 
 </div>
+
 <div class="content">
-  <div class="content-right col-md-12 row">
-    <div class="col-md-10 showhideChipList">
+  <div class="refine-furniture showHideRefineFurnitures">
+    <div class="refine-furniture-wrapper">
+      <button mat-button class="refine-furniture-btn" (click)="onClickRefine($event)">Refine Furniture
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+    <div class="refine-inner hideInnerPanel">
+      <mat-icon class="mat-cancel-btn" (click)="onCancel($event)">cancel</mat-icon>
+      <p>Refine all furnitures by:</p>
+      <mat-accordion>
+        <mat-expansion-panel (opened)=" panelOpenState=true" (closed)="panelOpenState = false" class="mat-accordion">
+          <mat-expansion-panel-header class="mat-title">
+            <mat-panel-title>
+              Catagories
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- <p>I'm visible because I am open</p> -->
+          <ul class="item-type">
+            <li>
+              <mat-checkbox name="item_type" value="Mattress">Mattress
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">Sofas</mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">Sleeper Sofa
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">Coffee Table
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">Bed</mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">Dresser
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Sofas">NightStand
+              </mat-checkbox>
+            </li>
+          </ul>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-accordion">
+          <mat-expansion-panel-header class="mat-title">
+            <mat-panel-title>
+              Item type
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- <p>I'm visible because I am open</p> -->
+
+          <ul class="item-type">
+            <li>
+              Living Room
+            </li>
+            <li>
+              Bed Room
+            </li>
+            <li>
+              Dining
+            </li>
+            <li>
+              Home Office
+            </li>
+          </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-accordion">
+          <mat-expansion-panel-header class="mat-title">
+            <mat-panel-title>
+              Brand
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <!-- <p>I'm visible because I am open</p> -->
+          <ul class="item-type">
+            <li>
+              <mat-checkbox name="item_type" value="Herman Miller">Herman Miller
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Pottery Barn">Pottery Barn
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="West Elm">West Elm
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Leesa">Leesa</mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Floyd">Floyd</mat-checkbox>
+            </li>
+
+          </ul>
+          <!-- <p>I'm visible because I am open</p> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="mat-accordion">
+          <mat-expansion-panel-header class="mat-title">
+            <mat-panel-title>
+              Sort
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <ul class="item-type">
+            <li>
+              <mat-checkbox name="item_type" value="Herman Miller">Recommended
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Pottery Barn">Price: High to Low
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="West Elm">Price: Low to High
+              </mat-checkbox>
+            </li>
+            <li>
+              <mat-checkbox name="items_type" value="Leesa">A to Z</mat-checkbox>
+            </li>
+          </ul>
+          <!-- <p>I'm visible because I am open</p> -->
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
+  <div class="content-right col-md-12 row showhideChipFormList">
+    <div class="col-md-10">
       <mat-chip-list aria-label="Dog selection">
         <mat-chip class="chip-filters">
           {{message}}
