@@ -1,126 +1,166 @@
 <div class="my-footer">
 
-  <div class="col-md-12 row">
-    <div ngClass="col-md-3">
-      <h2 class="footer-heading">
-        Furniture
+  <div class="col-md-12 row column">
+    <div ngClass="col-md-3 column-0">
+      <h2 class="footer-heading " (click)="toggleFurniture('furniture')">
+        Furniture<mat-icon class="showExpandCollapse selectFurniture1"
+          (click)="toggleExpandCollapse('furnitureExpanded')">add
+        </mat-icon>
+        <mat-icon class="showExpandCollapse hideRemoveIcon selectFurniture2"
+          (click)="toggleExpandCollapse('furnitureCollpased')">remove
+        </mat-icon>
       </h2>
-      <p class="footer-text">Packages</p>
-      <p class="footer-text">Living Room</p>
-      <p class="footer-text">Bedroom</p>
-      <p class="footer-text">Dining</p>
-      <p class="footer-text">Decor</p>
-      <p class="footer-text">Outdoor</p>
-      <p class="footer-text">All Furniture</p>
+      <div class="furniture-items hide">
+        <p class="footer-text">Packages</p>
+        <p class="footer-text">Living Room</p>
+        <p class="footer-text">Bedroom</p>
+        <p class="footer-text">Dining</p>
+        <p class="footer-text">Decor</p>
+        <p class="footer-text">Outdoor</p>
+        <p class="footer-text">All Furniture</p>
+      </div>
+
     </div>
 
-  <div ngClass="col-md-3">
-    <h2 class="footer-heading">
-      About
-    </h2>
-    <p class="footer-text" (click)="goToNav('how-it-works')">How it works</p>
-    <p class="footer-text" (click)="goToNav('about-us')">About Us</p>
-    <p class="footer-text" (click)="goToNav('reviews')">Reviews</p>
-    <p class="footer-text" (click)="goToNav('contact-us')">Contact us</p>
-  </div>
-
-  <div ngClass="col-md-3">
-    <h2 class="footer-heading">
-      Help
-    </h2>
-    <p class="footer-text" (click)="goToNav('faqs')">FAQs</p>
-    <p class="footer-text" (click)="goToNav('privacy')">Privacy Policy</p>
-    <p class="footer-text">Terms</p>
-  </div>
-  <div class="footer-other col-md-5">
-    <div class="footer-social">
-      <h2 class="footer-heading">
-        Find us on social media
+    <div ngClass="col-md-3 column-1">
+      <h2 class="footer-heading" (click)="toggleAbout('about')">
+        About<mat-icon class="showExpandCollapse selectAbout1" (click)="toggleExpandCollapse('aboutExpanded')">add
+        </mat-icon>
+        <mat-icon class="showExpandCollapse hideRemoveIcon  selectAbout2" (click)="toggleExpandCollapse('aboutCollpased')">
+          remove
+        </mat-icon>
       </h2>
-      <div class="social-media-links">
-        <a href="#">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-19k0qq6"><circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle><path fill="#000000" d="M32.589 20.01c0-.192-.004-.383-.013-.572a8.894 8.894 0 002.233-2.26 8.991 8.991 0 01-2.57.662 4.368 4.368 0 001.968-2.42 8.923 8.923 0 01-2.84 1.031 4.567 4.567 0 00-3.267-1.45 4.385 4.385 0 00-4.474 4.39c0 .35.038.69.116 1.018-3.721-.226-7.019-2.05-9.225-4.798a4.451 4.451 0 00-.605 2.253c0 1.56.79 2.947 1.99 3.765a4.476 4.476 0 01-2.027-.584v.057a4.531 4.531 0 003.59 4.434 4.485 4.485 0 01-2.02.064 4.502 4.502 0 004.18 3.136 8.965 8.965 0 01-5.557 1.905c-.361 0-.718-.023-1.068-.064a12.599 12.599 0 006.86 2.024c8.229.002 12.729-6.74 12.729-12.59z"></path></svg>
-        </a>
-        <a href="#">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-19k0qq6"><circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle><path fill="#000000" fill-rule="evenodd" clip-rule="evenodd" d="M24.134 13c-3.02 0-3.405.013-4.59.07-1.185.059-1.992.245-2.698.528a5.377 5.377 0 00-1.974 1.313 5.682 5.682 0 00-1.286 2.014c-.277.72-.466 1.55-.517 2.754l-.003.076C13.018 20.906 13 21.34 13 24.363c0 3.082.013 3.468.07 4.684.056 1.21.239 2.034.516 2.754a5.512 5.512 0 001.286 2.014 5.46 5.46 0 001.974 1.313c.706.283 1.52.47 2.698.527 1.185.058 1.564.071 4.59.071 3.02 0 3.398-.013 4.59-.07 1.184-.059 1.991-.245 2.704-.528a5.44 5.44 0 001.967-1.313 5.682 5.682 0 001.286-2.014c.271-.72.46-1.544.517-2.754l.003-.076c.048-1.151.066-1.585.066-4.608 0-3.082-.012-3.468-.07-4.684-.056-1.21-.245-2.033-.516-2.754a5.596 5.596 0 00-1.286-2.014 5.49 5.49 0 00-1.974-1.313c-.712-.283-1.519-.47-2.704-.527-1.185-.058-1.564-.071-4.583-.071zm-.992 2.042h.996c2.969 0 3.322.013 4.495.064 1.084.051 1.67.238 2.068.393.517.205.888.45 1.28.849.39.399.63.778.831 1.306.152.399.335 1.004.385 2.11.05 1.197.063 1.558.063 4.588 0 3.03-.012 3.391-.063 4.588-.05 1.107-.233 1.705-.385 2.11a3.54 3.54 0 01-.832 1.306c-.39.4-.756.644-1.28.85-.39.154-.983.34-2.067.392-1.173.052-1.526.065-4.495.065-2.97 0-3.323-.013-4.495-.065-1.085-.051-1.671-.238-2.068-.392a3.454 3.454 0 01-1.28-.85 3.54 3.54 0 01-.832-1.306c-.152-.399-.334-1.003-.385-2.11-.05-1.197-.063-1.557-.063-4.588 0-3.03.013-3.39.063-4.588.05-1.106.233-1.705.385-2.11.202-.528.441-.907.832-1.306.39-.4.763-.644 1.28-.85.39-.154.983-.34 2.068-.392 1.027-.051 1.424-.064 3.498-.064zm5.597 3.26c0-.754.599-1.365 1.336-1.365.738 0 1.337.611 1.337 1.364 0 .753-.6 1.364-1.337 1.364s-1.336-.611-1.336-1.364zm-4.61.23c-3.159 0-5.712 2.612-5.712 5.83 0 3.223 2.56 5.829 5.712 5.829 3.158 0 5.712-2.613 5.712-5.83 0-3.223-2.554-5.83-5.712-5.83zm3.712 5.822c0-2.09-1.658-3.783-3.707-3.783s-3.707 1.692-3.707 3.783 1.658 3.784 3.707 3.784c2.05 0 3.707-1.693 3.707-3.784z"></path></svg>
-        </a>
-        <a href="#">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="css-19k0qq6"><circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle><path fill="#000000" d="M24.349 33.914v-9.47h3.319l.524-3.138H24.35v-1.573c0-.82.285-1.6 1.533-1.6h2.496V15h-3.543c-2.978 0-3.791 1.846-3.791 4.406v1.899H19v3.14h2.044v9.47h3.305z"></path></svg>
-        </a>
+      <div class="about-items hide">
+        <p class="footer-text" (click)="goToNav('how-it-works')">How it works</p>
+        <p class="footer-text" (click)="goToNav('about-us')">About Us</p>
+        <p class="footer-text" (click)="goToNav('reviews')">Reviews</p>
+        <p class="footer-text" (click)="goToNav('contact-us')">Contact us</p>
       </div>
     </div>
-    <div class="footer-newsletter">
-      <h2 class="footer-heading">
-        Subscribe to our newsletter
+
+    <div ngClass="col-md-3 column-2">
+      <h2 class="footer-heading" (click)="toggleHelp('terms')">
+        Help<mat-icon class="showExpandCollapse selectHelp1" (click)="toggleExpandCollapse('helpExpanded')">add
+        </mat-icon>
+        <mat-icon class="showExpandCollapse hideRemoveIcon  selectHelp2" (click)="toggleExpandCollapse('helpCollpased')">
+          remove
+        </mat-icon>
       </h2>
-      <div class="newsletter-input">
-        <mat-form-field class="col-md-9" appearance="outline">
-          <mat-label>Provide email to join our newsletter</mat-label>
-          <input matInput type="email" placeholder="Email Address">
-        </mat-form-field>
+      <div class="help-items hide">
+        <p class="footer-text" (click)="goToNav('faqs')">FAQs</p>
+        <p class="footer-text" (click)="goToNav('privacy')">Privacy Policy</p>
+        <p class="footer-text">Terms</p>
+      </div>
+    </div>
+    <div class="footer-other col-md-5 column-3">
+      <div class="footer-social column-31">
+        <h2 class="footer-heading">
+          Find us on social media
+        </h2>
+        <div class="social-media-links">
+          <a href="#">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="css-19k0qq6">
+              <circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle>
+              <path fill="#000000"
+                d="M32.589 20.01c0-.192-.004-.383-.013-.572a8.894 8.894 0 002.233-2.26 8.991 8.991 0 01-2.57.662 4.368 4.368 0 001.968-2.42 8.923 8.923 0 01-2.84 1.031 4.567 4.567 0 00-3.267-1.45 4.385 4.385 0 00-4.474 4.39c0 .35.038.69.116 1.018-3.721-.226-7.019-2.05-9.225-4.798a4.451 4.451 0 00-.605 2.253c0 1.56.79 2.947 1.99 3.765a4.476 4.476 0 01-2.027-.584v.057a4.531 4.531 0 003.59 4.434 4.485 4.485 0 01-2.02.064 4.502 4.502 0 004.18 3.136 8.965 8.965 0 01-5.557 1.905c-.361 0-.718-.023-1.068-.064a12.599 12.599 0 006.86 2.024c8.229.002 12.729-6.74 12.729-12.59z">
+              </path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="css-19k0qq6">
+              <circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle>
+              <path fill="#000000" fill-rule="evenodd" clip-rule="evenodd"
+                d="M24.134 13c-3.02 0-3.405.013-4.59.07-1.185.059-1.992.245-2.698.528a5.377 5.377 0 00-1.974 1.313 5.682 5.682 0 00-1.286 2.014c-.277.72-.466 1.55-.517 2.754l-.003.076C13.018 20.906 13 21.34 13 24.363c0 3.082.013 3.468.07 4.684.056 1.21.239 2.034.516 2.754a5.512 5.512 0 001.286 2.014 5.46 5.46 0 001.974 1.313c.706.283 1.52.47 2.698.527 1.185.058 1.564.071 4.59.071 3.02 0 3.398-.013 4.59-.07 1.184-.059 1.991-.245 2.704-.528a5.44 5.44 0 001.967-1.313 5.682 5.682 0 001.286-2.014c.271-.72.46-1.544.517-2.754l.003-.076c.048-1.151.066-1.585.066-4.608 0-3.082-.012-3.468-.07-4.684-.056-1.21-.245-2.033-.516-2.754a5.596 5.596 0 00-1.286-2.014 5.49 5.49 0 00-1.974-1.313c-.712-.283-1.519-.47-2.704-.527-1.185-.058-1.564-.071-4.583-.071zm-.992 2.042h.996c2.969 0 3.322.013 4.495.064 1.084.051 1.67.238 2.068.393.517.205.888.45 1.28.849.39.399.63.778.831 1.306.152.399.335 1.004.385 2.11.05 1.197.063 1.558.063 4.588 0 3.03-.012 3.391-.063 4.588-.05 1.107-.233 1.705-.385 2.11a3.54 3.54 0 01-.832 1.306c-.39.4-.756.644-1.28.85-.39.154-.983.34-2.067.392-1.173.052-1.526.065-4.495.065-2.97 0-3.323-.013-4.495-.065-1.085-.051-1.671-.238-2.068-.392a3.454 3.454 0 01-1.28-.85 3.54 3.54 0 01-.832-1.306c-.152-.399-.334-1.003-.385-2.11-.05-1.197-.063-1.557-.063-4.588 0-3.03.013-3.39.063-4.588.05-1.106.233-1.705.385-2.11.202-.528.441-.907.832-1.306.39-.4.763-.644 1.28-.85.39-.154.983-.34 2.068-.392 1.027-.051 1.424-.064 3.498-.064zm5.597 3.26c0-.754.599-1.365 1.336-1.365.738 0 1.337.611 1.337 1.364 0 .753-.6 1.364-1.337 1.364s-1.336-.611-1.336-1.364zm-4.61.23c-3.159 0-5.712 2.612-5.712 5.83 0 3.223 2.56 5.829 5.712 5.829 3.158 0 5.712-2.613 5.712-5.83 0-3.223-2.554-5.83-5.712-5.83zm3.712 5.822c0-2.09-1.658-3.783-3.707-3.783s-3.707 1.692-3.707 3.783 1.658 3.784 3.707 3.784c2.05 0 3.707-1.693 3.707-3.784z">
+              </path>
+            </svg>
+          </a>
+          <a href="#">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="css-19k0qq6">
+              <circle cx="24" cy="24" r="23" stroke="#000000" stroke-width="2"></circle>
+              <path fill="#000000"
+                d="M24.349 33.914v-9.47h3.319l.524-3.138H24.35v-1.573c0-.82.285-1.6 1.533-1.6h2.496V15h-3.543c-2.978 0-3.791 1.846-3.791 4.406v1.899H19v3.14h2.044v9.47h3.305z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-newsletter column-32">
+        <h2 class="footer-heading">
+          Subscribe to our newsletter
+        </h2>
+        <div class="newsletter-input">
+          <mat-form-field class="col-md-9 mat-width" appearance="outline">
+            <mat-label>Provide email to join our newsletter</mat-label>
+            <input matInput type="email" placeholder="Email Address">
+          </mat-form-field>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </div>
 
 
-<button *ngIf="isUser" mat-fab color="primary" (click)="openMessageBox()" matBadge="!" matBadgePosition="before" matBadgeColor="accent" class="menu-button" aria-label="Chat with me">
+<button *ngIf="isUser" mat-fab color="primary" (click)="openMessageBox()" matBadge="!" matBadgePosition="before"
+  matBadgeColor="accent" class="menu-button" aria-label="Chat with me">
   <mat-icon>chat_bubble</mat-icon>
 </button>
 
 
 <div class="chat-box chat" *ngIf="opened && !hasMessage">
-<div class="chat-box-header-section" *ngIf="!hasMessage && (!isSubmitted || !messageForm.valid)">
- <div class="chat-heading-logo">
-  <img src="./assets/avatar.png">
-  <div class="chat-head-message">
-    Morita Suppliers Team
-  </div>
- </div>
- <div class="chat-head-text">
-   <p>Got a question?</p>
-   <p>We would love to help you</p>
- </div>
- <button class="close-chat" (click)="opened = !opened" mat-icon-button aria-label="Close Chat">
-  <mat-icon>close</mat-icon>
-</button>
-</div>
-
-<div class="chat-box-section" *ngIf="hasMessage || (isSubmitted && messageForm.valid)">
-  <div class="chat-heading">
-    <img src="./assets/avatar-nobg.png">
-    <div class="chat-head-title">
-      Morita Suppliers Team
-    </div>
-  </div>
-  <div class="chat-body">
-
-  </div>
-  <button class="close-chat" (click)="opened = !opened" mat-icon-button aria-label="Close Chat">
-    <mat-icon>close</mat-icon>
-  </button>
-</div>
-
-
-<footer class="chat-footer-section">
-  <div class="right-icon-control">
-    <form [formGroup]="messageForm" class="col-md-12" (ngSubmit)="sendMessage()">
-    <div class="input-group input-group-button row">
-      <mat-form-field class="col-md-9 m-r-15" appearance="outline">
-        <mat-label>Send Message</mat-label>
-        <input matInput formControlName="message" placeholder="Message">
-        <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.message.errors?.required">
-          Message empty.</mat-hint>
-      </mat-form-field>
-      <div class="input-group-append">
-        <button mat-fab color="primary" (click)="sendMessage()" class="btn-send" aria-label="Example icon button with a bookmark icon">
-          <mat-icon>send</mat-icon>
-        </button>
+  <div class="chat-box-header-section" *ngIf="!hasMessage && (!isSubmitted || !messageForm.valid)">
+    <div class="chat-heading-logo">
+      <img src="./assets/avatar.png">
+      <div class="chat-head-message">
+        Morita Suppliers Team
       </div>
     </div>
-  </form>
+    <div class="chat-head-text">
+      <p>Got a question?</p>
+      <p>We would love to help you</p>
+    </div>
+    <button class="close-chat" (click)="opened = !opened" mat-icon-button aria-label="Close Chat">
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
-</footer>
+
+  <div class="chat-box-section" *ngIf="hasMessage || (isSubmitted && messageForm.valid)">
+    <div class="chat-heading">
+      <img src="./assets/avatar-nobg.png">
+      <div class="chat-head-title">
+        Morita Suppliers Team
+      </div>
+    </div>
+    <div class="chat-body">
+
+    </div>
+    <button class="close-chat" (click)="opened = !opened" mat-icon-button aria-label="Close Chat">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+
+  <footer class="chat-footer-section">
+    <div class="right-icon-control">
+      <form [formGroup]="messageForm" class="col-md-12" (ngSubmit)="sendMessage()">
+        <div class="input-group input-group-button row">
+          <mat-form-field class="col-md-9 m-r-15" appearance="outline">
+            <mat-label>Send Message</mat-label>
+            <input matInput formControlName="message" placeholder="Message">
+            <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.message.errors?.required">
+              Message empty.</mat-hint>
+          </mat-form-field>
+          <div class="input-group-append">
+            <button mat-fab color="primary" (click)="sendMessage()" class="btn-send"
+              aria-label="Example icon button with a bookmark icon">
+              <mat-icon>send</mat-icon>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </footer>
 </div>

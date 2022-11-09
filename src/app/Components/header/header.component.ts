@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   isAdmin = false;
   accountClass: String = "col-md-2 hideShowMenuItems";
- 
+
   toggle: any;
   headerClassWhyUs: String = "header-subheader-collapsed";
   headerClassAccount: String = "header-subheader-collapsed";
@@ -102,6 +102,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
+  
     this.auth.logout();
     this.router.navigate(['/']);
   }
