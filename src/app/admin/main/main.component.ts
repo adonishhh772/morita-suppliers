@@ -203,9 +203,12 @@ export class MainComponent implements OnInit {
   }
 
   goToMessage(user_id:String): any{
-    let chat = this.elRef.nativeElement.querySelectorAll('.dashboard-chart')[0] as HTMLElement;
-    chat.scrollIntoView();
-    this.router.navigate(['/dashboard']);
+    console.log(user_id);
+    const navigationExtras: NavigationExtras = {
+      queryParams: {chat : user_id}
+  };
+
+    this.router.navigate(['admin/dashboard/'],navigationExtras);
   }
 
   changeRoute(e: any, bTitle: string, bIcon: string, title: string, link: string, icon: string, id: any): any {

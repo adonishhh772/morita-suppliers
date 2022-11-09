@@ -51,8 +51,6 @@ export class FooterComponent implements OnInit {
         if(this.allMessage != null){
           if(this.allMessage.length > 0){
             this.hasMessage = true;
-
-            console.log(this.hasMessage);
           }
         }
 
@@ -71,8 +69,7 @@ export class FooterComponent implements OnInit {
     this.isSubmitted = true;
     if (!this.messageForm.valid) {
       return false;
-  } else {
-      // console.log(this.loginForm.value.email);
+      } else {
       let message = this.messageForm.value.message ? this.messageForm.value.message.toString() : '';
       let user_id = this.tokenPayload.id;
       let status = 'sent';
@@ -90,18 +87,18 @@ export class FooterComponent implements OnInit {
               },
               (error) => {
 
-                  if (error !== undefined) {
-                    if(error.error.msg == undefined){
-                      this._snackBar.open(error.statusText, '', {
-                        duration: 2000,
-                    });
-                    }else{
-                      this._snackBar.open(error.error.msg, '', {
-                        duration: 2000,
-                    });
-                    }
+                  // if (error !== undefined) {
+                  //   if(error.error.msg == undefined){
+                  //     this._snackBar.open(error.statusText, '', {
+                  //       duration: 2000,
+                  //   });
+                  //   }else{
+                  //     this._snackBar.open(error.error.msg, '', {
+                  //       duration: 2000,
+                  //   });
+                  //   }
 
-                  }
+                  // }
               }
           );
       return true;
