@@ -306,4 +306,14 @@
   .navigation-list li {
     font-size: 18px;
   }
+
+  .matAccountPanel {
+    width: fit-content;
+  }
+
+  .matTitleAccount {
+    font-family: cursive;
+    font-size: 18px;
+
+  }
 }

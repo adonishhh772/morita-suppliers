@@ -156,6 +156,10 @@
   background-color: #dddada;
 }
 
+.showExpandCollapse {
+  display: none;
+}
+
 @media only screen and (max-width:768px) {
   .column {
     display: flex;
@@ -216,10 +220,19 @@
     display: none !important;
 
   }
-  
+
   .hidePlusIcon {
     display: none !important;
   }
 
+  .underline {
+    width: 100%;
+    height: 0.15em;
+    background-color: #ccc;
+  }
 
+  .my-footer {
+    padding: 16px;
+
+  }
 }

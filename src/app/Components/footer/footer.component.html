@@ -2,7 +2,7 @@
 
   <div class="col-md-12 row column">
     <div ngClass="col-md-3 column-0">
-      <h2 class="footer-heading " (click)="toggleFurniture('furniture')">
+      <h2 class="footer-heading" (click)="toggleFurniture('furniture')">
         Furniture<mat-icon class="showExpandCollapse selectFurniture1"
           (click)="toggleExpandCollapse('furnitureExpanded')">add
         </mat-icon>
@@ -19,14 +19,15 @@
         <p class="footer-text">Outdoor</p>
         <p class="footer-text">All Furniture</p>
       </div>
-
+      <div class="underline"></div>
     </div>
 
     <div ngClass="col-md-3 column-1">
       <h2 class="footer-heading" (click)="toggleAbout('about')">
         About<mat-icon class="showExpandCollapse selectAbout1" (click)="toggleExpandCollapse('aboutExpanded')">add
         </mat-icon>
-        <mat-icon class="showExpandCollapse hideRemoveIcon  selectAbout2" (click)="toggleExpandCollapse('aboutCollpased')">
+        <mat-icon class="showExpandCollapse hideRemoveIcon  selectAbout2"
+          (click)="toggleExpandCollapse('aboutCollpased')">
           remove
         </mat-icon>
       </h2>
@@ -36,13 +37,15 @@
         <p class="footer-text" (click)="goToNav('reviews')">Reviews</p>
         <p class="footer-text" (click)="goToNav('contact-us')">Contact us</p>
       </div>
+      <div class="underline"></div>
     </div>
 
     <div ngClass="col-md-3 column-2">
       <h2 class="footer-heading" (click)="toggleHelp('terms')">
         Help<mat-icon class="showExpandCollapse selectHelp1" (click)="toggleExpandCollapse('helpExpanded')">add
         </mat-icon>
-        <mat-icon class="showExpandCollapse hideRemoveIcon  selectHelp2" (click)="toggleExpandCollapse('helpCollpased')">
+        <mat-icon class="showExpandCollapse hideRemoveIcon  selectHelp2"
+          (click)="toggleExpandCollapse('helpCollpased')">
           remove
         </mat-icon>
       </h2>
@@ -51,6 +54,7 @@
         <p class="footer-text" (click)="goToNav('privacy')">Privacy Policy</p>
         <p class="footer-text">Terms</p>
       </div>
+      <div class="underline"></div>
     </div>
     <div class="footer-other col-md-5 column-3">
       <div class="footer-social column-31">

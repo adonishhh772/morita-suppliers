@@ -98,6 +98,7 @@
     </div>
 
   </div>
+  <!-- for responsive navigation bar -->
   <div class="outer-wrapper">
     <div class="inner-wrapper">
       <button mat-icon-button>
@@ -124,13 +125,33 @@
           Reviews
         </li>
         <li>
-          Account
+          <mat-expansion-panel class="matAccountPanel">
+            <mat-expansion-panel-header>
+              <mat-panel-title class="matTitleAccount">
+                Account
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div *ngIf="!isLoggedIn">
+              <button mat-raised-button (click)="goToNav('login')" color="primary">Login</button>
+              <button mat-raised-button (click)="goToNav('register')">Activate
+                Account</button>
+            </div>
+            <div *ngIf="isLoggedIn && !isAdmin">
+              <button mat-raised-button (click)="goToNav('profile')" color="primary">
+                <mat-icon aria-hidden="false" aria-label="Profile">person</mat-icon>
+                My Profile
+              </button>
+              <button mat-raised-button (click)="logout()">
+                <mat-icon aria-hidden="false" aria-label="Logout">logout</mat-icon>
+                Logout
+              </button>
+            </div>
+          </mat-expansion-panel>
         </li>
       </ul>
-
     </div>
   </div>
 
-  
+
 
 </div>

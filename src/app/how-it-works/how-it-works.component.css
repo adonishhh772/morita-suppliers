@@ -1,65 +1,103 @@
-.how-it-works-heading{
+.how-it-works-heading {
   padding: 50px 0px;
   -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    text-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.how-it-works-heading h1{
+.how-it-works-heading h1 {
   font-family: cursive;
   font-size: 35px;
 }
 
-.col-md-3L{
+.col-md-3L {
   width: 25%;
 
 }
 
-.how-it-works-lists{
+.how-it-works-lists {
   font-size: 21px;
   font-family: cursive;
   padding: 40px;
   line-height: 30px;
 }
 
-.how-it-works-lists img, .how-it-works-list img{
+.how-it-works-lists img,
+.how-it-works-list img {
   width: 100%;
 }
 
-.listings{
+.listings {
   margin-bottom: 70px;
 }
 
-.how-it-works-heading-description{
-flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 80px 15px 15px 15px
+.how-it-works-heading-description {
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 15px 15px 15px
 }
 
-.how-it-works-heading-description h1,p{
+.how-it-works-heading-description h1,
+p {
   font-family: cursive;
 }
 
-.how-it-works-heading-description h1{
+.how-it-works-heading-description h1 {
   font-size: 35px;
 }
 
-.how-it-works-heading-description p{
+.how-it-works-heading-description p {
   font-size: 20px;
   line-height: 30px;
 }
 
-.how-it-works-block{
+.how-it-works-block {
   padding-bottom: 30px;
   padding-top: 30px;
 }
 
-.left-side{
+.left-side {
   padding-right: 15px;
 }
 
+@media only screen and (max-width:768px) {
+  .listings {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
 
+  .listings .how-it-works-lists {
+    width: 100%;
+    text-align: center;
+  }
+
+  .how-it-works-lists img {
+    width: 60%;
+  }
+
+  .how-it-works-block {
+    flex-direction: column;
+
+  }
+
+  .how-it-works-list {
+    width: 100%;
+  }
+
+  .how-it-works-heading-description-wrapper {
+    width: 100%;
+  }
+
+  .orderitemsdecision {
+    order: 2;
+  }
+
+  .orderItemsdecor {
+    order: 2;
+  }
+}

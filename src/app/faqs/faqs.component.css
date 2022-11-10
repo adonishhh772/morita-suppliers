@@ -1,41 +1,41 @@
-.faqs-section{
+.faqs-section {
   margin-top: 70px;
-    transition: margin-top 400ms linear 0s;
+  transition: margin-top 400ms linear 0s;
 
 }
 
-.faqs-heading{
+.faqs-heading {
   display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    padding: 100px 0px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  padding: 100px 0px;
 }
 
-.faqs-heading h1{
+.faqs-heading h1 {
   font-size: 45px;
   font-family: cursive;
 }
 
-.left-section{
+.left-section {
   font-size: 17px;
   font-family: cursive;
   font-weight: 700;
   position: sticky;
-    top: 120px;
-    margin-left: 57px;
-    float: left;
-    padding-top: 78px;
+  top: 120px;
+  margin-left: 57px;
+  float: left;
+  padding-top: 78px;
 }
 
-.right-section{
+.right-section {
   margin: auto;
 }
 
-.left-section-text{
+.left-section-text {
   cursor: pointer;
   margin-bottom: 20px;
 }
@@ -44,22 +44,48 @@
   margin-bottom: 6px;
 }
 
-.right-section-faqs h1{
+.right-section-faqs h1 {
   font-size: 30px;
   font-family: cursive;
 }
 
-.right-section-faqs{
+.right-section-faqs {
   margin-bottom: 60px;
 }
 
-.expansion-faqs{
+.expansion-faqs {
   margin-bottom: 5px;
 }
 
-.expansion-faqs p,ul,li{
+.expansion-faqs p,
+ul,
+li {
   font-size: 17px;
   font-family: cursive;
   font-weight: bold;
   line-height: 25px;
+}
+
+.responsivePanel {
+  display: none;
+}
+
+@media only screen and (max-width:900px) {
+  .responsivePanel {
+    display: block;
+    margin-bottom: 10%;
+  }
+
+  .left-section {
+    display: none;
+  }
+
+  .expansion-header {
+    font-family: cursive;
+  }
+
+  .right-section {
+    width: 95%;
+
+  }
 }
