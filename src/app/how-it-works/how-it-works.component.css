@@ -100,4 +100,11 @@ p {
   .orderItemsdecor {
     order: 2;
   }
+
+  .content-body-below {
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow-x: hidden;
+  }
+
 }

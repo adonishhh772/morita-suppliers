@@ -1,56 +1,62 @@
 <app-header></app-header>
-<div class="content-reviews-section">
-  <div class="content-reviews-heading">
-    <h1>Your opinion about our services matters the most!</h1>
-  </div>
 
-  <div class="content-reviews-body col-md-12 row">
-    <div class="col-md-4 reviews-info">
-        <p class="total_reviews">{{reviewCount}} reviews</p>
-        <div class="icon_list">
-          <mat-icon aria-hidden="false" *ngFor="let i of [0,1,2,3,4]" class="rate_icon" aria-label="Ratings">star_rate</mat-icon>
-        </div>
-        <button mat-raised-button class="review_button" color="primary" (click)="openReviewBox()">Write a Review</button>
+<div class="content-reviews-section">
+  <div class="padding-reviews-section">
+    <div class="content-reviews-heading">
+      <h1>Your opinion about our services matters the most!</h1>
     </div>
 
-    <div class="col-md-7 reviews-list">
-      <div class="col-md-12 write-a-review">
-        <div class="write-body" [ngClass]="hidden">
-          <h2>Write a review</h2>
+    <div class="content-reviews-body col-md-12 row">
+      <div class="col-md-4 reviews-info">
+        <p class="total_reviews">{{reviewCount}} reviews</p>
+        <div class="icon_list">
+          <mat-icon aria-hidden="false" *ngFor="let i of [0,1,2,3,4]" class="rate_icon" aria-label="Ratings">star_rate
+          </mat-icon>
+        </div>
+        <button mat-raised-button class="review_button" color="primary" (click)="openReviewBox()">Write a
+          Review</button>
+      </div>
 
-          <div class="review-icons">
-            <p>Score:</p>
-            <div class="review-icons-list col-md-2L">
-              <mat-icon aria-hidden="false"  *ngFor="let icon of stars;let i=index" class="rating_icon icon_{{i}}" aria-label="Ratings">{{icon.icons}}</mat-icon>
-            </div>
-          </div>
-          <form [formGroup]="reviewForm" (ngSubmit)="postReview()">
-            <div class="review-title-form">
-              <div class="review-input-title pb-7">
-                <p>Title:</p>
-                <mat-form-field class="col-md-12" appearance="outline">
-                  <mat-label>Title</mat-label>
-                  <input formControlName="title" matInput type="text">
-                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.title.errors?.required">
-                    Title is required.</mat-hint>
-                </mat-form-field>
-              </div>
-              <div class="review-input-description pb-7">
-                <p>Review:</p>
-                <mat-form-field class="col-md-12" appearance="outline">
-                  <mat-label>Reviews</mat-label>
-                  <textarea formControlName="description" matInput></textarea>
-                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.description.errors?.required">
-                    Description is required.</mat-hint>
-                </mat-form-field>
+      <div class="col-md-7 reviews-list">
+        <div class="col-md-12 write-a-review">
+          <div class="write-body" [ngClass]="hidden">
+            <h2>Write a review</h2>
+
+            <div class="review-icons">
+              <p>Score:</p>
+              <div class="review-icons-list col-md-2L">
+                <mat-icon aria-hidden="false" *ngFor="let icon of stars;let i=index" class="rating_icon icon_{{i}}"
+                  aria-label="Ratings">{{icon.icons}}</mat-icon>
               </div>
             </div>
-          </form>
+            <form [formGroup]="reviewForm" (ngSubmit)="postReview()">
+              <div class="review-title-form">
+                <div class="review-input-title pb-7">
+                  <p>Title:</p>
+                  <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input formControlName="title" matInput type="text">
+                    <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControl.title.errors?.required">
+                      Title is required.</mat-hint>
+                  </mat-form-field>
+                </div>
+                <div class="review-input-description pb-7">
+                  <p>Review:</p>
+                  <mat-form-field class="col-md-12" appearance="outline">
+                    <mat-label>Reviews</mat-label>
+                    <textarea formControlName="description" matInput></textarea>
+                    <mat-hint class="mat-error" align="start"
+                      *ngIf="isSubmitted &&errorControl.description.errors?.required">
+                      Description is required.</mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+            </form>
 
 
 
-          <div class="connect-with row">
-            <!-- <div class="col-md-4">
+            <div class="connect-with row">
+              <!-- <div class="col-md-4">
               <p>Connect with:</p>
               <div class="all-media-auth row">
                 <div class="media-connect-button twitter" #tooltip="matTooltip"
@@ -73,78 +79,88 @@
               </div>
             </div>
           </div> -->
-          <div class="col-md-8 row morita-feat" *ngIf="!isLogged">
-            <!-- <p>OR-</p> -->
+              <div class="col-md-8 row morita-feat" *ngIf="!isLogged">
+                <!-- <p>OR-</p> -->
 
-            <form class="col-md-12" [formGroup]="loginForm" (ngSubmit)="postReview()">
-              <div class="morita-login row col-md-12">
-                <div class="morita-input username">
-                  <p>Username:</p>
-                  <mat-form-field class="col-md-12" appearance="outline">
-                    <mat-label>Username</mat-label>
-                    <input formControlName="email" matInput type="text">
-                    <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControlLogin.email.errors?.required">
-                      Email is required.</mat-hint>
-                  <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControlLogin.email.errors?.pattern">
-                      Please provide valid email id.</mat-hint>
-                  </mat-form-field>
-                </div>
-                <div class="morita-input password">
-                  <p>Password:</p>
-                  <mat-form-field class="col-md-12" appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input formControlName="password" matInput type="password">
-                    <mat-hint class="mat-error" align="start" *ngIf="isSubmitted &&errorControlLogin.password.errors?.required">
-                      Password is required.</mat-hint>
-                  <mat-hint align="start" class="mat-error" *ngIf="isSubmitted && errorControlLogin.password.errors?.minlength">Max 8 characters</mat-hint>
+                <form class="col-md-12" [formGroup]="loginForm" (ngSubmit)="postReview()">
+                  <div class="morita-login row col-md-12">
+                    <div class="morita-input username">
+                      <p>Username:</p>
+                      <mat-form-field class="col-md-12" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input formControlName="email" matInput type="text">
+                        <mat-hint class="mat-error" align="start"
+                          *ngIf="isSubmitted &&errorControlLogin.email.errors?.required">
+                          Email is required.</mat-hint>
+                        <mat-hint class="mat-error" align="start"
+                          *ngIf="isSubmitted &&errorControlLogin.email.errors?.pattern">
+                          Please provide valid email id.</mat-hint>
+                      </mat-form-field>
+                    </div>
+                    <div class="morita-input password">
+                      <p>Password:</p>
+                      <mat-form-field class="col-md-12" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput type="password">
+                        <mat-hint class="mat-error" align="start"
+                          *ngIf="isSubmitted &&errorControlLogin.password.errors?.required">
+                          Password is required.</mat-hint>
+                        <mat-hint align="start" class="mat-error"
+                          *ngIf="isSubmitted && errorControlLogin.password.errors?.minlength">Max 8 characters
+                        </mat-hint>
 
-                  </mat-form-field>
-                </div>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </form>
+
               </div>
-            </form>
-
-          </div>
-          </div>
-          <div class="col-md-12 row">
-            <div class="col-md-8"></div>
-            <div class="post-review col-md-4">
-              <button mat-raised-button class="review_button" [disabled]="isDisbled" (click)="postReview()" color="primary">Post</button>
+            </div>
+            <div class="col-md-12 row">
+              <div class="col-md-8"></div>
+              <div class="post-review col-md-4">
+                <button mat-raised-button class="review_button" [disabled]="isDisbled" (click)="postReview()"
+                  color="primary">Post</button>
+              </div>
             </div>
           </div>
-        </div>
 
 
-        <div class="all-reviews_list" *ngIf="hasReview">
-          <div class="reviews" *ngFor="let reviews of allReviews">
-            <div class="reviews_header col-md-12 row">
-              <div class="heading_name col-md-8">
+          <div class="all-reviews_list" *ngIf="hasReview">
+            <div class="reviews" *ngFor="let reviews of allReviews">
+              <div class="reviews_header col-md-12 row">
+                <div class="heading_name col-md-8">
                   <p> {{reviews.client_name}}</p>
                   <div class="icon_list">
-                    <mat-icon aria-hidden="false" *ngFor="let i of [0,1,2,3,4]" class="rate_icon" aria-label="Ratings">star_rate</mat-icon>
+                    <mat-icon aria-hidden="false" *ngFor="let i of [0,1,2,3,4]" class="rate_icon" aria-label="Ratings">
+                      star_rate</mat-icon>
                   </div>
-                   </div>
-              <div class="heading_date col-md-4">
-                <p> {{reviews.created_date | date: 'dd/MM/yyyy'}}</p>
-              </div>
+                </div>
+                <div class="heading_date col-md-4">
+                  <p> {{reviews.created_date | date: 'dd/MM/yyyy'}}</p>
+                </div>
               </div>
               <div class="heading_title">
                 <p>{{reviews.title}}</p>
               </div>
 
-            <div class="review_body">
-              <p *ngIf="!reviews.showMore">{{trimString(reviews.description,400)}}</p>
-              <p *ngIf="reviews.showMore">{{reviews.description}}</p>
-              <div class="show-btn" *ngIf="reviews.description.length> 400" (click)="reviews.showMore = !reviews.showMore">Show
-                <span>{{reviews.showMore ? 'Less' : 'More'}}</span>
+              <div class="review_body">
+                <p *ngIf="!reviews.showMore">{{trimString(reviews.description,400)}}</p>
+                <p *ngIf="reviews.showMore">{{reviews.description}}</p>
+                <div class="show-btn" *ngIf="reviews.description.length> 400"
+                  (click)="reviews.showMore = !reviews.showMore">Show
+                  <span>{{reviews.showMore ? 'Less' : 'More'}}</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="no-review-section" *ngIf="!hasReview">
-          <h1>No Reviews yet.</h1>
+          <div class="no-review-section" *ngIf="!hasReview">
+            <h1>No Reviews yet.</h1>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-</div>
-<app-footer></app-footer>
+  </div>
+
+  <app-footer></app-footer>

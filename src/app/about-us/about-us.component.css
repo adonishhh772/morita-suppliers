@@ -1,47 +1,59 @@
-.about-us-heading img{
+.about-us-heading img {
   position: absolute;
   width: 100%;
   height: 700px;
 }
 
-.about-us-heading h1{
+.about-us-heading h1 {
   z-index: 1;
   font-family: cursive;
   font-size: 65px;
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
-.about-us-heading{
+.about-us-heading {
   margin-top: 70px;
   transition: margin-top 400ms linear 0s;
   position: relative;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    height: 700px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 700px;
 }
 
-.content-body-below-about-us{
+.content-body-below-about-us {
   padding: 40px 50px 15px 50px;
 }
 
-.about-us-body{
+.about-us-body {
   margin: 70px;
   font-family: cursive;
-    font-size: 20px;
-    line-height: 30px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
-.about-us-paragraph{
+.about-us-paragraph {
   margin-bottom: 70px;
 }
 
-.about-us-paragraph h1{
+.about-us-paragraph h1 {
   font-size: 30px;
   font-weight: 600;
   font-family: cursive;
   text-decoration: underline;
   text-transform: capitalize;
+}
+
+@media only screen and (max-width:600px) {
+  .about-us-body {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .content-body-below-about-us {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }

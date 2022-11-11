@@ -1,9 +1,10 @@
-.content-reviews-section{
+.content-reviews-section {
   margin-top: 88px;
-    transition: margin-top 400ms linear 0s;
+  overflow-x: hidden;
+  transition: margin-top 400ms linear 0s;
 }
 
-.content-reviews-heading{
+.content-reviews-heading {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -14,33 +15,33 @@
   padding: 90px 0px;
 }
 
-.content-reviews-heading h1{
+.content-reviews-heading h1 {
   font-family: cursive;
-    font-size: 35px;
-    font-weight: 600;
+  font-size: 35px;
+  font-weight: 600;
 }
 
-.content-reviews-body{
+.content-reviews-body {
   margin: 0 80px;
   padding-bottom: 30px;
 }
 
-.total_reviews{
+.total_reviews {
   font-family: cursive;
-    font-size: 18px;
-    font-weight: 600;
+  font-size: 18px;
+  font-weight: 600;
 }
 
-.rate_icon{
+.rate_icon {
   color: goldenrod;
 }
 
-.icon_list{
+.icon_list {
   margin-bottom: 35px;
   cursor: pointer;
 }
 
-.review_button{
+.review_button {
   width: 60%;
   text-transform: capitalize;
   padding: 10px;
@@ -50,115 +51,167 @@
   background: #78BDFB;
 }
 
-.reviews{
+.reviews {
   padding: 38px 0px 32px !important;
-    border-top: 1px solid rgb(189, 189, 189) !important;
+  border-top: 1px solid rgb(189, 189, 189) !important;
 }
 
 .heading_name p {
   font-size: 20px;
-    font-family: cursive;
-    font-weight: 600;
+  font-family: cursive;
+  font-weight: 600;
 }
 
-.heading_date{
+.heading_date {
   text-align: right;
   font-size: 18px;
 }
 
 .heading_title p {
   font-size: 25px;
-    font-family: cursive;
-    font-weight: bold;
+  font-family: cursive;
+  font-weight: bold;
 }
 
-.review_body p{
+.review_body p {
   font-size: 16px;
-    font-family: cursive;
-    line-height: 25px;
-    color: #534d4d;
+  font-family: cursive;
+  line-height: 25px;
+  color: #534d4d;
 }
 
-.show-btn{
+.show-btn {
   cursor: pointer;
 }
 
 
-.write-a-review{
+.write-a-review {
   border-top: 1px solid rgb(189, 189, 189) !important;
 }
 
-.write-a-review h2{
+.write-a-review h2 {
   font-family: cursive;
 }
 
-.review-icons{
+.review-icons {
   margin-bottom: 20px;
 }
 
-.review-icons p{
+.review-icons p {
   font-family: cursive;
   font-size: 18px;
 }
 
-.review-title-form p, .connect-with p{
+.review-title-form p,
+.connect-with p {
   font-family: cursive;
   font-size: 18px;
 }
 
-.media-connect-button, .media-connect-button-google{
+.media-connect-button,
+.media-connect-button-google {
   margin: 5px;
   cursor: pointer;
 }
 
-.morita-input{
+.morita-input {
   width: 48%;
 }
 
-.morita-input.username{
+.morita-input.username {
   margin-right: 20px;
 }
 
-.morita-feat p{
+.morita-feat p {
   margin: auto;
-  margin-right:25px;
+  margin-right: 25px;
 }
 
-.post-review{
+.post-review {
   text-align: end;
   margin-bottom: 25px;
 }
 
 
-.write-body{
+.write-body {
   position: relative;
   overflow: hidden;
   max-height: 0;
   transition: ease-in-out 400ms max-height;
 }
 
-.visible{
-  max-height:600px;
+.visible {
+  max-height: 600px;
   padding: 20px;
-  -webkit-transition:max-height 1.1s ease-in-out;
-  -moz-transition:max-height 1.1s ease-in-out;
-  -ms-transition:max-height 1.1s ease-in-out;
-  -o-transition:max-height 1.1s ease-in-out;
-  transition:max-height 1.1s ease-in-out
+  -webkit-transition: max-height 1.1s ease-in-out;
+  -moz-transition: max-height 1.1s ease-in-out;
+  -ms-transition: max-height 1.1s ease-in-out;
+  -o-transition: max-height 1.1s ease-in-out;
+  transition: max-height 1.1s ease-in-out
 }
 
-.rating_icon{
+.rating_icon {
   cursor: pointer;
 }
 
-.no-review-section{
+.no-review-section {
   padding: 40px;
   text-align: center;
   border-top: 2px solid;
 }
 
+@media only screen and (max-width:1200px) {
+  .content-reviews-body {
+    flex-direction: column;
+  }
+
+  .reviews-info {
+    width: 50%;
+  }
+
+  .heading_title,
+  .review_body {
+    word-break: break-all;
+    line-height: 40px;
+
+  }
 
 
 
+}
 
+@media only screen and (max-width:768px) {
+  .padding-reviews-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 
+  .content-reviews-body {
+    margin: 0;
+  }
+
+  .reviews-list,
+  .heading_title,
+  .heading_date,
+  .heading_name,
+  .review_body {
+    width: 100%;
+  }
+
+  .row {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  .username,
+  .password {
+    width: 100%;
+  }
+
+  .post-review button {
+    width: 100%;
+
+  }
+
+}
