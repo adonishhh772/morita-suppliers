@@ -1,8 +1,8 @@
 <app-header></app-header>
 
 <div class="components_container profile_component">
-  <div class="col-md-12 row gutters-sm">
-      <div class="col-md-3L mb-3">
+  <div class="col-md-12 row gutters-sm main-content">
+      <div class="col-md-3L mb-3 top_content">
           <div class="card-body p-0">
                   <div class="d-flex flex-column align-items-center text-center">
                     <button *ngIf="!editAble" (click)="toggleEdit()" mat-mini-fab color="primary" class="fab-button-small fl-right">
@@ -21,7 +21,7 @@
                   </div>
               </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 bottom-content">
           <div class="card col-md-12 mb-3 mt-15">
               <div class="card-body" *ngIf="isLoaded">
                 <div *ngIf="!editAble">
@@ -267,4 +267,3 @@
   </div>
 </div>
 <app-footer></app-footer>
-

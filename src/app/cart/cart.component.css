@@ -239,6 +239,7 @@
 @media only screen and (max-width:1200px) {
   .cart-body {
     flex-direction: column;
+    align-items: center;
   }
 
   .cart-body-left,

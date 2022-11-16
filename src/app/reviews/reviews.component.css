@@ -163,6 +163,9 @@
 @media only screen and (max-width:1200px) {
   .content-reviews-body {
     flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   .reviews-info {

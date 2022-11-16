@@ -323,27 +323,6 @@
 @media only screen and (max-width:1200px) {
   .details-main-wrapper {
     flex-direction: column;
-
   }
-
-  .img-section,
-  .product-details {
-    width: 70%;
-  }
-
-}
-
-@media only screen and (max-width:768px) {
-  .details-section {
-    overflow-x: hidden;
-  }
-
-  .img-section,
-  .product-details {
-    width: 100%;
-    margin-left: 0;
-  }
-
-
 
 }
