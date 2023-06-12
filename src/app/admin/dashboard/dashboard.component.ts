@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { NavigationExtras, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
+import decode from 'jwt-decode';
+import { finalize } from 'rxjs';
+import { MessagingService } from 'src/app/Services/messaging.service';
 import { environment } from 'src/environments/environment';
 import { DialogComponent } from './dialog/dialog.component';
 
@@ -23,6 +28,8 @@ export class DashboardComponent implements OnInit{
   isMinimisedReview = false;
   isMinisedChat = false;
   stars: any[] = [];
+  isSubmitted = false;
+  token = localStorage.getItem('access_token')!;
   minimise = "remove";
   minimiseNew = "remove";
   minimiseLatest = "remove";
@@ -31,26 +38,101 @@ export class DashboardComponent implements OnInit{
   hasActivity = false;
   hasReviews = false;
   allActivity: any[] = [];
+  messages: any[] = [];
   allReviews: any[] = [];
   allCustomers: any[] = [];
   isLoadingCustomers = false;
   hasCustomers = false;
+  hasMessages = false;
+  chatType = 'row mb-20 received-chat';
+  userName = '';
+  userId = '';
+  tokenPayload:any ={};
+  messageForm = new FormGroup({
+    message: new FormControl('', [Validators.required]),
+    });
   @Input() chatData: any[] = [];
   imgUrl = `${environment.imgUrl}`;
-  token = localStorage.getItem('access_token')!;
+
   private readonly apiUrl = `${environment.apiUrl}`;
   constructor(private renderer: Renderer2,
     private matDialog: MatDialog,
     private router: Router,
+    public route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
     private elRef: ElementRef,
+    private messageSevice: MessagingService,
     private http: HttpClient) { }
 
 
   ngOnInit(): void {
+    if(this.token){
+      this.tokenPayload =  decode(this.token);
+      if(this.tokenPayload.role == 'users'){
+        this.userName = this.tokenPayload.name? this.tokenPayload.name : this.tokenPayload.email;
+      }
+    }
     this.getAllActivity(false);
     this.getAllReviews(false);
     this.getNewCustomer(false);
 
+    this.route.queryParams.subscribe(params => {
+      if(params['chat'] != undefined){
+        this.userId = params['chat'];
+        this.getMessages(this.userId);
+
+      const el = this.elRef.nativeElement.querySelectorAll('.dashboard-chart')[0] as HTMLElement;
+      el.scrollIntoView();
+      }
+
+  });
+  }
+
+  getMessages(id: String):void{
+    this.http.get<any>(`${this.apiUrl + 'message/' + id}`,{headers:{'authorization': this.token}}).subscribe({
+      next: data => {
+          this.messages = data.data;
+          this.messages = this.messages.map(message => ({
+            ...this.allCustomers.find(t => t._id === message.user_id),
+            ...message
+          }));
+          this.messages.sort((a, b) => new Date(b.sent_date).getTime() - new Date(a.sent_date).getTime());
+          if(this.messages.length > 0){
+            this.hasMessages = true;
+          }
+      },
+      error: error => {
+          this.errorMessage = error.message;
+      }
+  });
+  }
+
+  sendMessage():any{
+    this.isSubmitted = true;
+    if (!this.messageForm.valid) {
+      return false;
+      } else {
+      let message = this.messageForm.value.message ? this.messageForm.value.message.toString() : '';
+      let user_id = this.userId;
+      let status = 'sent by admin';
+      let isAdmin = false;
+      const msg = {'message':message,'name':this.userName,'isAdmin':isAdmin,'user_id':user_id,'status':status};
+       this.messageSevice.sendMessage(msg)
+          .pipe(finalize(() => (this.isSubmitted = false)))
+          .subscribe(
+              (data) => {
+                this.getMessages(this.userId);
+                this._snackBar.open("Message send successfully", '', {
+                  duration: 2000,
+              });
+
+              this.messageForm.reset();
+              },
+              (error) => {
+              }
+          );
+      return true;
+  }
   }
 
 

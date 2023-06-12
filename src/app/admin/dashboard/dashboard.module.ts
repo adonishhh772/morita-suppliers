@@ -11,11 +11,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { DialogComponent } from './dialog/dialog.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [DashboardComponent, DialogComponent],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatCardModule,

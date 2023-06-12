@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 import { ActivatedRoute, NavigationEnd, NavigationError, NavigationExtras, NavigationStart, Router } from '@angular/router';
+import { ArgumentOutOfRangeError } from 'rxjs';
+import { AboutUsModule } from 'src/app/about-us/about-us.module';
 import { AuthService } from 'src/app/Services/auth.service';
 import { environment } from 'src/environments/environment';
 
@@ -191,6 +193,7 @@ export class MainComponent implements OnInit {
       next: data => {
         this.allMessages = data.data;
         this.allMessages.sort((a, b) => new Date(b.sent_date).getTime() - new Date(a.sent_date).getTime());
+        this.allMessages = Array.from(this.allMessages.reduce((m, t) => m.set(t.user_id, t), new Map()).values());
         if (this.allMessages.length > 0) {
           this.tasksCount = this.allMessages.length;
           this.hasMessage = true;
@@ -203,7 +206,6 @@ export class MainComponent implements OnInit {
   }
 
   goToMessage(user_id:String): any{
-    console.log(user_id);
     const navigationExtras: NavigationExtras = {
       queryParams: {chat : user_id}
   };
@@ -346,3 +348,5 @@ logout(){
 }
 
 }
+
+

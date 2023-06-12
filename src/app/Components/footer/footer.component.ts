@@ -72,8 +72,9 @@ export class FooterComponent implements OnInit {
       } else {
       let message = this.messageForm.value.message ? this.messageForm.value.message.toString() : '';
       let user_id = this.tokenPayload.id;
-      let status = 'sent';
-      const msg = {'message':message,'name':this.userName,'user_id':user_id,'status':status};
+      let status = 'sent to admin';
+      let isAdmin = false;
+      const msg = {'message':message,'name':this.userName,'isAdmin':isAdmin,'user_id':user_id,'status':status};
        this.messageSevice.sendMessage(msg)
           .pipe(finalize(() => (this.isSubmitted = false)))
           .subscribe(
@@ -86,19 +87,6 @@ export class FooterComponent implements OnInit {
               this.messageForm.reset();
               },
               (error) => {
-
-                  // if (error !== undefined) {
-                  //   if(error.error.msg == undefined){
-                  //     this._snackBar.open(error.statusText, '', {
-                  //       duration: 2000,
-                  //   });
-                  //   }else{
-                  //     this._snackBar.open(error.error.msg, '', {
-                  //       duration: 2000,
-                  //   });
-                  //   }
-
-                  // }
               }
           );
       return true;

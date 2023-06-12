@@ -194,49 +194,59 @@
               </div>
           </mat-card-title-group>
           <mat-card-content>
-            <div class="chat-body card-body">
-                <div class="row mb-20 received-chat">
-                  <div class="col-auto p-r-0">
-                    <img src="./assets/sofas.jpeg" alt="user image" class="circular-img img-40">
-                  </div>
-                  <div class="col">
-                    <div class="msg">
-                      <p class="m-b-0">Nice to meet you!</p>
+            <div class="chat-body card-body" *ngIf="hasMessages">
+                <div class="row mb-20" *ngFor="let msg of messages">
+                  <div class="row received-chat" *ngIf="msg.status != 'sent by admin'">
+                    <div class="col-auto p-r-0">
+                      <img src="{{imgUrl + msg.profile_photo}}" alt="user image" class="circular-img img-40">
                     </div>
+                    <div class="col">
+                      <div class="msg">
+                        <p class="m-b-0">{{msg.message}}</p>
+                      </div>
+                        <p class="text-muted m-b-0">
+                          <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
+                          <span class="time-text">{{msg.sent_date | date: 'shortTime'}}</span></p>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row m-b-20" *ngFor="let msg of messages">
+                  <div class="row send-chat" *ngIf="msg.status == 'sent by admin'">
+                    <div class="col">
+                      <div class="msg">
+                        <p class="m-b-0">{{msg.message}}</p>
+                      </div>
                       <p class="text-muted m-b-0">
                         <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
-                        <span class="time-text">10:20am</span></p>
-                  </div>
-                </div>
-                <div class="row m-b-20 send-chat">
-                  <div class="col">
-                    <div class="msg">
-                      <p class="m-b-0">Nice to meet you!</p>
+                        <span class="time-text">{{msg.sent_date | date: 'shortTime'}}</span></p>
                     </div>
-                    <p class="text-muted m-b-0">
-                      <mat-icon matSuffix class="clock-icon m-r-10">history</mat-icon>
-                      <span class="time-text">10:20am</span></p>
+                    <div class="col-auto p-l-0">
+                      <img src="{{imgUrl + msg.profile_photo}}" alt="user image" class="circular-img img-40">
+                    </div>
                   </div>
-                  <div class="col-auto p-l-0">
-                    <img src="./assets/sofas.jpeg" alt="user image" class="circular-img img-40">
-                  </div>
+
                 </div>
 
                 <div class="right-icon-control">
                   <div class="input-group input-group-button">
+                    <form [formGroup]="messageForm" class="col-md-12 message_form">
                     <mat-form-field class="col-md-9 m-r-15" appearance="outline">
                       <mat-label>Send Message</mat-label>
-                      <input matInput formControlName="email" placeholder="Message">
+                      <input matInput formControlName="message" placeholder="Message">
                     </mat-form-field>
                     <div class="input-group-append">
-                      <button mat-fab class="btn-send" aria-label="Example icon button with a bookmark icon">
+                      <button mat-fab class="btn-send" (click)="sendMessage()" aria-label="Example icon button with a bookmark icon">
                         <mat-icon>send</mat-icon>
                       </button>
                     </div>
+                  </form>
                   </div>
                 </div>
             </div>
-
+            <div class="no-update-box" *ngIf="!hasMessages">
+              <h3>No Messages Yet</h3>
+            </div>
           </mat-card-content>
         </mat-card>
       </div>
